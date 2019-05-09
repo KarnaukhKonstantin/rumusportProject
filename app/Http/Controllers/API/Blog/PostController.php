@@ -106,7 +106,6 @@ class PostController extends Controller
                 }  
             }
             
-
             foreach (request('tags') as $tag) {
                 Tag::where('id', $tag['id'])->first()->posts()->attach($post->id);
             }
@@ -114,4 +113,27 @@ class PostController extends Controller
 
         return response()->json($post);
     }
+
+    public function deletePost($id)
+    {
+        $post = Post::where('id', $id)->first();
+
+        if($post->links) {
+            foreach($post->links as $post_link) {
+                Link::destroy($post_link->id);
+            }
+        }
+
+        if($post->tags) {
+            foreach ($post->tags as $tag) {
+                Tag::where('id', $tag['id'])->first()->posts()->detach($post->id);
+            }  
+        }
+
+        $post->delete();
+
+        return ['message'=>'Post was deleted'];
+
+    }
+
 }
