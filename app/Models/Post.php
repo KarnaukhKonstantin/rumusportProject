@@ -10,4 +10,6 @@ class Post extends Model
 	use PostRelationsTrait;
 	
     protected $fillable = ['title', 'description', 'image', 'category_id', 'author_id', 'count_watches', 'short_description'];
+
+    protected $with = ['tags', 'category', 'links'];
 }

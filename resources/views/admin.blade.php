@@ -35,7 +35,7 @@
 				<admin-sidebar></admin-sidebar>
 			</div>
 			<div class="col-10">
-				<router-view></router-view>
+				<router-view categories_list="{{ $categories }}" tags_list="{{ $tags }}"></router-view>
 			</div>
 		</main>
 		

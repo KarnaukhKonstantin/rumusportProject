@@ -7,7 +7,7 @@
 
 		<!-- live search (name) -->
 		<div class="card-body">
-			<input type="text" class="form-control" v-model="name" placeholder="Name">
+			<input type="text" class="form-control" v-model="title" placeholder="Title">
 		</div>
 
 		<!-- table with posts -->
@@ -16,7 +16,7 @@
 			ref="vuetable"
 			class="table-hover"
 			:css="css.table"
-			:api-url="'/api/posts?paginate=1&name=' + name"
+			:api-url="'/api/posts?paginate=1&title=' + title"
 			:fields="fields"
 			data-path="data"
 			pagination-path=""
@@ -55,8 +55,8 @@
 
 					<!-- Name -->
 					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control br-dark-blue" v-model="form.name" :placeholder="name" id="post_name">
+						<label>Title</label>
+						<input type="text" class="form-control br-dark-blue" v-model="form.title" :placeholder="title" id="post_name">
 					</div>
 
 					<!-- Description -->
@@ -64,10 +64,47 @@
 						<label>Description</label>
 						<vue-editor
 						class=" br-dark-blue"
-						id="category_description"
+						id="post_description"
 						v-model.trim="form.description"
 						useCustomImageHandler
 						@imageAdded="handleImageCategory"></vue-editor>
+					</div>
+
+					<!-- Short Description -->
+					<div class="form-group">
+						<label>Short Description</label>
+						<textarea type="text" class="form-control br-dark-blue" v-model="form.short_description" :placeholder="short_description" id="post_short_description"></textarea>
+					</div>
+					
+					<!-- Category -->
+					<div class="row form-group">
+						<label class="col-md-12">Categories</label>
+						<div class="col-md-12">
+							<select class="form-control br-dark-blue" id="post_category" v-model.trim="form.category_id">
+								<option :value="category.id" v-for="category in categories">{{ category.name }}</option> 
+							</select>
+						</div>
+					</div>
+
+					<!-- Tags -->
+					<div class="form-group row mt-3">
+						<label class="col-md-12">Tags</label>
+						<div class="col-md-12" id="post_tags">
+							<v-select class="br-dark-blue white selected-tag br-5" multiple v-model="form.tags" :options="tags" :get-option-label="getLabel" label="name"></v-select>
+						</div>
+					</div>
+
+					<!-- Links -->
+					<div class="form-group">
+						<label>Links</label>
+							<div class="row justify-content-center align-items-center mb-3" v-for="(link, index) in form.links" :id="'link-' + index" :key="index" >
+								<div class="col-md-12">
+									<input type="text" class="form-control br-dark-blue" v-model="form.links[index].body" :key="index" id="post_link">
+								</div>
+							</div>
+					</div>
+					<div class="col-12 mt-3">
+						<button class="btn btn-primary d-block mx-auto mb-2" @click="addNewForm()">Add Link</button>
 					</div>
 
 					<!-- Image -->
@@ -89,6 +126,7 @@
 							v-on:vdropzone-success="showSuccess"></vue-dropzone>
 						</div>
 					</div>
+
 				</div>
 				
 				<div class="modal-footer">
@@ -101,7 +139,8 @@
 </div>
 </template>
 <script>
-
+	
+	import vSelect from 'vue-select'
 	import { VueEditor, Quill } from 'vue2-editor'
 	import Vuetable from 'vuetable-2/src/components/Vuetable.vue'
 	import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
@@ -116,6 +155,7 @@
 
 	export default {
 		components: {
+			vSelect,
 			VueEditor,
 			Vuetable,
 			VuetablePagination,
@@ -123,31 +163,35 @@
 			PaginationMixin,
 			vueDropzone: vue2Dropzone
 		},
-		props: ['categories_list'],
+		props: ['categories_list', 'tags_list'],
 		data() {
 				return {
-					name: '',
+					title: '',
+					short_description: '',
+					link: '',
 					error: false,
 					image: false,
 					modal_type: 'Create',
 					form: {
-						image: null
+						image: null,
+						links: []
 					},
+					tags: [],
 					categories: [],
 					dropzoneOptions: {
 						method: 'POST',
-						url: '/api/images/categories',
+						url: '/api/images/posts',
 						headers: {},
 						dictDefaultMessage: "<h6 class='m-dropzone__msg-title text-center'>DROP YOUR IMAGE HERE</h6>"
 					},
 					fields: [
 				{
-					name: 'name',
-					title: 'Name'
+					name: 'title',
+					title: 'Title'
 				},
 				{
 					name: '__slot:postImage',
-					title: 'Category Image',
+					title: 'Post Image',
 				},
 				{
 					name: '__slot:actions',
@@ -185,10 +229,22 @@
 			this.error = false
 			this.modal_type = 'Create'
 			this.form = {
-				name: '',
+				title: '',
 				description: '',
+				short_description: '',
+				category_id: '',
+				tags: '',
+				links: [{
+					body: ''
+				}],
 				image: null
 			}
+		},
+		addNewForm() {
+			this.form.links.push({
+				body: '',
+				delete: false
+			})
 		},
 		viewItem(item) {
 			this.modal_type = 'Update'
@@ -197,23 +253,26 @@
 		save() {
 			if(this.modal_type == 'Create') {
 				if (this.form.description == '') {
-					document.getElementById('category_description').focus()
+					document.getElementById('post_description').focus()
 				}
-				if(this.form.name == '') {
+				if (this.form.short_description == '') {
+					document.getElementById('post_short_description').focus()
+				}
+				if(this.form.title == '') {
 					document.getElementById('post_name').focus()
 				}
 				if(this.form.image == null || this.form.image == '') {
-					if(this.form.name !== '' && this.form.description !== '') {
+					if(this.form.title !== '' && this.form.description !== '') {
 						this.error = true
 					}
 				}
-				if(this.form.name !== '' && this.form.description !== '' && this.form.image !== null) {
-					axios.post('/api/categories', this.form)
+				if(this.form.title !== '' && this.form.description !== '' && this.form.short_description !== '' && this.form.image !== null) {
+					axios.post('/api/posts', this.form)
 					.then(response => {
 						$('#postModal').modal('hide')
 						// Bus.$emit('updateCategory')
 						this.$refs.vuetable.reload()
-						this.$swal('Category was Created',
+						this.$swal('Post was Created',
 							'',
 							'success',
 							);
@@ -221,18 +280,21 @@
 				}
 			} else if(this.modal_type == 'Update') {
 				if (this.form.description == '') {
-					document.getElementById('category_description').focus()
+					document.getElementById('post_description').focus()
 				}
-				if(this.form.name == '') {
+				if (this.form.short_description == '') {
+					document.getElementById('post_short_description').focus()
+				}
+				if(this.form.title == '') {
 					document.getElementById('post_name').focus()
 				}
-				if(this.form.name !== '' && this.form.description !== '') {
-					axios.put('/api/categories/' + this.form.id, this.form)
+				if(this.form.title !== '' && this.form.description !== '' && this.form.short_description !== '') {
+					axios.put('/api/posts/' + this.form.id, this.form)
 					.then(response => {
 						$('#postModal').modal('hide')
 						Bus.$emit('updateCategory')
 						this.$refs.vuetable.reload()
-						this.$swal('Category was Updated',
+						this.$swal('Post was Updated',
 							'',
 							'success',
 							);
@@ -243,17 +305,17 @@
 		deleteItem(item) {
 			this.$swal({
 				title: 'Are you Sure?',
-				text: 'You are trying delete' + ' ' + this.category + ' ' + item.name,
+				text: 'You are trying delete' + ' ' + this.post + ' ' + item.title,
 				icon: 'warning',
 				buttons: true,
 				dangerMode: true,
 			})
 			.then((willDelete) => {
 				if (willDelete) {
-					axios.delete('/api/categories/' + item.id)
+					axios.delete('/api/posts/' + item.id)
 					.then(response => {
 						this.$refs.vuetable.reload();
-						swal('Category' + ' ' + 'was Deleted',
+						swal('Post' + ' ' + 'was Deleted',
 							'',
 							'success',
 							);
@@ -281,7 +343,7 @@
 			var formData = new FormData();
 			formData.append('file', file);
 			axios({
-				url: '/api/images/categories',
+				url: '/api/images/posts',
 				method: 'POST',
 				data: formData
 			})
@@ -297,13 +359,17 @@
 		},
 		onChangePage(page) {
 			this.$refs.vuetable.changePage(page);
-		}
+		},
+		getLabel(option) {
+			return option.name
+		},
 	},
 	created() {
-		// this.categories = JSON.parse(this.categories_list)
-		axios.get('/api/categories')
+		this.tags = JSON.parse(this.tags_list)
+		this.categories = JSON.parse(this.categories_list)
+		axios.get('/api/posts')
 		.then(response => {
-			this.categories = response.data
+			this.posts = response.data
 		})
 	}	
 }

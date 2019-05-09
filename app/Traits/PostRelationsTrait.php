@@ -12,12 +12,22 @@ trait PostRelationsTrait {
 
     public function category()
     {
-        return $this->belongsTo('App\Models\Categories\Category', 'category_id');
+        return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('App\Models\Tags\Tag')->withPivot('post_id','tag_id');
+        return $this->belongsToMany('App\Models\Tag')->withPivot('post_id','tag_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment', 'post_id');
+    }
+
+    public function links()
+    {
+        return $this->hasMany('App\Models\Link', 'post_id');
     }
 
 }
