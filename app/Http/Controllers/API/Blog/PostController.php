@@ -31,6 +31,8 @@ class PostController extends Controller
 
 
 
+
+
     public function storePost(Request $request)
     {
     	$post = Post::create([
@@ -60,12 +62,13 @@ class PostController extends Controller
                 Tag::where('id', $tag['id'])->first()->posts()->attach($post->id);
             }
         }
-       
-        
-        
 
         return response()->json($post);
     }
+
+
+
+
 
     public function updatePost(Request $request, $id)
     {
@@ -114,15 +117,13 @@ class PostController extends Controller
         return response()->json($post);
     }
 
+
+
+
+
     public function deletePost($id)
     {
         $post = Post::where('id', $id)->first();
-
-        if($post->links) {
-            foreach($post->links as $post_link) {
-                Link::destroy($post_link->id);
-            }
-        }
 
         if($post->tags) {
             foreach ($post->tags as $tag) {
@@ -133,7 +134,6 @@ class PostController extends Controller
         $post->delete();
 
         return ['message'=>'Post was deleted'];
-
     }
 
 }
