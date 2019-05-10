@@ -13,10 +13,10 @@ class PostController extends Controller
 {
     public function getAllPosts()
     {
-    	$name = request()->name;
+    	$title = request()->title;
 
-        if($name){
-            $posts = Post::where('name', 'like', '%' . $name . '%')->paginate(10);
+        if($title){
+            $posts = Post::where('title', 'like', '%' . $title . '%')->paginate(10);
         }else{
             if (request()->paginate == 1) {
                 $posts = Post::paginate(10);
@@ -75,7 +75,7 @@ class PostController extends Controller
 
         $post = Post::where('id',$id)->first();
         $updatedPost = $post->update([
-             'title' => $request->title,
+            'title' => $request->title,
             'description' => $request->description,
             'short_description' => $request->short_description,
             'category_id' => $request->category_id,

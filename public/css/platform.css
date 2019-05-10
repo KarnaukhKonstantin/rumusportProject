@@ -10655,3 +10655,13 @@ a.text-dark:focus {
   }
 }
 
+.header-platform {
+  background-color: #000;
+  height: 400px;
+}
+
+.footer-platform {
+  background-color: rgba(26, 26, 26, 0.6);
+  height: 300px;
+}
+
