@@ -47,6 +47,7 @@ let routes = [
 
 let router = new VueRouter ({
     routes,
+    linkActiveClass: 'is-active'
 });
 
 export default router;

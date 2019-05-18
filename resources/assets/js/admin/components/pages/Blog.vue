@@ -18,6 +18,7 @@
 			:css="css.table"
 			:api-url="'/api/posts?paginate=1&title=' + title"
 			:fields="fields"
+			:http-fetch="myFetch"
 			data-path="data"
 			pagination-path=""
 			pagination-component="VuetablePagination"
@@ -224,6 +225,9 @@
 			}
 		},
 	methods: {
+		myFetch(apiUrl, httpOptions) {
+	      return axios.get(apiUrl, httpOptions)
+	    },
 		createNew() {
 			this.image = false
 			this.error = false

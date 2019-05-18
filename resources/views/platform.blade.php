@@ -24,16 +24,19 @@
 </head>
 <body class="">
 
-	<div class="d-flex flex-column justify-content-between align-items-between h-100" id="app" v-cloak>
+	<div class="wrapper d-flex flex-column justify-content-between align-items-between" id="app" v-cloak>
 
 		<!-- header -->
 		<platform-header></platform-header>
 		
 		{{-- content --}}
-		<main class="container-fluid">
+		<main class="content container-fluid">
 			<router-view></router-view>
 		</main>
-
+		
+		<!-- modals -->
+		<login-modal locallanguage="{{ app()->getLocale() }}"></login-modal>
+		<register-modal locallanguage="{{ app()->getLocale() }}"></register-modal>
 		<!-- footer -->
 		<platform-footer></platform-footer>
 

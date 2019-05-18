@@ -10655,6 +10655,22 @@ a.text-dark:focus {
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+.wrapper {
+  height: 100%;
+}
+
+.content {
+  box-sizing: border-box;
+  padding-bottom: 90px;
+}
+
 .header-platform {
   background-color: #000;
   height: 400px;
@@ -10663,5 +10679,20 @@ a.text-dark:focus {
 .footer-platform {
   background-color: rgba(26, 26, 26, 0.6);
   height: 300px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.error-msg {
+  color: #D0021B;
+}
+
+.close-modal {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 1.4em;
 }
 

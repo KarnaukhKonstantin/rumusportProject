@@ -14,7 +14,7 @@
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" :href="'/' + $route.params.lang + '/settings'">Profile</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="/logout">Logout</a>
+						<a role="button" class="dropdown-item" @click="logout()">Logout</a>
 					</div>
 				</div>
 			</div>
@@ -27,6 +27,19 @@
 			return {
 				
 			}
+		},
+		methods: {
+			logout() {
+				axios.post('/api/logout')
+					.then(response => {
+				
+					})
+				// this.$auth.logout().then(
+				// 	success => {
+				// 		this.$root.logout();
+				// 	},
+				// )
+			},
 		}	
 	}
 </script>

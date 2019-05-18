@@ -1789,6 +1789,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
+  },
+  methods: {
+    logout: function logout() {
+      axios.post('/api/logout').then(function (response) {}); // this.$auth.logout().then(
+      // 	success => {
+      // 		this.$root.logout();
+      // 	},
+      // )
+    }
   }
 });
 
@@ -2039,6 +2048,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2115,6 +2125,9 @@ vue2_editor__WEBPACK_IMPORTED_MODULE_1__["Quill"].register(AlignStyle, true);
     };
   },
   methods: {
+    myFetch: function myFetch(apiUrl, httpOptions) {
+      return axios.get(apiUrl, httpOptions);
+    },
     createNew: function createNew() {
       this.image = false;
       this.error = false;
@@ -41376,7 +41389,15 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "a",
-                { staticClass: "dropdown-item", attrs: { href: "/logout" } },
+                {
+                  staticClass: "dropdown-item",
+                  attrs: { role: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.logout()
+                    }
+                  }
+                },
                 [_vm._v("Logout")]
               )
             ])
@@ -41732,6 +41753,7 @@ var render = function() {
             css: _vm.css.table,
             "api-url": "/api/posts?paginate=1&title=" + _vm.title,
             fields: _vm.fields,
+            "http-fetch": _vm.myFetch,
             "data-path": "data",
             "pagination-path": "",
             "pagination-component": "VuetablePagination"
@@ -61598,7 +61620,8 @@ var routes = [{
   name: 'subscribedAdmin'
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  routes: routes
+  routes: routes,
+  linkActiveClass: 'is-active'
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 

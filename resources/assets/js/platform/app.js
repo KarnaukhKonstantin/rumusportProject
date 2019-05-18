@@ -26,6 +26,12 @@ Vue.use(VueScrollReveal, {
  });
 require('./bootstrap');
 
+
+
+// Register
+Vue.component('login-modal', require('./components/modals/Login.vue').default);
+Vue.component('register-modal', require('./components/modals/Register.vue').default);
+
 //Layouts
 Vue.component('platform-header', require('./components/layouts/Header.vue').default);
 Vue.component('platform-footer', require('./components/layouts/Footer.vue').default);
@@ -37,5 +43,7 @@ const app = new Vue({
 	el: '#app',
 	router,
 
+created() {
 	
+}
 });

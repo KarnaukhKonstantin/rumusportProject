@@ -8,11 +8,13 @@ use App\Models\Post;
 use App\Models\Link;
 use App\Models\Tag;
 use Carbon\Carbon;
+use Auth;
 
 class PostController extends Controller
 {
     public function getAllPosts()
     {
+        // dd(Auth::user());
     	$title = request()->title;
 
         if($title){

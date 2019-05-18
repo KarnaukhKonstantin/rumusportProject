@@ -14,3 +14,8 @@
 Route::get('/', 'WelcomeController@showPlatform');
 Route::get('/admin', 'WelcomeController@showAdmin');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
