@@ -26,6 +26,9 @@ class TagController extends Controller
         return response()->json($tags);
 	}
 
+
+
+
     public function storeTag(Request $request)
     {
         $newTag = request()->validate([
@@ -35,6 +38,7 @@ class TagController extends Controller
 
         return response()->json($tag);
     }
+
 
 
 
@@ -48,6 +52,7 @@ class TagController extends Controller
 
         return response()->json(Tag::find($id));
     }
+
 
 
 
