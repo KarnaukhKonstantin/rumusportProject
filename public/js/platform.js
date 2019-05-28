@@ -1967,17 +1967,15 @@ __webpack_require__.r(__webpack_exports__);
       var isValid = !this.$v.form.$invalid;
 
       if (isValid) {
-        axios.post('/api/auth/login', this.form).then(function (response) {}); // this.$auth.login(this.form).then(
-        // 	success => {
-        // 		this.$refs.closeLogin.click()
-        // 		this.$router.push({name: 'profileinfo'});
-        // 		this.$root.getAuth()
-        // 		this.form = {}
-        // 	},
-        // 	error => {
-        // 	});
+        axios.post('/api/login', this.form).then(function (response) {
+          window.location.reload();
+        });
       }
     }
+  },
+  created: function created() {
+    console.log('okay');
+    axios.get('/api/userauth').then(function (response) {});
   }
 });
 
@@ -2122,7 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
       var isValid = !this.$v.form.$invalid;
 
       if (isValid && this.agree && !this.error) {
-        axios.post('/api/auth/signup', this.form).then(function (response) {//add swal
+        axios.post('/api/signup', this.form).then(function (response) {//add swal
         });
       }
     }
@@ -2161,7 +2159,9 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   methods: {},
-  create: function create() {}
+  create: function create() {
+    axios.get('/api/userauth').then(function (response) {});
+  }
 });
 
 /***/ }),
@@ -39487,7 +39487,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-9 text-center" }, [
-      _c("h3", { staticClass: "mb-0" }, [_vm._v("Login to EasyBusy")]),
+      _c("h3", { staticClass: "mb-0" }, [_vm._v("Login to Rumusport")]),
       _vm._v(" "),
       _c("p", [_vm._v("Enter your details below")])
     ])

@@ -135,7 +135,7 @@
 
 
 				if(isValid && this.agree && !this.error) {
-					axios.post('/api/auth/signup', this.form)
+					axios.post('/api/signup', this.form)
 						.then(response => {
 					//add swal
 						})

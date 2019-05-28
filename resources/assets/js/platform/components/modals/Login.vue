@@ -6,7 +6,7 @@
 					<div class="col-lg-10 modal-card-login px-4 py-5">
 						<form class="d-flex flex-column align-items-center">
 							<div class="col-lg-9 text-center">
-								<h3 class="mb-0">Login to EasyBusy</h3>
+								<h3 class="mb-0">Login to Rumusport</h3>
 								<p>Enter your details below</p>
 							</div>
 							<span class="error global-error text-easy d-flex justify-content-center w-100 px-3" v-if="error">{{error}}</span>
@@ -100,22 +100,19 @@
 				this.$v.form.$touch()
 				let isValid = !this.$v.form.$invalid
 				if(isValid) {
-					axios.post('/api/auth/login', this.form)
+					axios.post('/api/login', this.form)
 						.then(response => {
-							
+							window.location.reload()
 						})
-					// this.$auth.login(this.form).then(
-					// 	success => {
-					// 		this.$refs.closeLogin.click()
-					// 		this.$router.push({name: 'profileinfo'});
-					// 		this.$root.getAuth()
-					// 		this.form = {}
-					// 	},
-					// 	error => {
-							
-					// 	});
 				}
 			}
+		},
+		created() {
+			console.log('okay')
+			axios.get('/api/userauth')
+				.then(response => {
+			
+				})
 		}
 
 	}

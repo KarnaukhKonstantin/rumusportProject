@@ -10,6 +10,8 @@ class UserController extends Controller
 {
     public function getAuthUser()
     {
-    	dd(Auth::user());
+    	$user =  Auth::user();
+
+    	return $user;
     }
 }

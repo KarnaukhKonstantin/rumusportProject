@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Api\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use  Auth;
 
 class CategoryController extends Controller
 {
     public function getAllCategories()
     {
+        $user = Auth::user();
+        dd($user);
     	$name = request()->name;
 
         if($name){

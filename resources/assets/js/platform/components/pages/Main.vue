@@ -24,7 +24,10 @@
 
 		},
 		create() {
+			axios.get('/api/userauth')
+				.then(response => {
 			
+				})
 		}	
 	}
 </script>
