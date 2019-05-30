@@ -23,7 +23,7 @@ Route::post('/register', 'Api\AuthController@register');
 Route::post('/signup', 'Api\AuthController@signup');
 Route::post('/login', 'Api\AuthController@login'); 
 
-Route::group(['middleware' => 'auth:api'], function() {
+// Route::group(['middleware' => 'auth:api'], function() {
 	//categories
 	Route::get('/categories', 'API\Categories\CategoryController@getAllCategories');
 	Route::get('/categories/{category_id}', 'API\Categories\CategoryController@getCategory');
@@ -54,4 +54,4 @@ Route::group(['middleware' => 'auth:api'], function() {
 	Route::get('/userauth', 'API\Users\UserController@getAuthUser');
 	Route::post('logout', 'API\AuthController@logout');
 
-});
+// });

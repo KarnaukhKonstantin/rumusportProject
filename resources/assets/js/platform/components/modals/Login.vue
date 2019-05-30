@@ -108,11 +108,7 @@
 			}
 		},
 		created() {
-			console.log('okay')
-			axios.get('/api/userauth')
-				.then(response => {
-			
-				})
+
 		}
 
 	}

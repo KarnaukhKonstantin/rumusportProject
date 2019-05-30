@@ -1851,6 +1851,102 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -1973,10 +2069,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
   },
-  created: function created() {
-    console.log('okay');
-    axios.get('/api/userauth').then(function (response) {});
-  }
+  created: function created() {}
 });
 
 /***/ }),
@@ -2159,9 +2252,7 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   methods: {},
-  create: function create() {
-    axios.get('/api/userauth').then(function (response) {});
-  }
+  create: function create() {}
 });
 
 /***/ }),
@@ -39134,53 +39225,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    { staticClass: "footer-platform" },
-    [
-      [
-        _c("li", [
-          _c(
-            "a",
-            {
-              ref: "loginButton",
-              staticClass: "text-easy",
-              attrs: {
-                role: "button",
-                "data-toggle": "modal",
-                "data-target": "#loginModal"
-              }
-            },
-            [_vm._v("Login")]
-          )
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ]
-    ],
-    2
-  )
+  return _c("section", { staticClass: "footer-platform" }, [void 0], 2)
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c(
-        "a",
-        {
-          attrs: {
-            role: "button",
-            "data-toggle": "modal",
-            "data-target": "#registerModal"
-          }
-        },
-        [_vm._v("Register")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39202,18 +39249,181 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "header-platform" }, [
-      _c("h1", [_vm._v("\n\t\theader\n\t")])
+  return _c("section", { staticClass: "header-platform" }, [
+    _c("div", { staticClass: "row platform-header-menu mt-0" }, [
+      _c("div", { staticClass: "col-md-2" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "row header-buttons text-center" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-2 block-button offset-2 mr-1 px-1" },
+            [
+              _c("router-link", { attrs: { to: { name: "home" }, tag: "a" } }, [
+                _c("div", { staticClass: "linkSummary" }, [
+                  _c("span", { staticClass: "number" }, [
+                    _vm._v("01.\n\t\t\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("h6", { staticClass: "home-text pt-3" }, [
+                    _vm._v("PROJECTS\n\t\t\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "A little about who I amand what I enjoy doing\n\t\t\t\t\t\t\t"
+                    )
+                  ])
+                ])
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-2 block-button mx-1 px-1" },
+            [
+              _c("router-link", { attrs: { to: { name: "home" }, tag: "a" } }, [
+                _c("div", { staticClass: "linkSummary" }, [
+                  _c("span", { staticClass: "number" }, [
+                    _vm._v("02.\n\t\t\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("h6", { staticClass: "home-text pt-3" }, [
+                    _vm._v("BLOG\n\t\t\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "A little about who I amand what I enjoy doing\n\t\t\t\t\t\t\t"
+                    )
+                  ])
+                ])
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-2 block-button mx-1 px-1" },
+            [
+              _c("router-link", { attrs: { to: { name: "home" }, tag: "a" } }, [
+                _c("div", { staticClass: "linkSummary" }, [
+                  _c("span", { staticClass: "number" }, [
+                    _vm._v("03.\n\t\t\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("h6", { staticClass: "home-text pt-3" }, [
+                    _vm._v("ABOUT ME\n\t\t\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "A little about who I amand what I enjoy doing\n\t\t\t\t\t\t\t"
+                    )
+                  ])
+                ])
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-2 block-button mx-1 px-1" },
+            [
+              _c("router-link", { attrs: { to: { name: "home" }, tag: "a" } }, [
+                _c("div", { staticClass: "linkSummary" }, [
+                  _c("span", { staticClass: "number" }, [
+                    _vm._v("04.\n\t\t\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("h6", { staticClass: "home-text pt-3" }, [
+                    _vm._v("OTHERS\n\t\t\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "A little about who I amand what I enjoy doing\n\t\t\t\t\t\t\t"
+                    )
+                  ])
+                ])
+              ])
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row platform-header-categories" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-1 offset-4" },
+        [
+          _c("router-link", { attrs: { to: { name: "home" }, tag: "a" } }, [
+            _c("div", { staticClass: "categories-tabs" }, [
+              _c("p", { staticClass: "home-text text-center pt-3" }, [
+                _vm._v("\n\t\t\t\t\t\texpirience\n\t\t\t\t\t")
+              ])
+            ])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-1" },
+        [
+          _c("router-link", { attrs: { to: { name: "home" }, tag: "a" } }, [
+            _c("div", { staticClass: "categories-tabs" }, [
+              _c("p", { staticClass: "home-text text-center pt-3" }, [
+                _vm._v("\n\t\t\t\t\t\tskills\n\t\t\t\t\t")
+              ])
+            ])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-1" },
+        [
+          _c("router-link", { attrs: { to: { name: "home" }, tag: "a" } }, [
+            _c("div", { staticClass: "categories-tabs" }, [
+              _c("p", { staticClass: "home-text text-center pt-3" }, [
+                _vm._v("\n\t\t\t\t\t\tstack\n\t\t\t\t\t")
+              ])
+            ])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-1" },
+        [
+          _c("router-link", { attrs: { to: { name: "home" }, tag: "a" } }, [
+            _c("div", { staticClass: "categories-tabs" }, [
+              _c("p", { staticClass: "home-text text-center pt-3" }, [
+                _vm._v("\n\t\t\t\t\t\tlinks\n\t\t\t\t\t")
+              ])
+            ])
+          ])
+        ],
+        1
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

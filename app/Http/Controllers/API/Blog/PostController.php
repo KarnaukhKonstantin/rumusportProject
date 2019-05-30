@@ -14,7 +14,6 @@ class PostController extends Controller
 {
     public function getAllPosts()
     {
-        // dd(Auth::user());
     	$title = request()->title;
 
         if($title){

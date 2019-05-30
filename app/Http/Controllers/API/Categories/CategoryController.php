@@ -11,8 +11,7 @@ class CategoryController extends Controller
 {
     public function getAllCategories()
     {
-        $user = Auth::user();
-        dd($user);
+
     	$name = request()->name;
 
         if($name){
