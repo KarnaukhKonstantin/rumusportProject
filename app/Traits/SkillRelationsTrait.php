@@ -3,7 +3,7 @@
 namespace App\Traits;
 use App\Models\Skill;
 
-trait ProjectRelationsTrait {
+trait SkillRelationsTrait {
 
     public function projects()
     {

@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\SkillRelationTraits;
+use App\Traits\SkillRelationsTrait;
 
 class Skill extends Model
 {
-	use SkillRelationTraits;
+	use SkillRelationsTrait;
 	
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'description', 'image'];
 }

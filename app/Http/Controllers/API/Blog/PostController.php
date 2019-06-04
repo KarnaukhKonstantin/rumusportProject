@@ -71,6 +71,19 @@ class PostController extends Controller
 
 
 
+
+    public function getPost($id)
+    {
+        $post = Post::where('id', $id)->first();    
+
+        return response()->json($post);   
+    }
+
+
+
+
+
+
     public function updatePost(Request $request, $id)
     {
         $post = Post::where('id',$id)->first();

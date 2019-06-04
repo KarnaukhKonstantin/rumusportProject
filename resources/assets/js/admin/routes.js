@@ -13,6 +13,11 @@ let routes = [
         name: 'tagsAdmin',
     },
     {
+        path: '/skills-admin',
+        component: require('./components/pages/Skills.vue').default,
+        name: 'skillsAdmin',
+    },
+    {
         path: '/blog-admin',
         component: require('./components/pages/Blog.vue').default,
         name: 'blogAdmin',
@@ -26,6 +31,11 @@ let routes = [
         path: '/projects-admin',
         component: require('./components/pages/Projects.vue').default,
         name: 'projectsAdmin',
+    },
+    {
+        path: '/about-admin',
+        component: require('./components/pages/AboutMe.vue').default,
+        name: 'aboutAdmin',
     },
     {
         path: '/users-admin',

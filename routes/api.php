@@ -38,12 +38,30 @@ Route::post('/login', 'Api\AuthController@login');
 	Route::put('/tags/{tag_id}', 'API\Tags\TagController@updateTag');
 	Route::delete('/tags/{tag_id}', 'API\Tags\TagController@deleteTag');
 
+	//skills
+	Route::get('/skills', 'API\Skills\SkillController@allSkills');
+	Route::get('/skills/{skill_id}', 'API\Skills\SkillController@getSkill');
+	Route::post('/skills', 'API\Skills\SkillController@storeSkill');
+	Route::put('/skills/{skill_id}', 'API\Skills\SkillController@updateSkill');
+	Route::delete('/skills/{skill_id}', 'API\Skills\SkillController@deleteSkill');
+
+	//news
+	Route::get('/news', 'API\News\NewsController@getAllNews');
+	Route::get('/news/{article_id}', 'API\News\NewsController@getArticle');
+	Route::get('/last-article', 'API\News\NewsController@getLastArticle');
+	Route::post('/news', 'API\News\NewsController@storeArticle');
+	Route::put('/news/{article_id}', 'API\News\NewsController@updateArticle');
+	Route::delete('/news/{article_id}', 'API\News\NewsController@deleteArticle');
+
 	//posts
 	Route::get('/posts', 'API\Blog\PostController@getAllPosts');
 	Route::get('/posts/{post_id}', 'API\Blog\PostController@getPost');
 	Route::post('/posts', 'API\Blog\PostController@storePost');
 	Route::put('/posts/{post_id}', 'API\Blog\PostController@updatePost');
 	Route::delete('/posts/{post_id}', 'API\Blog\PostController@deletePost');
+
+	//about
+	Route::get('/about-me', 'API\About\AboutController@getAuthorInfo');
 
 
 	//image upload

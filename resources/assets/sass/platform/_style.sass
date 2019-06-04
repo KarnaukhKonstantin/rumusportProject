@@ -6,9 +6,15 @@ body,
 
 a
 	text-decoration: none
+	color: #000
 	&:hover
 		text-decoration: none
+		color: #000
 
+.leftimg
+	float: left
+.br-50
+	border-radius:  50%
 .wrapper 
 	height: 100%
 .content 
@@ -17,6 +23,7 @@ a
 
 .header-platform
 	background-color: #000
+	// background-image:  url('/images/workplace.jpg')
 	height: 400px
 .platform-header-menu
 	height: 300px
@@ -51,6 +58,35 @@ a
 		transform: scale(0)
 		transition: all .3s
 
+
+.post
+	&:after
+		content: ''
+		display: block
+		width: 100%
+		height: 1px
+		background-color:#000
+		transform: scale(0)
+		transition: all .3s
+.post
+	&:hover
+		&:after
+			content: ''
+			display: block
+			width: 100%
+			height: 1px
+			background-color:#000
+			transform: scale(1)
+
+
+.category-text
+	font-family: Montserrat,italic
+
+// .content-block
+// 	img
+// 		&:hover
+// 			opacity: 0.5
+
 .categories-tabs 
 	text-align: left
 	width: 100%
@@ -80,6 +116,10 @@ a
 			background-color:#fff
 			transform: scale(1)
 
+.category-tab
+	border:1px solid #d0d0d0
+.block-category
+	border-right:1px solid #d0d0d0
 .block-button
 	height: 200px
 	margin-top: 45px

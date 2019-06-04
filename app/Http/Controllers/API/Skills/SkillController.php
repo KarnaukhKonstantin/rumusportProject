@@ -22,7 +22,9 @@ class SkillController extends Controller
     public function storeSkill(Request $request)
     {
     	$skill = Skill::create([
-    		'name' => $request->name
+            'name' => $request->name,
+            'description' => $request->description,
+    		'image' => $request->image
     	]);
     	$skill->save();
 
@@ -36,9 +38,10 @@ class SkillController extends Controller
     public function updateSkill(Request $request, $id)
     {
     	$skill = Skill::where('id', $id)->update([
-    		'name' => $request->name
+    		'name' => $request->name,
+            'description' => $request->description,
+            'image' => $request->image
     	]);
-    	$skill->save();
 
     	return response()->json($skill);
     }

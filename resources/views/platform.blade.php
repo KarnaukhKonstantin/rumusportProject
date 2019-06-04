@@ -30,9 +30,20 @@
 		<platform-header></platform-header>
 		
 		{{-- content --}}
-		<main class="content container-fluid">
-			<router-view></router-view>
-		</main>
+		<div class="row">
+			<div class="col-md-2">
+				<article-post></article-post>
+			</div>
+			<div class="col-md-8">
+				<main class="content container-fluid">
+					<router-view></router-view>
+				</main>
+			</div>
+			<div class="col-md-2">
+				<categories-list></categories-list>
+			</div>
+		</div>
+		
 		
 		<!-- modals -->
 		<login-modal locallanguage="{{ app()->getLocale() }}"></login-modal>

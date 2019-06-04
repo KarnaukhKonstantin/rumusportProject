@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use  Auth;
+use App\Models\Post;
+use App\Models\Project;
+// use App\Models\News;
 
 class CategoryController extends Controller
 {
@@ -49,7 +51,11 @@ class CategoryController extends Controller
     {
         $category = Category::where('id', $id)->first();
 
-        return response()->json($category);
+        $posts = Post::where('category_id', $category->id)->get();
+        $projects  = Project::where('category_id', $category->id)->get();
+        // $news = News::where('category_id', $category->id)->get();
+
+        return response()->json(['category' => $category, 'posts' => $posts, 'projects' => $projects]);
     }
 
 

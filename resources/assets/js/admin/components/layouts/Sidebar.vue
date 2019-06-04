@@ -16,6 +16,12 @@
 					Tags
 				</router-link>
 			</li>
+			<li class="pl-3 pt-3">
+				<router-link class="d-block" :to="{ name: 'skillsAdmin'}" tag="a">
+					<i class="fa fa-wrench mr-2"></i>
+					Skills
+				</router-link>
+			</li>
 			<li class="pr-5 pt-3">
 				<span class="border-bottom w-100 d-block border-color-blue"></span>
 			</li>
@@ -38,6 +44,12 @@
 				<router-link class="d-block" :to="{ name: 'projectsAdmin'}" tag="a">
 					<i class="fa fa-connectdevelop mr-2"></i>
 					Projects
+				</router-link>
+			</li>
+			<li class="pl-3 pt-3">
+				<router-link class="d-block" :to="{ name: 'aboutAdmin'}" tag="a">
+					<i class="fa fa-user mr-2"></i>
+					About
 				</router-link>
 			</li>
 			<li class="pr-5 pt-3">

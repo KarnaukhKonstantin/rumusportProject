@@ -7,7 +7,7 @@
 			<div class="col-md-8">
 				<div class="row header-buttons text-center">
 					<div class="col-md-2 block-button offset-2 mr-1 px-1">
-						<router-link :to="{ name: 'home'}" tag="a">
+						<router-link :to="{ name: 'platform-projects'}" tag="a">
 							<div class="linkSummary">
 								<span class="number">01.
 								</span>
@@ -19,7 +19,7 @@
 						</router-link>
 					</div>
 					<div class="col-md-2 block-button mx-1 px-1">
-						<router-link :to="{ name: 'home'}" tag="a">
+						<router-link :to="{ name: 'platform-blog'}" tag="a">
 							<div class="linkSummary">
 								<span class="number">02.
 								</span>
@@ -31,7 +31,7 @@
 						</router-link>
 					</div>
 					<div class="col-md-2 block-button mx-1 px-1">
-						<router-link :to="{ name: 'home'}" tag="a">
+						<router-link :to="{ name: 'platform-about'}" tag="a">
 							<div class="linkSummary">
 								<span class="number">03.
 								</span>
@@ -43,7 +43,7 @@
 						</router-link>
 					</div>
 					<div class="col-md-2 block-button mx-1 px-1">
-						<router-link :to="{ name: 'home'}" tag="a">
+						<router-link :to="{ name: 'platform-other'}" tag="a">
 							<div class="linkSummary">
 								<span class="number">04.
 								</span>
@@ -62,7 +62,7 @@
 		</div>
 		<div class="row platform-header-categories">
 			<div class="col-md-1 offset-4">
-				<router-link :to="{ name: 'home'}" tag="a">
+				<router-link :to="{ name: 'platform-expirience'}" tag="a">
 					<div class="categories-tabs">
 						<p class="home-text text-center pt-3">
 							expirience
@@ -71,7 +71,7 @@
 				</router-link>
 			</div>
 			<div class="col-md-1">
-				<router-link :to="{ name: 'home'}" tag="a">
+				<router-link :to="{ name: 'platform-skills'}" tag="a">
 					<div class="categories-tabs">
 						<p class="home-text text-center pt-3">
 							skills
@@ -80,7 +80,7 @@
 				</router-link>
 			</div>
 			<div class="col-md-1">
-				<router-link :to="{ name: 'home'}" tag="a">
+				<router-link :to="{ name: 'platform-stack'}" tag="a">
 					<div class="categories-tabs">
 						<p class="home-text text-center pt-3">
 							stack
@@ -89,7 +89,7 @@
 				</router-link>
 			</div>
 			<div class="col-md-1">
-				<router-link :to="{ name: 'home'}" tag="a">
+				<router-link :to="{ name: 'platform-links'}" tag="a">
 					<div class="categories-tabs">
 						<p class="home-text text-center pt-3">
 							links

@@ -6,6 +6,7 @@ import VueScrollReveal from 'vue-scroll-reveal';
 import router from './routes';
 // import 'es6-promise/auto';
 
+
 window.Vue = Vue;
 window.Bus = new Vue;
 
@@ -35,6 +36,9 @@ Vue.component('register-modal', require('./components/modals/Register.vue').defa
 //Layouts
 Vue.component('platform-header', require('./components/layouts/Header.vue').default);
 Vue.component('platform-footer', require('./components/layouts/Footer.vue').default);
+Vue.component('categories-list', require('./components/layouts/Categories.vue').default);
+Vue.component('article-post', require('./components/layouts/Article.vue').default);
+
 
 
 

@@ -2,7 +2,12 @@
 	<div class="card card-body-blog black-color">
 		<!-- header with button Create -->
 		<div class="card-header w-100">
-			<button class="btn btn-success float-right" data-toggle="modal" data-target="#newsModal" @click="createNew()">Create News</button>
+			<button class="btn btn-success float-right" data-toggle="modal" data-target="#skillModal" @click="createNew()">Create Skill</button>
+		</div>
+
+		<!-- live search (name) -->
+		<div class="card-body">
+			<input type="text" class="form-control" v-model="name" placeholder="Name">
 		</div>
 
 		<!-- table with categories -->
@@ -11,18 +16,18 @@
 			ref="vuetable"
 			class="table-hover"
 			:css="css.table"
-			:api-url="'/api/news?paginate=1'"
+			:api-url="'/api/skills?paginate=1&name=' + name"
 			:fields="fields"
 			data-path="data"
 			pagination-path=""
 			pagination-component="VuetablePagination"
 			@vuetable:pagination-data="onPaginationData">
-			<template slot="newsImage" slot-scope="props">
+			<template slot="skillImage" slot-scope="props">
 					<img :src="props.rowData.image" class="br-50" alt="" width="60">
 				</template>
 			<template slot="actions" slot-scope="props">
 				<div class="table-button-container">
-					<button class="btn btn-primary" data-toggle="modal" data-target="#newsModal" @click="viewItem(props.rowData)"><i class="fa fa-pencil  mr-1"></i>Edit</button>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#skillModal" @click="viewItem(props.rowData)"><i class="fa fa-pencil  mr-1"></i>Edit</button>
 					<button class="btn btn-danger text-white" @click="deleteItem(props.rowData)"><i class="fa fa-trash-o  mr-1"></i>Delete</button>
 				</div>
 			</template>
@@ -37,24 +42,29 @@
 	</div>
 
 	<!-- Create Modal -->
-	<div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="skillModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">{{ modal_type }} News</h5>
+					<h5 class="modal-title">{{ modal_type }} Skill</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 
+					<!-- Name -->
+					<div class="form-group">
+						<label>Name</label>
+						<input type="text" class="form-control br-dark-blue" v-model="form.name" :placeholder="name" id="skill_name">
+					</div>
 
 					<!-- Description -->
 					<div class="form-group">
 						<label>Description</label>
 						<vue-editor
 						class=" br-dark-blue"
-						id="category_description"
+						id="skill_description"
 						v-model.trim="form.description"
 						useCustomImageHandler
 						@imageAdded="handleImageCategory"></vue-editor>
@@ -123,21 +133,21 @@
 					form: {
 						image: null
 					},
-					news: [],
+					skills: [],
 					dropzoneOptions: {
 						method: 'POST',
-						url: '/api/images/news',
+						url: '/api/images/skills',
 						headers: {},
 						dictDefaultMessage: "<h6 class='m-dropzone__msg-title text-center'>DROP YOUR IMAGE HERE</h6>"
 					},
 					fields: [
 				{
-					name: 'description',
-					title: 'Description'
+					name: 'name',
+					title: 'Name'
 				},
 				{
-					name: '__slot:newsImage',
-					title: 'News Image',
+					name: '__slot:skillImage',
+					title: 'Skill Image',
 				},
 				{
 					name: '__slot:actions',
@@ -175,6 +185,7 @@
 			this.error = false
 			this.modal_type = 'Create'
 			this.form = {
+				name: '',
 				description: '',
 				image: null
 			}
@@ -186,20 +197,23 @@
 		save() {
 			if(this.modal_type == 'Create') {
 				if (this.form.description == '') {
-					document.getElementById('news_description').focus()
+					document.getElementById('skill_description').focus()
+				}
+				if(this.form.name == '') {
+					document.getElementById('skill_name').focus()
 				}
 				if(this.form.image == null || this.form.image == '') {
-					if(this.form.description !== '') {
+					if(this.form.name !== '' && this.form.description !== '') {
 						this.error = true
 					}
 				}
-				if(this.form.description !== '' && this.form.image !== null) {
-					axios.post('/api/news', this.form)
+				if(this.form.name !== '' && this.form.description !== '' && this.form.image !== null) {
+					axios.post('/api/skills', this.form)
 					.then(response => {
-						$('#newsModal').modal('hide')
+						$('#skillModal').modal('hide')
 						// Bus.$emit('updateCategory')
 						this.$refs.vuetable.reload()
-						this.$swal('News was Created',
+						this.$swal('Skill was Created',
 							'',
 							'success',
 							);
@@ -207,18 +221,18 @@
 				}
 			} else if(this.modal_type == 'Update') {
 				if (this.form.description == '') {
-					document.getElementById('news_description').focus()
+					document.getElementById('skill_description').focus()
 				}
 				if(this.form.name == '') {
-					document.getElementById('news_name').focus()
+					document.getElementById('skill_name').focus()
 				}
 				if(this.form.name !== '' && this.form.description !== '') {
-					axios.put('/api/news/' + this.form.id, this.form)
+					axios.put('/api/skills/' + this.form.id, this.form)
 					.then(response => {
-						$('#newsModal').modal('hide')
-						Bus.$emit('updateNews')
+						$('#skillModal').modal('hide')
+						Bus.$emit('updateSkill')
 						this.$refs.vuetable.reload()
-						this.$swal('News was Updated',
+						this.$swal('Skill was Updated',
 							'',
 							'success',
 							);
@@ -229,17 +243,17 @@
 		deleteItem(item) {
 			this.$swal({
 				title: 'Are you Sure?',
-				text: 'You are trying delete' + ' ' + this.single_news + ' ' + item.name,
+				text: 'You are trying delete' + ' ' + this.skill + ' ' + item.name,
 				icon: 'warning',
 				buttons: true,
 				dangerMode: true,
 			})
 			.then((willDelete) => {
 				if (willDelete) {
-					axios.delete('/api/news/' + item.id)
+					axios.delete('/api/skills/' + item.id)
 					.then(response => {
 						this.$refs.vuetable.reload();
-						swal('News' + ' ' + 'was Deleted',
+						swal('Skill' + ' ' + 'was Deleted',
 							'',
 							'success',
 							);
@@ -267,7 +281,7 @@
 			var formData = new FormData();
 			formData.append('file', file);
 			axios({
-				url: '/api/images/news',
+				url: '/api/images/skills',
 				method: 'POST',
 				data: formData
 			})
@@ -287,9 +301,9 @@
 	},
 	created() {
 		// this.categories = JSON.parse(this.categories_list)
-		axios.get('/api/news')
+		axios.get('/api/skills')
 		.then(response => {
-			this.news = response.data
+			this.skills = response.data
 		})
 	}	
 }

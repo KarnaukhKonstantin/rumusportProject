@@ -1,6 +1,8 @@
 <template>
 	<section>
-		<h1>THIS IS MAIN PAGE</h1>
+		<h1>
+			THIS IS PROJECTS
+		</h1>
 	</section>
 </template>
 <script>
@@ -9,12 +11,6 @@
 			return {
 				
 			}
-		},
-		methods: {
-
-		},
-		create() {
-			
 		}	
 	}
 </script>
