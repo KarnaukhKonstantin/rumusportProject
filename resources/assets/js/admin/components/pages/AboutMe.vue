@@ -70,7 +70,7 @@
 						<label>Work Info</label>
 						<vue-editor
 						class=" br-dark-blue"
-						id="about_description"
+						id="about_work_info"
 						v-model.trim="form.work_info"
 						useCustomImageHandler
 						@imageAdded="handleImageAbout"></vue-editor>
@@ -81,7 +81,7 @@
 						<label>Expirience Info</label>
 						<vue-editor
 						class=" br-dark-blue"
-						id="about_description"
+						id="about_exp_info"
 						v-model.trim="form.exp_info"
 						useCustomImageHandler
 						@imageAdded="handleImageAbout"></vue-editor>
@@ -92,7 +92,7 @@
 						<label>Personal Info</label>
 						<vue-editor
 						class=" br-dark-blue"
-						id="about_description"
+						id="about_personal_info"
 						v-model.trim="form.personal_info"
 						useCustomImageHandler
 						@imageAdded="handleImageAbout"></vue-editor>
@@ -103,7 +103,7 @@
 						<label>Hobbies Info</label>
 						<vue-editor
 						class=" br-dark-blue"
-						id="about_description"
+						id="about_hobbies_info"
 						v-model.trim="form.hobbies_info"
 						useCustomImageHandler
 						@imageAdded="handleImageAbout"></vue-editor>
@@ -197,7 +197,9 @@
 				},
 				{
 					name: 'description',
-					title: 'Description'
+					title: 'Description',
+					titleClass: 'mw-500',
+					dataClass: 'mw-500'
 				},
 				{
 					name: '__slot:categoryImage',
@@ -241,6 +243,10 @@
 			this.form = {
 				name: '',
 				description: '',
+				work_info: '',
+				exp_info: '',
+				personal_info: '',
+				hobbies_info: '',
 				image: null
 			}
 		},
@@ -255,6 +261,18 @@
 				}
 				if(this.form.name == '') {
 					document.getElementById('about_name').focus()
+				}
+				if (this.form.work_info == '') {
+					document.getElementById('about_work_info').focus()
+				}
+				if (this.form.exp_info == '') {
+					document.getElementById('about_exp_info').focus()
+				}
+				if (this.form.personal_info == '') {
+					document.getElementById('about_personal_info').focus()
+				}
+				if (this.form.hobbies_info == '') {
+					document.getElementById('about_hobbies_info').focus()
 				}
 				if(this.form.image == null || this.form.image == '') {
 					if(this.form.name !== '' && this.form.description !== '') {
@@ -279,6 +297,18 @@
 				}
 				if(this.form.name == '') {
 					document.getElementById('about_name').focus()
+				}
+				if (this.form.work_info == '') {
+					document.getElementById('about_work_info').focus()
+				}
+				if (this.form.exp_info == '') {
+					document.getElementById('about_exp_info').focus()
+				}
+				if (this.form.personal_info == '') {
+					document.getElementById('about_personal_info').focus()
+				}
+				if (this.form.hobbies_info == '') {
+					document.getElementById('about_hobbies_info').focus()
 				}
 				if(this.form.name !== '' && this.form.description !== '') {
 					axios.put('/api/about/' + this.form.id, this.form)
@@ -357,10 +387,10 @@
 		},
 	},
 	created() {
-		// axios.get('/api/about')
-		// .then(response => {
-		// 	this.about = response.data
-		// })
+		axios.get('/api/allskills')
+		.then(response => {
+			this.skills = response.data
+		})
 	}	
 }
 </script>

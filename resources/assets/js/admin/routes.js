@@ -38,6 +38,11 @@ let routes = [
         name: 'aboutAdmin',
     },
     {
+        path: '/social-admin',
+        component: require('./components/pages/SocialLinks.vue').default,
+        name: 'socialAdmin',
+    },
+    {
         path: '/users-admin',
         component: require('./components/pages/Users.vue').default,
         name: 'usersAdmin',

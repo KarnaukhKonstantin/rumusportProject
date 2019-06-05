@@ -40,6 +40,7 @@ Route::post('/login', 'Api\AuthController@login');
 
 	//skills
 	Route::get('/skills', 'API\Skills\SkillController@allSkills');
+	Route::get('/allskills', 'API\Skills\SkillController@getSkills');
 	Route::get('/skills/{skill_id}', 'API\Skills\SkillController@getSkill');
 	Route::post('/skills', 'API\Skills\SkillController@storeSkill');
 	Route::put('/skills/{skill_id}', 'API\Skills\SkillController@updateSkill');
@@ -62,7 +63,18 @@ Route::post('/login', 'Api\AuthController@login');
 
 	//about
 	Route::get('/about-me', 'API\About\AboutController@getAuthorInfo');
+	Route::get('/about', 'API\About\AboutController@getInfo');
+	Route::post('/about', 'API\About\AboutController@storeInfo');
+	Route::put('/about/{info_id}', 'API\About\AboutController@updateInfo');
+	Route::delete('/about/{info_id}', 'API\About\AboutController@deleteInfo');
 
+	//social links
+	Route::get('/soclinks', 'API\SocialLinks\SocialLinkController@getAllSocLinks');
+	Route::get('/soclinks-all', 'API\SocialLinks\SocialLinkController@getSocLinks');
+	Route::get('/soclinks/{soclink_id}', 'API\SocialLinks\SocialLinkController@getSocLink');
+	Route::post('/soclinks', 'API\SocialLinks\SocialLinkController@storeSocLink');
+	Route::put('/soclinks/{soclink_id}', 'API\SocialLinks\SocialLinkController@updateSocLink');
+	Route::delete('/soclinks/{soclink_id}', 'API\SocialLinks\SocialLinkController@deleteSocLink');
 
 	//image upload
 	Route::post('/images/{type}','API\Files\ImageController@store');

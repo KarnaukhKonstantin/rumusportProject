@@ -19,6 +19,29 @@ class SkillController extends Controller
 
 
 
+    public function getSkills()
+    {
+        $skills = Skill::all();
+
+        return response()->json($skills);    
+    }
+
+
+
+
+
+
+    public function getSkill($id)
+    {
+        $skill = Skill::where('id', $id)->first();
+
+        return response()->json($skill);  
+    }
+
+
+
+
+
     public function storeSkill(Request $request)
     {
     	$skill = Skill::create([

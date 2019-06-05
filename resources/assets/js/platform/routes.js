@@ -47,6 +47,11 @@ let routes = [
 		name: 'platform-skills',
 	},
 	{
+		path: '/skill/:id',
+		component: require('./components/pages/Skill.vue').default,
+		name: 'skill'
+	},
+	{
 		path: '/stack',
 		component: require('./components/pages/Stack.vue').default,
 		name: 'platform-stack',

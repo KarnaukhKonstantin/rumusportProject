@@ -10688,3 +10688,7 @@ a:hover {
   opacity: 0.6;
 }
 
+.mw-500 {
+  max-width: 500px !important;
+}
+
