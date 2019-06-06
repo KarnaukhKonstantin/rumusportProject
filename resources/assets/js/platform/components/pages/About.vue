@@ -8,7 +8,7 @@
 			</div>
 		</div>
 
-		<div class="row  mt-5" v-scroll-reveal.reset>
+		<div class="row  mt-5">
 			<div class="col-md-4 block-category pr-4">
 				<img :src="info.image" width="100%">
 				<h1 class="text-right">{{info.name}}</h1>
@@ -17,8 +17,14 @@
 				<p class="text-right" v-html="info.personal_info"></p>
 			</div>
 		</div>
-
-		<div class="row  mt-5" v-scroll-reveal.reset>
+		
+		<!-- stack -->
+		<div class="col-md-12 mt-5">
+			<h1 class=text-right>
+				My Stack
+			</h1>
+		</div>
+		<div class="row mt-4">
 			<div class="col-md-8 block-category pr-4">
 				<p class="text-left" v-html="info.description"></p>
 			</div>
@@ -30,8 +36,14 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="row  mt-5" v-scroll-reveal.reset>
+		
+		<!-- expirience -->
+		<div class="col-md-12 mt-5">
+			<h1 class=text-left>
+				My Expirience
+			</h1>
+		</div>
+		<div class="row mt-4">
 			<div class="col-md-4 block-category pr-4">
 				<!-- <img :src="info.image" width="100%">
 				<h1 class="text-right">{{info.name}}</h1> -->
@@ -40,8 +52,14 @@
 				<p class="text-right" v-html="info.exp_info"></p>
 			</div>
 		</div>
-
-		<div class="row  mt-5" v-scroll-reveal.reset>
+		
+		<!-- works -->
+		<div class="col-md-12 mt-5">
+			<h1 class=text-right>
+				My Works
+			</h1>
+		</div>
+		<div class="row mt-4">
 			<div class="col-md-8 block-category pr-4">
 				<p class="text-left" v-html="info.work_info"></p>
 			</div>
@@ -53,14 +71,48 @@
 				</div> -->
 			</div>
 		</div>
-
-		<div class="row  mt-5" v-scroll-reveal.reset>
+		
+		<!-- hobbies -->
+		<div class="col-md-12 mt-5">
+			<h1 class=text-left>
+				My Hobbies
+			</h1>
+		</div>
+		<div class="row mt-4">
 			<div class="col-md-4 block-category pr-4">
 				<!-- <img :src="info.image" width="100%">
 				<h1 class="text-right">{{info.name}}</h1> -->
 			</div>
 			<div class="col-md-8 pl-4">
 				<p class="text-right" v-html="info.hobbies_info"></p>
+			</div>
+		</div>
+
+		<!-- links -->
+		<div class="col-md-12 mt-5">
+			<h1 class=text-right>
+				I'm in social
+			</h1>
+		</div>
+		<div class="row mt-4">
+			<div class="col-md-8 block-category pr-4">
+				<p class="text-left" v-html="info.hobbies_info"></p>
+			</div>
+			<div class="col-md-4 pl-4">
+				<div class="row">
+					<div class="col-md-12 d-flex justify-content-center my-5">
+						<a class="hover-link" href="www.facebook.com"><img src="/images/Facebook.png" width="75%"></a>
+						<a class="hover-link" href="www.LinkdIn.com"><img src="/images/Linkedin.png" width="75%"></a>
+						<a class="hover-link" href="www.Telegram.com"><img src="/images/Telegram.png" width="75%"></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 d-flex justify-content-center my-5">
+						<a class="hover-link" href="www.facebook.com"><img src="/images/Instagram.png" width="75%"></a>
+						<a class="hover-link" href="www.LinkdIn.com"><img src="/images/Youtube.png" width="75%"></a>
+						<a class="hover-link" href="www.Telegram.com"><img src="/images/Livelib.png" width="75%"></a>
+					</div>
+				</div>
 			</div>
 		</div>
 

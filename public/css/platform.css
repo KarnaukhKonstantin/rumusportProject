@@ -10674,6 +10674,10 @@ a:hover {
   color: #000;
 }
 
+.hover-link:hover {
+  opacity: 0.5;
+}
+
 .leftimg {
   float: left;
 }

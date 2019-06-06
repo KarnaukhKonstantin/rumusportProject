@@ -2324,6 +2324,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -40837,142 +40889,96 @@ var render = function() {
   return _c("section", [
     _vm._m(0),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "scroll-reveal",
-            rawName: "v-scroll-reveal.reset",
-            modifiers: { reset: true }
-          }
-        ],
-        staticClass: "row  mt-5"
-      },
-      [
-        _c("div", { staticClass: "col-md-4 block-category pr-4" }, [
-          _c("img", { attrs: { src: _vm.info.image, width: "100%" } }),
-          _vm._v(" "),
-          _c("h1", { staticClass: "text-right" }, [
-            _vm._v(_vm._s(_vm.info.name))
-          ])
-        ]),
+    _c("div", { staticClass: "row  mt-5" }, [
+      _c("div", { staticClass: "col-md-4 block-category pr-4" }, [
+        _c("img", { attrs: { src: _vm.info.image, width: "100%" } }),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-8 pl-4" }, [
-          _c("p", {
-            staticClass: "text-right",
-            domProps: { innerHTML: _vm._s(_vm.info.personal_info) }
-          })
-        ])
-      ]
-    ),
+        _c("h1", { staticClass: "text-right" }, [_vm._v(_vm._s(_vm.info.name))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-8 pl-4" }, [
+        _c("p", {
+          staticClass: "text-right",
+          domProps: { innerHTML: _vm._s(_vm.info.personal_info) }
+        })
+      ])
+    ]),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "scroll-reveal",
-            rawName: "v-scroll-reveal.reset",
-            modifiers: { reset: true }
-          }
-        ],
-        staticClass: "row  mt-5"
-      },
-      [
-        _c("div", { staticClass: "col-md-8 block-category pr-4" }, [
-          _c("p", {
-            staticClass: "text-left",
-            domProps: { innerHTML: _vm._s(_vm.info.description) }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4 pl-4" }, [
-          _c(
-            "div",
-            { staticClass: "row" },
-            _vm._l(_vm.info.skills, function(skill) {
-              return _c("div", { staticClass: "col-md-6" }, [
-                _c("img", { attrs: { src: skill.image, width: "100%" } })
-              ])
-            }),
-            0
-          )
-        ])
-      ]
-    ),
+    _vm._m(1),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "scroll-reveal",
-            rawName: "v-scroll-reveal.reset",
-            modifiers: { reset: true }
-          }
-        ],
-        staticClass: "row  mt-5"
-      },
-      [
-        _c("div", { staticClass: "col-md-4 block-category pr-4" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-8 pl-4" }, [
-          _c("p", {
-            staticClass: "text-right",
-            domProps: { innerHTML: _vm._s(_vm.info.exp_info) }
-          })
-        ])
-      ]
-    ),
+    _c("div", { staticClass: "row mt-4" }, [
+      _c("div", { staticClass: "col-md-8 block-category pr-4" }, [
+        _c("p", {
+          staticClass: "text-left",
+          domProps: { innerHTML: _vm._s(_vm.info.description) }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4 pl-4" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.info.skills, function(skill) {
+            return _c("div", { staticClass: "col-md-6" }, [
+              _c("img", { attrs: { src: skill.image, width: "100%" } })
+            ])
+          }),
+          0
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "scroll-reveal",
-            rawName: "v-scroll-reveal.reset",
-            modifiers: { reset: true }
-          }
-        ],
-        staticClass: "row  mt-5"
-      },
-      [
-        _c("div", { staticClass: "col-md-8 block-category pr-4" }, [
-          _c("p", {
-            staticClass: "text-left",
-            domProps: { innerHTML: _vm._s(_vm.info.work_info) }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4 pl-4" })
-      ]
-    ),
+    _vm._m(2),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "scroll-reveal",
-            rawName: "v-scroll-reveal.reset",
-            modifiers: { reset: true }
-          }
-        ],
-        staticClass: "row  mt-5"
-      },
-      [
-        _c("div", { staticClass: "col-md-4 block-category pr-4" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-8 pl-4" }, [
-          _c("p", {
-            staticClass: "text-right",
-            domProps: { innerHTML: _vm._s(_vm.info.hobbies_info) }
-          })
-        ])
-      ]
-    )
+    _c("div", { staticClass: "row mt-4" }, [
+      _c("div", { staticClass: "col-md-4 block-category pr-4" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-8 pl-4" }, [
+        _c("p", {
+          staticClass: "text-right",
+          domProps: { innerHTML: _vm._s(_vm.info.exp_info) }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _c("div", { staticClass: "row mt-4" }, [
+      _c("div", { staticClass: "col-md-8 block-category pr-4" }, [
+        _c("p", {
+          staticClass: "text-left",
+          domProps: { innerHTML: _vm._s(_vm.info.work_info) }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4 pl-4" })
+    ]),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _c("div", { staticClass: "row mt-4" }, [
+      _c("div", { staticClass: "col-md-4 block-category pr-4" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-8 pl-4" }, [
+        _c("p", {
+          staticClass: "text-right",
+          domProps: { innerHTML: _vm._s(_vm.info.hobbies_info) }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(5),
+    _vm._v(" "),
+    _c("div", { staticClass: "row mt-4" }, [
+      _c("div", { staticClass: "col-md-8 block-category pr-4" }, [
+        _c("p", {
+          staticClass: "text-left",
+          domProps: { innerHTML: _vm._s(_vm.info.hobbies_info) }
+        })
+      ]),
+      _vm._v(" "),
+      _vm._m(6)
+    ])
   ])
 }
 var staticRenderFns = [
@@ -40985,6 +40991,150 @@ var staticRenderFns = [
         _c("h1", { staticClass: "text-center" }, [
           _vm._v("\n\t\t\t\tSomething about me...\n\t\t\t")
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 mt-5" }, [
+      _c("h1", { staticClass: "text-right" }, [
+        _vm._v("\n\t\t\tMy Stack\n\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 mt-5" }, [
+      _c("h1", { staticClass: "text-left" }, [
+        _vm._v("\n\t\t\tMy Expirience\n\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 mt-5" }, [
+      _c("h1", { staticClass: "text-right" }, [
+        _vm._v("\n\t\t\tMy Works\n\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 mt-5" }, [
+      _c("h1", { staticClass: "text-left" }, [
+        _vm._v("\n\t\t\tMy Hobbies\n\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 mt-5" }, [
+      _c("h1", { staticClass: "text-right" }, [
+        _vm._v("\n\t\t\tI'm in social\n\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4 pl-4" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12 d-flex justify-content-center my-5" },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "hover-link",
+                attrs: { href: "www.facebook.com" }
+              },
+              [
+                _c("img", {
+                  attrs: { src: "/images/Facebook.png", width: "75%" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "hover-link", attrs: { href: "www.LinkdIn.com" } },
+              [
+                _c("img", {
+                  attrs: { src: "/images/Linkedin.png", width: "75%" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "hover-link",
+                attrs: { href: "www.Telegram.com" }
+              },
+              [
+                _c("img", {
+                  attrs: { src: "/images/Telegram.png", width: "75%" }
+                })
+              ]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12 d-flex justify-content-center my-5" },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "hover-link",
+                attrs: { href: "www.facebook.com" }
+              },
+              [
+                _c("img", {
+                  attrs: { src: "/images/Instagram.png", width: "75%" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "hover-link", attrs: { href: "www.LinkdIn.com" } },
+              [
+                _c("img", {
+                  attrs: { src: "/images/Youtube.png", width: "75%" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "hover-link",
+                attrs: { href: "www.Telegram.com" }
+              },
+              [
+                _c("img", {
+                  attrs: { src: "/images/Livelib.png", width: "75%" }
+                })
+              ]
+            )
+          ]
+        )
       ])
     ])
   }
@@ -41546,7 +41696,7 @@ var render = function() {
                     modifiers: { reset: true }
                   }
                 ],
-                staticClass: "col-md-3"
+                staticClass: "col-md-3 post"
               },
               [
                 _c(
