@@ -45125,19 +45125,19 @@ var render = function() {
           {
             name: "model",
             rawName: "v-model",
-            value: _vm.title,
-            expression: "title"
+            value: _vm.name,
+            expression: "name"
           }
         ],
         staticClass: "form-control",
-        attrs: { type: "text", placeholder: "Title" },
-        domProps: { value: _vm.title },
+        attrs: { type: "text", placeholder: "Name" },
+        domProps: { value: _vm.name },
         on: {
           input: function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.title = $event.target.value
+            _vm.name = $event.target.value
           }
         }
       })
@@ -45152,7 +45152,7 @@ var render = function() {
           staticClass: "table-hover",
           attrs: {
             css: _vm.css.table,
-            "api-url": "/api/projects?paginate=1&title=" + _vm.title,
+            "api-url": "/api/projects?paginate=1&name=" + _vm.name,
             fields: _vm.fields,
             "http-fetch": _vm.myFetch,
             "data-path": "data",
@@ -45595,7 +45595,7 @@ var render = function() {
                             ref: "myVueDropzone",
                             staticClass: "br-dark-blue",
                             attrs: {
-                              id: "dropzoneCategory",
+                              id: "dropzoneProject",
                               options: _vm.dropzoneOptions
                             },
                             on: { "vdropzone-success": _vm.showSuccess }

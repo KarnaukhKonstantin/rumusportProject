@@ -27,6 +27,6 @@ trait ProjectRelationsTrait {
 
     public function skills()
     {
-        return $this->hasMany('App\Models\Skill')->withPivot('project_id','skill_id');
+        return $this->belongsToMany('App\Models\Skill')->withPivot('project_id','skill_id');
     }
 }

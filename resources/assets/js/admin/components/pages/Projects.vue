@@ -7,7 +7,7 @@
 
 		<!-- live search (name) -->
 		<div class="card-body">
-			<input type="text" class="form-control" v-model="title" placeholder="Title">
+			<input type="text" class="form-control" v-model="name" placeholder="Name">
 		</div>
 
 		<!-- table with posts -->
@@ -16,7 +16,7 @@
 			ref="vuetable"
 			class="table-hover"
 			:css="css.table"
-			:api-url="'/api/projects?paginate=1&title=' + title"
+			:api-url="'/api/projects?paginate=1&name=' + name"
 			:fields="fields"
 			:http-fetch="myFetch"
 			data-path="data"
@@ -147,7 +147,7 @@
 							v-if="image == true || form.image == '' || form.image == null"
 							ref="myVueDropzone"
 							class="br-dark-blue"
-							id="dropzoneCategory"
+							id="dropzoneProject"
 							:options="dropzoneOptions"
 							v-on:vdropzone-success="showSuccess"></vue-dropzone>
 						</div>
