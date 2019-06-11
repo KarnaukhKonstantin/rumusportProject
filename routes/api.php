@@ -61,6 +61,14 @@ Route::post('/login', 'Api\AuthController@login');
 	Route::put('/posts/{post_id}', 'API\Blog\PostController@updatePost');
 	Route::delete('/posts/{post_id}', 'API\Blog\PostController@deletePost');
 
+	//projects
+	Route::get('/projects', 'API\Projects\ProjectController@getAllProjects');
+	Route::get('/projects/without-paginate', 'API\Projects\ProjectController@getProjectsWithoutPaginate');
+	Route::get('/projects/{project_id}', 'API\Projects\ProjectController@getProject');
+	Route::post('/projects', 'API\Projects\ProjectController@storeProject');
+	Route::put('/projects/{project_id}', 'API\Projects\ProjectController@updateProject');
+	Route::delete('/projects/{project_id}', 'API\Projects\ProjectController@deleteProject');
+
 	//about
 	Route::get('/about-me', 'API\About\AboutController@getAuthorInfo');
 	Route::get('/about', 'API\About\AboutController@getInfo');

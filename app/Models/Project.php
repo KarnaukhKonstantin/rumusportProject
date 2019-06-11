@@ -9,7 +9,7 @@ class Project extends Model
 {
 	use ProjectRelationsTrait;
 	
-    protected $fillable = ['name', 'main_description', 'category_id', 'secondary_description'];
+    protected $fillable = ['name', 'main_description', 'category_id', 'secondary_description', 'embedded_experience'];
 
     protected $with = ['tags', 'category', 'links', 'attachments', 'skills'];
 }
