@@ -2724,9 +2724,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      projects: []
+    };
+  },
+  methods: {},
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/projects/without-paginate').then(function (response) {
+      _this.projects = response.data;
+    });
   }
 });
 
@@ -41594,16 +41621,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("section", { staticClass: "projects-section" }, [
+    _c(
+      "div",
+      { staticClass: "row pt-5 pr-2" },
+      _vm._l(_vm.projects, function(project) {
+        return _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "row mb-5" }, [
+            _c("div", { staticClass: "col-md-2 col-lg-2" }, [
+              _c(
+                "div",
+                { staticClass: "block-skills" },
+                _vm._l(project.skills, function(skill) {
+                  return _c("div", { staticClass: "row my-3" }, [
+                    _c("img", {
+                      staticClass: "project-skill mx-auto d-block",
+                      attrs: { src: skill.image }
+                    })
+                  ])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-10" }, [
+              _c("img", {
+                staticClass: "img-fluid",
+                attrs: { src: project.image }
+              })
+            ])
+          ])
+        ])
+      }),
+      0
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", [_c("h1", [_vm._v("\n\t\tTHIS IS PROJECTS\n\t")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
