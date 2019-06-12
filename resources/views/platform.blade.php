@@ -22,26 +22,30 @@
 	<link href="{{ mix('css/platform.css') }}" rel="stylesheet">
 
 </head>
-<body class="">
+<body class="body-platform">
 
 	<div class="wrapper d-flex flex-column justify-content-between align-items-between" id="app" v-cloak>
 
 		<!-- header -->
-		<platform-header></platform-header>
+		
 		
 		{{-- content --}}
 		<div class="row">
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<article-post></article-post>
+			</div> -->
+			<div class="col-md-1">
+				<platform-header-left></platform-header-left>
+				<!-- <platform-header></platform-header> -->
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-11">
 				<main class="content container-fluid">
 					<router-view></router-view>
 				</main>
 			</div>
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<categories-list></categories-list>
-			</div>
+			</div> -->
 		</div>
 		
 		
@@ -49,7 +53,7 @@
 		<login-modal locallanguage="{{ app()->getLocale() }}"></login-modal>
 		<register-modal locallanguage="{{ app()->getLocale() }}"></register-modal>
 		<!-- footer -->
-		<platform-footer></platform-footer>
+		<!-- <platform-footer></platform-footer> -->
 
 	</div>
 

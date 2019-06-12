@@ -10674,6 +10674,19 @@ a:hover {
   color: #000;
 }
 
+i {
+  color: #5a5a5a;
+}
+
+i:hover {
+  color: #07fdd8;
+  transition: all 0.5s;
+}
+
+.body-platform {
+  background-color: #252628;
+}
+
 .hover-link:hover {
   opacity: 0.5;
 }
@@ -10698,6 +10711,22 @@ a:hover {
 .header-platform {
   background-color: #000;
   height: 400px;
+}
+
+.header-platform-left {
+  background-color: #111111;
+  height: 100%;
+  position: fixed;
+}
+
+.block-name {
+  height: 150px;
+  background-color: #000 !important;
+}
+
+.bottom-content {
+  position: absolute;
+  bottom: 0;
 }
 
 .platform-header-menu {
@@ -10872,10 +10901,6 @@ li {
   top: 30px;
   right: 30px;
   font-size: 1.4em;
-}
-
-.projects-section {
-  background-color: #d6d6d6;
 }
 
 .project-skill {
