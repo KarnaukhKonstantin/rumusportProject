@@ -10680,7 +10680,6 @@ i {
 
 i:hover {
   color: #07fdd8;
-  transition: all 0.5s;
 }
 
 .body-platform {
@@ -10708,13 +10707,27 @@ i:hover {
   padding-bottom: 90px;
 }
 
+.projects {
+  font-size: 10px;
+  color: #07fdd8;
+  transition: all 0.5s;
+}
+
+.fa {
+  color: #5a5a5a;
+}
+
+.fa:hover {
+  color: #07fdd8;
+}
+
 .header-platform {
   background-color: #000;
   height: 400px;
 }
 
 .header-platform-left {
-  background-color: #111111;
+  background-color: #181818;
   height: 100%;
   position: fixed;
 }
@@ -10724,9 +10737,22 @@ i:hover {
   background-color: #000 !important;
 }
 
+.center-content {
+  width: 75px;
+}
+
 .bottom-content {
   position: absolute;
   bottom: 0;
+  width: 75px;
+}
+
+.link {
+  margin-bottom: 30px;
+}
+
+.link:hover {
+  margin-bottom: -1px;
 }
 
 .platform-header-menu {
