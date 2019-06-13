@@ -4,6 +4,8 @@ import Vuelidate from 'vuelidate';
 import VueSwal from 'vue-swal';
 import VueScrollReveal from 'vue-scroll-reveal';
 import router from './routes';
+import TagsBall from 'vue-tags-ball';
+
 // import 'es6-promise/auto';
 
 
@@ -25,6 +27,7 @@ Vue.use(VueScrollReveal, {
         z: 0
      },
  });
+Vue.use(TagsBall);
 require('./bootstrap');
 
 
@@ -39,6 +42,7 @@ Vue.component('platform-header-left', require('./components/layouts/HeaderLeft.v
 Vue.component('platform-footer', require('./components/layouts/Footer.vue').default);
 Vue.component('categories-list', require('./components/layouts/Categories.vue').default);
 Vue.component('article-post', require('./components/layouts/Article.vue').default);
+
 
 
 

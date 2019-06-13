@@ -22,6 +22,7 @@
 	<link href="{{ mix('css/platform.css') }}" rel="stylesheet">
 
 </head>
+
 <body class="body-platform">
 
 	<div class="wrapper d-flex flex-column justify-content-between align-items-between" id="app" v-cloak>
@@ -47,11 +48,7 @@
 				<categories-list></categories-list>
 			</div> -->
 		</div>
-		
-		
-		<!-- modals -->
-		<login-modal locallanguage="{{ app()->getLocale() }}"></login-modal>
-		<register-modal locallanguage="{{ app()->getLocale() }}"></register-modal>
+
 		<!-- footer -->
 		<!-- <platform-footer></platform-footer> -->
 
@@ -59,5 +56,7 @@
 
 	<!-- JavaScript -->
 	<script src="{{ mix('js/platform.js') }}"></script>
+	<script type="text/javascript" src="js/tagcanvas.js"></script>
+	<script src="//d3js.org/d3.v3.min.js"></script>
 </body>
 </html>

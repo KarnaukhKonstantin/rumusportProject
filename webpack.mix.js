@@ -20,3 +20,5 @@ mix.js('resources/assets/js/platform/app.js', 'public/js/platform.js')
    .copyDirectory('resources/assets/images', 'public/images')
    .copy('resources/assets/images/favicon.png', 'public/images/favicon.png')
    .sass('resources/assets/sass/platform/app.scss', 'public/css/platform.css');
+
+
