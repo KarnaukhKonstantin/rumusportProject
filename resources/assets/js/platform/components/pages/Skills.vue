@@ -5,22 +5,13 @@
 				
 			</div>
 			<div class="col-md-6">
-			<tags-ball v-bind:style='{"border":"2px solid #252628", 
-									  "fontMax":"200", 
-									  "font":"50px monaco", 
-									  "color":"#fff"}' 
-									  :width='500' 
-									  :height='500' 
-									  :tags='opa'/>
-				<!-- <div class="row">
-					<div class="col-md-3 post" v-for="skill in skills" v-scroll-reveal.reset>
-						<router-link class="my-2" :to="{ name: 'skill', params: { id: skill.id }}" tag="a">
-							<img :src="skill.image" width="50%" height="50%">
-							<h3 class="text-center">{{skill.name}}</h3>
-							<p class="card-text" v-html="skill.description"></p>
-						</router-link>
-					</div>
-				</div> -->
+				<tags-ball v-bind:style='styleObject' 
+				:width='800' 
+				:height='800'
+				:radius='300'
+				:fontMax='200'
+				:stop='true'
+				:tags='tags'/>
 			</div>
 		</div>
 	</section>
@@ -34,34 +25,109 @@
 		name: 'Skills',
 
 		components: {
-		    "tags-ball":TagsBall
-		 },
+			"tags-ball":TagsBall
+		},
 
 		data() {
 			return {
+				styleObject: {
+					color: '#ffffff',
+					border: '2px solid #252628'
+				},
 				skills: [{
 					id: ''
 				}],
-				opa:[
-					'opapapapa',
-					'opopopop',
-					'ups',
-					'gaps',
-					'green',
-					'yellow',
-					'red'
-
+				tags: [
+					'PHP',
+					'Laravel',
+					'Spark',
+					'Twilio',
+					'Javascript',
+					'Vue JS',
+					'MySQL',
+					'PostgreSQL',
+					'SASS',
+					'JSON',
+					'Git',
+					'Mailgun',
+					'Rollbar',
+					'TaxJar',
+					'Stripe',
+					'Braintree',
 				],
+				// tags: [
+				// 'PHP',
+				// 'Laravel',
+				// 'Spark',
+				// 'Twilio',
+				// 'laravel-translatable',
+				// 'laravel-dompdf',
+				// 'phpword',
+				// 'UUID',
+				// 'Geo',
+				// 'Tinker',
+				// 'Passport',
+				// 'PhpSpreadsheet',
+				// 'Mailgun',
+				// 'Rollbar',
+				// 'TaxJar',
+				// 'Stripe',
+				// 'Braintree',
+				// 'multi-tenant',
+				// 'Javascript',
+				// 'Vue JS',
+				// 'Chart JS',
+				// 'VueChart JS',
+				// 'Websocket',
+				// 'axios',
+				// 'VueX',
+				// 'Bootstrap',
+				// 'Laravel-Echo',
+				// 'Laravel-Mix',
+				// 'Sweetalert',
+				// 'v-calendar',
+				// 'vue',
+				// 'vue-awesome-swiper',
+				// 'vue-chartjs',
+				// 'vue-country-select',
+				// 'vue-form-wizard',
+				// 'vue-hotel-datepicker',
+				// 'vue-multiselect',
+				// 'vue-router',
+				// 'vue-scroll-reveal',
+				// 'vue-select',
+				// 'vue-social-sharing',
+				// 'vue-spinner',
+				// 'vue-swal',
+				// 'vue-tel-input',
+				// 'vue-template-compiler',
+				// 'vue2-dropzone',
+				// 'vue2-editor',
+				// 'vuedraggable',
+				// 'vuejs-datepicker',
+				// 'vuelidate',
+				// 'vuetable-2',
+				// 'vue-avatar-cropper',
+				// 'font-awesome',
+				// 'v-autocomplete',
+				// 'vue-tour',
+				// 'MySQL',
+				// 'PostgreSQL',
+				// 'SASS',
+				// 'JSON',
+				// 'Git'
+				// ],
 			}
 		},
+
 		methods: {
 
 		},
 		created() {
 			axios.get('/api/allskills')
-				.then(response => {
-					this.skills = response.data
-				})
+			.then(response => {
+				this.skills = response.data
+			})
 		}
 	}
 

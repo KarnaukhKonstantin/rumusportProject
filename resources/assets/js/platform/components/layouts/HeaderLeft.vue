@@ -36,16 +36,16 @@
 			</div>
 
 			<div class="block-content">
-				<router-link :to="{ name: 'platform-expirience'}" tag="a">
-					<i class="fa fa-2x fa-codepen link" @mouseover="expirienceIcon = false" @mouseleave="expirienceIcon = true" :class="[expirienceIcon === true ? 'fa fa-2x fa-codepen' : '']"></i>
-					<p class="text-center projects" v-show="!expirienceIcon">EXPIRIENCE</p>
-				</router-link>
-			</div>
-
-			<div class="block-content">
 				<router-link :to="{ name: 'platform-skills'}" tag="a">
 					<i class="fa fa-2x fa-cog link" @mouseover="skillsIcon = false" @mouseleave="skillsIcon = true" :class="[skillsIcon === true ? 'fa fa-2x fa-cog' : '']"></i>
 					<p class="text-center projects" v-show="!skillsIcon">SKILLS</p>
+				</router-link>
+			</div>
+			
+			<div class="block-content">
+				<router-link :to="{ name: 'platform-expirience'}" tag="a">
+					<i class="fa fa-2x fa-codepen link" @mouseover="expirienceIcon = false" @mouseleave="expirienceIcon = true" :class="[expirienceIcon === true ? 'fa fa-2x fa-codepen' : '']"></i>
+					<p class="text-center projects" v-show="!expirienceIcon">EXPIRIENCE</p>
 				</router-link>
 			</div>
 

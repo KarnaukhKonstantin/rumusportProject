@@ -24,12 +24,14 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "d3-force": "^2.0.1",
+        "vue-d3-network": "^0.1.28",
         "vue-router": "^3.0.2",
         "vue-scroll-reveal": "^1.0.8",
         "vue-select": "^2.4.0",
         "vue-spinner": "^1.0.3",
         "vue-swal": "0.0.6",
-        "vue-tags-ball": "^1.2.0",
+        "vue-tags-ball": "https://github.com/KostVladlenovichKarnaukh/vue-tags-ball.git",
         "vue2-dropzone": "^3.2.2",
         "vue2-editor": "^2.6.6",
         "vuejs-datepicker": "^1.5.3",
