@@ -16,8 +16,18 @@ i
 		color: #07fdd8
 		// transition: all .1s
 	
-
-	// background-color: #fff
+.text-grey
+	color: #8d8d8d
+	.post
+		&:hover
+			&:after
+				content: ''
+				display: block
+				width: 100%
+				height: 1px
+				background-color:#07fdd8
+				transform: scale(1)
+		// background-color: #fff
 .body-platform
 	background-color: #252628
 .hover-link
@@ -50,15 +60,18 @@ i
 	// background-image:  url('/images/workplace.jpg')
 	height: 100%
 	position: fixed
+	width: 70px
 .block-name
-	height: 150px
+	height: 80px
 	background-color:#000 !important
 .center-content
 	width: 75px
+	margin-top: 150px
 .bottom-content
 	position: absolute
 	bottom:0
 	width: 75px
+
 .link
 	margin-bottom: 30px
 	&:hover

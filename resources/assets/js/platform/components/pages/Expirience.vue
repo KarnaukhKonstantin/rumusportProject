@@ -9,7 +9,9 @@
 
 				<div class="row">
 					<div class="col-md-12 mb-3" v-for="category in categories">
-						<p class="my-0 exp-tags">{{category.name}}</p>
+						<router-link class="my-2" :to="{ name: 'category', params: { id: category.id }}" tag="a">
+							<p class="my-0 exp-tags">{{category.name}}</p>
+						</router-link>
 						<div class="row">
 							<div class="col-md-6 tag-link" v-for="tag in category.tags">
 								<router-link class="my-2" :to="{ name: 'tag', params: { id: tag.id }}" tag="a">
@@ -194,21 +196,21 @@
 		},
 		created() {
 			axios.get('/api/categories-without-pagination')
-				.then(response => {
-					this.categories = response.data
-				})
+			.then(response => {
+				this.categories = response.data
+			})
 			axios.get('/api/tags-without-paginate')
 			.then(response => {
 				this.tags = response.data
 			})
 			axios.get('/api/nodes')
-				.then(response => {
-					this.nodes = response.data
-				})
+			.then(response => {
+				this.nodes = response.data
+			})
 			axios.get('/api/all-graph-lines-without-paginate')
-				.then(response => {
-					this.links = response.data
-				})
+			.then(response => {
+				this.links = response.data
+			})
 		}	
 	}
 </script>

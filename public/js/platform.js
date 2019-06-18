@@ -2606,6 +2606,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3193,9 +3195,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      tag: {},
+      posts: [],
+      projects: [],
+      tagId: ''
+    };
+  },
+  watch: {
+    '$route': function $route(to, from) {
+      this.getTag();
+    }
+  },
+  methods: {
+    getTag: function getTag() {
+      var _this = this;
+
+      axios.get('/api/tag/' + this.$route.params.id).then(function (response) {
+        _this.tag = response.data.tag;
+        _this.tagId = response.data.tag.id;
+        _this.posts = response.data.posts;
+        _this.projects = response.data.projects;
+      });
+    }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    axios.get('/api/tags/' + this.$route.params.id).then(function (response) {
+      _this2.tag = response.data.tag;
+      _this2.tagId = response.data.tag.id;
+      _this2.posts = response.data.posts;
+      _this2.projects = response.data.projects;
+    });
   }
 });
 
@@ -51504,8 +51569,134 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "center-content my-5 text-center block-content mb-3" },
+      { staticClass: "center-content text-center block-content mb-3" },
       [
+        _c(
+          "div",
+          { staticClass: "block-content" },
+          [
+            _c(
+              "router-link",
+              { attrs: { to: { name: "platform-about" }, tag: "a" } },
+              [
+                _c("i", {
+                  staticClass: "fa fa-user-o link",
+                  class: [_vm.aboutIcon === true ? "fa fa-user-o" : ""],
+                  on: {
+                    mouseover: function($event) {
+                      _vm.aboutIcon = false
+                    },
+                    mouseleave: function($event) {
+                      _vm.aboutIcon = true
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.aboutIcon,
+                        expression: "!aboutIcon"
+                      }
+                    ],
+                    staticClass: "text-center projects"
+                  },
+                  [_vm._v("ABOUT")]
+                )
+              ]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "block-content" },
+          [
+            _c(
+              "router-link",
+              { attrs: { to: { name: "platform-skills" }, tag: "a" } },
+              [
+                _c("i", {
+                  staticClass: "fa fa-cog link",
+                  class: [_vm.skillsIcon === true ? "fa fa-cog" : ""],
+                  on: {
+                    mouseover: function($event) {
+                      _vm.skillsIcon = false
+                    },
+                    mouseleave: function($event) {
+                      _vm.skillsIcon = true
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.skillsIcon,
+                        expression: "!skillsIcon"
+                      }
+                    ],
+                    staticClass: "text-center projects"
+                  },
+                  [_vm._v("SKILLS")]
+                )
+              ]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "block-content" },
+          [
+            _c(
+              "router-link",
+              { attrs: { to: { name: "platform-expirience" }, tag: "a" } },
+              [
+                _c("i", {
+                  staticClass: "fa fa-codepen link",
+                  class: [_vm.expirienceIcon === true ? "fa fa-codepen" : ""],
+                  on: {
+                    mouseover: function($event) {
+                      _vm.expirienceIcon = false
+                    },
+                    mouseleave: function($event) {
+                      _vm.expirienceIcon = true
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.expirienceIcon,
+                        expression: "!expirienceIcon"
+                      }
+                    ],
+                    staticClass: "text-center projects"
+                  },
+                  [_vm._v("EXPIRIENCE")]
+                )
+              ]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "block-content" },
@@ -51515,11 +51706,9 @@ var render = function() {
               { attrs: { to: { name: "platform-projects" }, tag: "a" } },
               [
                 _c("i", {
-                  staticClass: "fa fa-2x fa-connectdevelop link",
+                  staticClass: "fa fa-connectdevelop link",
                   class: [
-                    _vm.projectsIcon === true
-                      ? "fa fa-2x fa-connectdevelop"
-                      : ""
+                    _vm.projectsIcon === true ? "fa fa-connectdevelop" : ""
                   ],
                   on: {
                     mouseover: function($event) {
@@ -51561,10 +51750,8 @@ var render = function() {
               { attrs: { to: { name: "platform-blog" }, tag: "a" } },
               [
                 _c("i", {
-                  staticClass: "fa fa-2x fa-pencil-square-o link",
-                  class: [
-                    _vm.blogIcon === true ? "fa fa-2x fa-pencil-square-o" : ""
-                  ],
+                  staticClass: "fa fa-pencil-square-o link",
+                  class: [_vm.blogIcon === true ? "fa fa-pencil-square-o" : ""],
                   on: {
                     mouseover: function($event) {
                       _vm.blogIcon = false
@@ -51602,139 +51789,11 @@ var render = function() {
           [
             _c(
               "router-link",
-              { attrs: { to: { name: "platform-about" }, tag: "a" } },
-              [
-                _c("i", {
-                  staticClass: "fa fa-2x fa-user-o link",
-                  class: [_vm.aboutIcon === true ? "fa fa-2x fa-user-o" : ""],
-                  on: {
-                    mouseover: function($event) {
-                      _vm.aboutIcon = false
-                    },
-                    mouseleave: function($event) {
-                      _vm.aboutIcon = true
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: !_vm.aboutIcon,
-                        expression: "!aboutIcon"
-                      }
-                    ],
-                    staticClass: "text-center projects"
-                  },
-                  [_vm._v("ABOUT")]
-                )
-              ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "block-content" },
-          [
-            _c(
-              "router-link",
-              { attrs: { to: { name: "platform-skills" }, tag: "a" } },
-              [
-                _c("i", {
-                  staticClass: "fa fa-2x fa-cog link",
-                  class: [_vm.skillsIcon === true ? "fa fa-2x fa-cog" : ""],
-                  on: {
-                    mouseover: function($event) {
-                      _vm.skillsIcon = false
-                    },
-                    mouseleave: function($event) {
-                      _vm.skillsIcon = true
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: !_vm.skillsIcon,
-                        expression: "!skillsIcon"
-                      }
-                    ],
-                    staticClass: "text-center projects"
-                  },
-                  [_vm._v("SKILLS")]
-                )
-              ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "block-content" },
-          [
-            _c(
-              "router-link",
-              { attrs: { to: { name: "platform-expirience" }, tag: "a" } },
-              [
-                _c("i", {
-                  staticClass: "fa fa-2x fa-codepen link",
-                  class: [
-                    _vm.expirienceIcon === true ? "fa fa-2x fa-codepen" : ""
-                  ],
-                  on: {
-                    mouseover: function($event) {
-                      _vm.expirienceIcon = false
-                    },
-                    mouseleave: function($event) {
-                      _vm.expirienceIcon = true
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: !_vm.expirienceIcon,
-                        expression: "!expirienceIcon"
-                      }
-                    ],
-                    staticClass: "text-center projects"
-                  },
-                  [_vm._v("EXPIRIENCE")]
-                )
-              ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "block-content" },
-          [
-            _c(
-              "router-link",
               { attrs: { to: { name: "platform-other" }, tag: "a" } },
               [
                 _c("i", {
-                  staticClass: "fa fa-2x fa-th link",
-                  class: [_vm.otherIcon === true ? "fa fa-2x fa-th" : ""],
+                  staticClass: "fa fa-th link",
+                  class: [_vm.otherIcon === true ? "fa fa-th" : ""],
                   on: {
                     mouseover: function($event) {
                       _vm.otherIcon = false
@@ -51775,8 +51834,8 @@ var render = function() {
               { attrs: { to: { name: "platform-links" }, tag: "a" } },
               [
                 _c("i", {
-                  staticClass: "fa fa-2x fa-code link",
-                  class: [_vm.linksIcon === true ? "fa fa-2x fa-cog" : ""],
+                  staticClass: "fa fa-code link",
+                  class: [_vm.linksIcon === true ? "fa fa-cog" : ""],
                   on: {
                     mouseover: function($event) {
                       _vm.linksIcon = false
@@ -51818,7 +51877,7 @@ var render = function() {
           _c(
             "router-link",
             { attrs: { to: { name: "platform-links" }, tag: "a" } },
-            [_c("i", { staticClass: "fa fa-2x fa-twitter" })]
+            [_c("i", { staticClass: "fa fa-twitter" })]
           )
         ],
         1
@@ -51831,7 +51890,7 @@ var render = function() {
           _c(
             "router-link",
             { attrs: { to: { name: "platform-links" }, tag: "a" } },
-            [_c("i", { staticClass: "fa fa-2x fa-linkedin" })]
+            [_c("i", { staticClass: "fa fa-linkedin" })]
           )
         ],
         1
@@ -51844,7 +51903,7 @@ var render = function() {
           _c(
             "router-link",
             { attrs: { to: { name: "platform-links" }, tag: "a" } },
-            [_c("i", { staticClass: "fa fa-2x fa-facebook" })]
+            [_c("i", { staticClass: "fa fa-facebook" })]
           )
         ],
         1
@@ -51857,7 +51916,7 @@ var render = function() {
           _c(
             "router-link",
             { attrs: { to: { name: "platform-links" }, tag: "a" } },
-            [_c("i", { staticClass: "fa fa-2x fa-instagram" })]
+            [_c("i", { staticClass: "fa fa-instagram" })]
           )
         ],
         1
@@ -52888,7 +52947,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
+  return _c("section", { staticClass: "text-grey" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-4 mt-5 block-category pr-4" }, [
         _c("img", { attrs: { src: _vm.category.image, width: "100%" } }),
@@ -52908,12 +52967,12 @@ var render = function() {
         { staticClass: "col-md-8 pl-4" },
         [
           _vm.posts.length > 0
-            ? _c("h3", { staticClass: " mt-5" }, [_vm._v("Posts")])
+            ? _c("h3", { staticClass: "my-5" }, [_vm._v("Posts")])
             : _vm._e(),
           _vm._v(" "),
           _vm._l(_vm.posts, function(post) {
             return _vm.posts.length > 0
-              ? _c("div", { staticClass: "row mb-4 pb-2" }, [
+              ? _c("div", { staticClass: "row mb-4 pb-2 align-items-end" }, [
                   _c(
                     "div",
                     { staticClass: "col-md-2" },
@@ -52952,7 +53011,7 @@ var render = function() {
           _vm._v(" "),
           _vm._l(_vm.projects, function(project) {
             return _vm.projects.length > 0
-              ? _c("div", { staticClass: "row mb-4 pb-2" }, [
+              ? _c("div", { staticClass: "row mb-4 pb-2 align-items-end" }, [
                   _c(
                     "div",
                     { staticClass: "col-md-2" },
@@ -53041,41 +53100,58 @@ var render = function() {
           "div",
           { staticClass: "row" },
           _vm._l(_vm.categories, function(category) {
-            return _c("div", { staticClass: "col-md-12 mb-3" }, [
-              _c("p", { staticClass: "my-0 exp-tags" }, [
-                _vm._v(_vm._s(category.name))
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "row" },
-                _vm._l(category.tags, function(tag) {
-                  return _c(
-                    "div",
-                    { staticClass: "col-md-6 tag-link" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "my-2",
-                          attrs: {
-                            to: { name: "tag", params: { id: tag.id } },
-                            tag: "a"
-                          }
-                        },
-                        [
-                          _c("p", { staticClass: " tag-ul my-0" }, [
-                            _vm._v(_vm._s(tag.name))
-                          ])
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                }),
-                0
-              )
-            ])
+            return _c(
+              "div",
+              { staticClass: "col-md-12 mb-3" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "my-2",
+                    attrs: {
+                      to: { name: "category", params: { id: category.id } },
+                      tag: "a"
+                    }
+                  },
+                  [
+                    _c("p", { staticClass: "my-0 exp-tags" }, [
+                      _vm._v(_vm._s(category.name))
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  _vm._l(category.tags, function(tag) {
+                    return _c(
+                      "div",
+                      { staticClass: "col-md-6 tag-link" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "my-2",
+                            attrs: {
+                              to: { name: "tag", params: { id: tag.id } },
+                              tag: "a"
+                            }
+                          },
+                          [
+                            _c("p", { staticClass: " tag-ul my-0" }, [
+                              _vm._v(_vm._s(tag.name))
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  }),
+                  0
+                )
+              ],
+              1
+            )
           }),
           0
         )
@@ -53528,7 +53604,98 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section")
+  return _c("section", { staticClass: "text-grey" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-4 mt-5 block-category pr-4" }, [
+        _c("h1", { staticClass: "text-right" }, [_vm._v(_vm._s(_vm.tag.name))])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-8 pl-4" },
+        [
+          _vm.posts.length > 0
+            ? _c("h3", { staticClass: "my-5" }, [_vm._v("Posts")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(_vm.posts, function(post) {
+            return _vm.posts.length > 0
+              ? _c("div", { staticClass: "row mb-4 pb-2 align-items-end" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-2" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "my-2",
+                          attrs: {
+                            to: { name: "post", params: { id: post.id } },
+                            tag: "a"
+                          }
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: post.image, width: "100%" }
+                          })
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-10 post" }, [
+                    _c("p", { staticClass: "text-left" }, [
+                      _vm._v(_vm._s(post.short_description))
+                    ])
+                  ])
+                ])
+              : _vm._e()
+          }),
+          _vm._v(" "),
+          _vm.projects.length > 0
+            ? _c("h3", { staticClass: " mt-5" }, [_vm._v("Projects")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(_vm.projects, function(project) {
+            return _vm.projects.length > 0
+              ? _c("div", { staticClass: "row mb-4 pb-2 align-items-end" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-2" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "my-2",
+                          attrs: {
+                            to: { name: "post", params: { id: project.id } },
+                            tag: "a"
+                          }
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: project.image, width: "100%" }
+                          })
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-10 post" }, [
+                    _c("p", { staticClass: "text-left" }, [
+                      _vm._v(_vm._s(project.short_description))
+                    ])
+                  ])
+                ])
+              : _vm._e()
+          })
+        ],
+        2
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

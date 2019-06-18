@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use App\Models\Node;
+use App\Models\Post;
+use App\Models\Project;
 
 class TagController extends Controller
 {
@@ -56,6 +58,31 @@ class TagController extends Controller
 
 
         return response()->json($tag);
+    }
+
+
+
+    public function getTag($id)
+    {
+        $tag = Tag::where('id', $id)->first();
+
+         $posts = Post::whereHas('tags',function($query)use($tag){
+                $query->where('id',$tag->id);
+            })->get();
+
+         $projects = Project::whereHas('tags',function($query)use($tag){
+                $query->where('id',$tag->id);
+            })->get();
+
+         if($posts){
+            $tag->posts = $posts;
+         }
+
+         if($projects){
+            $tag->projects = $projects;
+         }
+
+         return response()->json(['tag' => $tag, 'posts' => $posts, 'projects' => $projects]);
     }
 
 
