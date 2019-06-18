@@ -2,7 +2,7 @@
 	<div class="card card-body-blog black-color">
 		<!-- header with button Create -->
 		<div class="card-header w-100">
-			<button class="btn btn-success float-right" data-toggle="modal" data-target="#tagModal" @click="createNew()">Create Tag</button>
+			<button class="btn btn-success float-right" data-toggle="modal" data-target="#nodelineModal" @click="createNew()">Create Node Line</button>
 		</div>
 
 		<!-- live search (name) -->
@@ -16,7 +16,7 @@
 			ref="vuetable"
 			class="table-hover"
 			:css="css.table"
-			:api-url="'/api/tags?paginate=1&name=' + name"
+			:api-url="'/api/all-graphs?paginate=1'"
 			:fields="fields"
 			data-path="data"
 			pagination-path=""
@@ -25,7 +25,7 @@
 
 			<template slot="actions" slot-scope="props">
 				<div class="table-button-container">
-					<button class="btn btn-primary" data-toggle="modal" data-target="#tagModal" @click="viewItem(props.rowData)"><i class="fa fa-pencil  mr-1"></i>Edit</button>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#nodelineModal" @click="viewItem(props.rowData)"><i class="fa fa-pencil  mr-1"></i>Edit</button>
 					<button class="btn btn-danger text-white" @click="deleteItem(props.rowData)"><i class="fa fa-trash-o  mr-1"></i>Delete</button>
 				</div>
 			</template>
@@ -40,7 +40,7 @@
 	</div>
 
 	<!-- Create Modal -->
-	<div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="nodelineModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -51,18 +51,22 @@
 				</div>
 				<div class="modal-body">
 
-					<!-- Name -->
-					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control br-dark-blue" v-model="form.name" :placeholder="name" id="tag_name">
-					</div>
-
-					<!-- Category -->
+					<!-- Node 1 -->
 					<div class="row form-group">
-						<label class="col-md-12">Categories</label>
+						<label class="col-md-12">Node 1</label>
 						<div class="col-md-12">
-							<select class="form-control br-dark-blue" id="tag_category" v-model.trim="form.category_id">
-								<option :value="category.id" v-for="category in categories">{{ category.name }}</option> 
+							<select class="form-control br-dark-blue" id="sid" v-model.trim="form.sid">
+								<option :value="node.id" v-for="node in nodes">{{ node.name }}</option> 
+							</select>
+						</div>
+					</div>
+					
+					<!-- Node 2 -->
+					<div class="row form-group">
+						<label class="col-md-12">Node 1</label>
+						<div class="col-md-12">
+							<select class="form-control br-dark-blue" id="tid" v-model.trim="form.tid">
+								<option :value="node.id" v-for="node in nodes">{{ node.name }}</option> 
 							</select>
 						</div>
 					</div>
@@ -101,17 +105,17 @@
 					image: false,
 					modal_type: 'Create',
 					form: {},
-					tags: [],
+					nodes: [],
 					categories: [],
 
 					fields: [
 				{
-					name: 'name',
-					title: 'Name'
+					name: 'sid',
+					title: 'Node id 1'
 				},
 				{
-					name: '__slot:tagImage',
-					title: 'Tag Image',
+					name: 'tid',
+					title: 'Node id 2'
 				},
 				{
 					name: '__slot:actions',
@@ -148,8 +152,8 @@
 			this.error = false
 			this.modal_type = 'Create'
 			this.form = {
-				name: '',
-				category_id: ''
+				sid: '',
+				tid: ''
 			}
 		},
 		viewItem(item) {
@@ -158,32 +162,38 @@
 		},
 		save() {
 			if(this.modal_type == 'Create') {
-				if(this.form.name == '') {
-					document.getElementById('tag_name').focus()
+				if(this.form.sid == '') {
+					document.getElementById('sid').focus()
 				}
-				if(this.form.name !== '') {
-					axios.post('/api/tags', this.form)
+				if(this.form.tid == '') {
+					document.getElementById('tid').focus()
+				}
+				if(this.form.sid !== '' && this.form.tid !== '') {
+					axios.post('/api/add-graph-line', this.form)
 					.then(response => {
-						$('#tagModal').modal('hide')
+						$('#nodelineModal').modal('hide')
 						// Bus.$emit('updateCategory')
 						this.$refs.vuetable.reload()
-						this.$swal('Tag was Created',
+						this.$swal('Node Line was Created',
 							'',
 							'success',
 							);
 					})
 				}
 			} else if(this.modal_type == 'Update') {
-				if(this.form.name == '') {
-					document.getElementById('tag_name').focus()
+				if(this.form.sid == '') {
+					document.getElementById('sid').focus()
 				}
-				if(this.form.name !== '') {
-					axios.put('/api/tags/' + this.form.id, this.form)
+				if(this.form.tid == '') {
+					document.getElementById('tid').focus()
+				}
+				if(this.form.sid !== '' && this.form.tid !== '') {
+					axios.put('/api/update-graph-line/' + this.form.id, this.form)
 					.then(response => {
-						$('#tagModal').modal('hide')
+						$('#nodelineModal').modal('hide')
 						// Bus.$emit('updateTag')
 						this.$refs.vuetable.reload()
-						this.$swal('Tag was Updated',
+						this.$swal('Node Line was Updated',
 							'',
 							'success',
 							);
@@ -194,17 +204,17 @@
 		deleteItem(item) {
 			this.$swal({
 				title: 'Are you Sure?',
-				text: 'You are trying delete' + ' ' + this.tag + ' ' + item.name,
+				text: 'You are trying delete' + ' ' + this.node + ' ' + item.name,
 				icon: 'warning',
 				buttons: true,
 				dangerMode: true,
 			})
 			.then((willDelete) => {
 				if (willDelete) {
-					axios.delete('/api/tags/' + item.id)
+					axios.delete('/api/delete-graph-line/' + item.id)
 					.then(response => {
 						this.$refs.vuetable.reload();
-						swal('Tag' + ' ' + 'was Deleted',
+						swal('Node Line' + ' ' + 'was Deleted',
 							'',
 							'success',
 							);
@@ -229,9 +239,9 @@
 	},
 	created() {
 		this.categories = JSON.parse(this.categories_list)
-		axios.get('/api/tags')
+		axios.get('/api/nodes')
 		.then(response => {
-			this.tags = response.data
+			this.nodes = response.data
 		})
 	}	
 }

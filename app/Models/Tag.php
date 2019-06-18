@@ -9,5 +9,7 @@ class Tag extends Model
 {
 	use TagRelationsTrait;
 	
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'category_id'];
+
+    protected $with = ['category'];
 }

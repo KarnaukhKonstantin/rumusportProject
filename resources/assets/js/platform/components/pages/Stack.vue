@@ -1,29 +1,29 @@
 <template>
 	<section>
-		<div class="row">
+		<div class="row stack">
 			<div class="col-md-6">
 				
 			</div>
 			<div class="col-md-6">
 				<div class="wrap">
 					<div class="cube">
-						<div class="front">
-							Front side
+						<div class="front text-center pt-5">
+							<img src="/images/icons/js.jpg" width="100" height="100">
 						</div>
-						<div class="back">
-							Back side
+						<div class="back text-center pt-5">
+							<img src="/images/icons/php.png" width="100" height="100">
 						</div>
-						<div class="top">
-							Top side
+						<div class="top text-center pt-5">
+							<img src="/images/icons/laravel.png" width="100" height="100">
 						</div>
-						<div class="bottom">
-							Bottom side
+						<div class="bottom text-center pt-5">
+							<img src="/images/icons/vue.png" width="100" height="100">
 						</div>
-						<div class="left">
-							Left side
+						<div class="left text-center pt-5">
+							<img src="/images/icons/postgresql-logo.png" width="100" height="100">
 						</div>
-						<div class="right">
-							Right side
+						<div class="right text-center pt-5">
+							<img src="/images/icons/mysql.png" width="100" height="100">
 						</div>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 	height: 100%;
 	width: 100%;
 	opacity: 0.9;
-	background-color: #000;
+	background-color: #484848;
 	border: solid 1px #07fdd8;
 	color: #ffffff;
 }

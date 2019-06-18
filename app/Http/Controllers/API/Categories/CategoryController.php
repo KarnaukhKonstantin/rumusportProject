@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Project;
+use App\Models\Tag;
 // use App\Models\News;
 
 class CategoryController extends Controller
@@ -30,6 +31,21 @@ class CategoryController extends Controller
         return response()->json($categories);
     }
 
+
+
+
+
+    public function categoriesWithoutPagination()
+    {
+        $categories = Category::all();
+
+        foreach($categories as $category) {
+            $tags = Tag::where('category_id', $category->id)->get();
+            $category->tags = $tags;
+        }  
+
+        return response()->json($categories);
+    }
 
 
     public function storeCategory(Request $request)

@@ -41,7 +41,7 @@
 			</div>
 			<div class="col-md-11">
 				<main class="content container-fluid">
-					<router-view></router-view>
+					<router-view categories_list="{{ $categories }}" tags_list="{{ $tags }}"></router-view>
 				</main>
 			</div>
 			<!-- <div class="col-md-2">

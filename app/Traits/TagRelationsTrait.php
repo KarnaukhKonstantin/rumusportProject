@@ -15,4 +15,9 @@ trait TagRelationsTrait {
     {
         return $this->belongsToMany('App\Models\Project');
     }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category', 'category_id');
+    }
 }

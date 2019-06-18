@@ -17,6 +17,12 @@
 				</router-link>
 			</li>
 			<li class="pl-3 pt-3">
+				<router-link class="d-block" :to="{ name: 'nodesAdmin'}" tag="a">
+					<i class="fa fa-dot-circle-o mr-2"></i>
+					Nodes
+				</router-link>
+			</li>
+			<li class="pl-3 pt-3">
 				<router-link class="d-block" :to="{ name: 'skillsAdmin'}" tag="a">
 					<i class="fa fa-wrench mr-2"></i>
 					Skills

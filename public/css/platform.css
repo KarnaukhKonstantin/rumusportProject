@@ -10941,3 +10941,23 @@ li {
   top: 20%;
 }
 
+.stack {
+  margin-top: 200px;
+}
+
+.exp-tags {
+  color: #07fdd8;
+}
+
+.border-exp {
+  border: 2px solid red;
+}
+
+.tag-ul {
+  color: #fff !important;
+}
+
+.tag-link:hover {
+  border-left: 3px solid #07fdd8;
+}
+

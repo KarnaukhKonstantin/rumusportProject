@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\Tags;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
+use App\Models\Node;
 
 class TagController extends Controller
 {
@@ -29,12 +30,30 @@ class TagController extends Controller
 
 
 
+
+    public function getAllTagsWithoutPaginate()
+    {
+        $tags = Tag::all();
+
+        return $tags;
+    }
+
+
+
+
     public function storeTag(Request $request)
     {
         $newTag = request()->validate([
             'name' => 'required',
+            'category_id' => 'required'
         ]);
         $tag = Tag::create($newTag);
+
+        $node = Node::create([
+            'name' => $tag->name,
+            '_color' => '#07fdd8'
+        ]);
+
 
         return response()->json($tag);
     }
@@ -46,6 +65,7 @@ class TagController extends Controller
     {
         $newTag = request()->validate([
             'name' => 'required',
+            'category_id' => 'required'
             
         ]);
         Tag::where('id', $id)->update($newTag);

@@ -29,13 +29,6 @@
 			</div>
 
 			<div class="block-content">
-				<router-link :to="{ name: 'platform-other'}" tag="a">
-					<i class="fa fa-2x fa-th link" @mouseover="otherIcon = false" @mouseleave="otherIcon = true" :class="[otherIcon === true ? 'fa fa-2x fa-th' : '']"></i>
-					<p class="text-center projects" v-show="!otherIcon">OTHER</p>
-				</router-link>
-			</div>
-
-			<div class="block-content">
 				<router-link :to="{ name: 'platform-skills'}" tag="a">
 					<i class="fa fa-2x fa-cog link" @mouseover="skillsIcon = false" @mouseleave="skillsIcon = true" :class="[skillsIcon === true ? 'fa fa-2x fa-cog' : '']"></i>
 					<p class="text-center projects" v-show="!skillsIcon">SKILLS</p>
@@ -50,11 +43,18 @@
 			</div>
 
 			<div class="block-content">
+				<router-link :to="{ name: 'platform-other'}" tag="a">
+					<i class="fa fa-2x fa-th link" @mouseover="otherIcon = false" @mouseleave="otherIcon = true" :class="[otherIcon === true ? 'fa fa-2x fa-th' : '']"></i>
+					<p class="text-center projects" v-show="!otherIcon">OTHER</p>
+				</router-link>
+			</div>
+
+			<!-- <div class="block-content">
 				<router-link :to="{ name: 'platform-stack'}" tag="a">
 					<i class="fa fa-2x fa-empire link" @mouseover="stackIcon = false" @mouseleave="stackIcon = true" :class="[stackIcon === true ? 'fa fa-2x fa-cog' : '']"></i>
 					<p class="text-center projects" v-show="!stackIcon">STACK</p>
 				</router-link>
-			</div>
+			</div> -->
 
 			<div class="block-content">
 				<router-link :to="{ name: 'platform-links'}" tag="a">

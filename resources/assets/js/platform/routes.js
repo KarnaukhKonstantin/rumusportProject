@@ -27,6 +27,11 @@ let routes = [
 		name: 'category'
 	},
 	{
+		path: '/tag/:id',
+		component: require('./components/pages/Tag.vue').default,
+		name: 'tag'
+	},
+	{
 		path: '/about',
 		component: require('./components/pages/About.vue').default,
 		name: 'platform-about',
