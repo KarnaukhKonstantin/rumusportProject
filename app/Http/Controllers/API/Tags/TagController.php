@@ -51,7 +51,7 @@ class TagController extends Controller
 
         $node = Node::create([
             'name' => $tag->name,
-            '_color' => '#07fdd8'
+            '_color' => request()->_color
         ]);
 
 

@@ -4682,6 +4682,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4746,7 +4752,8 @@ __webpack_require__.r(__webpack_exports__);
       this.modal_type = 'Create';
       this.form = {
         name: '',
-        category_id: ''
+        category_id: '',
+        _color: ''
       };
     },
     viewItem: function viewItem(item) {
@@ -47175,6 +47182,36 @@ var render = function() {
                       0
                     )
                   ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Node Color")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form._color,
+                        expression: "form._color"
+                      }
+                    ],
+                    staticClass: "form-control br-dark-blue",
+                    attrs: {
+                      type: "text",
+                      placeholder: _vm.name,
+                      id: "node_color"
+                    },
+                    domProps: { value: _vm.form._color },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "_color", $event.target.value)
+                      }
+                    }
+                  })
                 ])
               ]),
               _vm._v(" "),

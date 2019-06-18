@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Node extends Model
 {
-    protected $fillable = ['name', 'color'];
+    protected $fillable = ['name', '_color'];
 }

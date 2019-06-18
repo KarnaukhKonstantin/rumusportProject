@@ -66,6 +66,12 @@
 							</select>
 						</div>
 					</div>
+
+					<!-- Node's color -->
+					<div class="form-group">
+						<label>Node Color</label>
+						<input type="text" class="form-control br-dark-blue" v-model="form._color" :placeholder="name" id="node_color">
+					</div>
 				</div>
 				
 				<div class="modal-footer">
@@ -149,7 +155,8 @@
 			this.modal_type = 'Create'
 			this.form = {
 				name: '',
-				category_id: ''
+				category_id: '',
+				_color: ''
 			}
 		},
 		viewItem(item) {
