@@ -4,7 +4,7 @@
 			<div class="col-md-6">
 				
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<div class="wrap">
 					<div class="cube">
 						<div class="front text-center pt-5">
@@ -27,6 +27,9 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="col-md-2">
+				
 			</div>
 		</div>
 		

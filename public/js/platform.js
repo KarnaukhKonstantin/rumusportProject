@@ -2410,6 +2410,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -2608,6 +2611,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2617,6 +2623,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       tags: [],
+      categories_tags: [],
+      open_tags: false,
+      category_id: '',
       categories: [{
         tags: []
       }],
@@ -2767,6 +2776,16 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     lcb: function lcb(link) {
       return link;
+    },
+    openTags: function openTags(category_id) {
+      this.open_tags = !this.open_tags;
+
+      for (var i = 0; i < this.categories.length; i++) {
+        if (this.categories[i].id == category_id) {
+          this.categories_tags = this.categories[i].tags;
+          this.category_id = this.categories[i].id;
+        }
+      }
     }
   },
   created: function created() {
@@ -3047,7 +3066,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       styleObject: {
-        color: '#ffffff',
         border: '2px solid #252628'
       },
       skills: [{
@@ -52758,7 +52776,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "row stack" }, [
         _c("div", { staticClass: "col-md-6" }),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "wrap" }, [
             _c("div", { staticClass: "cube" }, [
               _c("div", { staticClass: "front text-center pt-5" }, [
@@ -52822,7 +52840,9 @@ var staticRenderFns = [
               ])
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" })
       ])
     ])
   }
@@ -53100,58 +53120,58 @@ var render = function() {
           "div",
           { staticClass: "row" },
           _vm._l(_vm.categories, function(category) {
-            return _c(
-              "div",
-              { staticClass: "col-md-12 mb-3" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "my-2",
-                    attrs: {
-                      to: { name: "category", params: { id: category.id } },
-                      tag: "a"
+            return _c("div", { staticClass: "col-md-12 mb-3" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "category-button",
+                  on: {
+                    click: function($event) {
+                      return _vm.openTags(category.id)
                     }
-                  },
-                  [
-                    _c("p", { staticClass: "my-0 exp-tags" }, [
-                      _vm._v(_vm._s(category.name))
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "row" },
-                  _vm._l(category.tags, function(tag) {
-                    return _c(
-                      "div",
-                      { staticClass: "col-md-6 tag-link" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "my-2",
-                            attrs: {
-                              to: { name: "tag", params: { id: tag.id } },
-                              tag: "a"
-                            }
-                          },
-                          [
-                            _c("p", { staticClass: " tag-ul my-0" }, [
-                              _vm._v(_vm._s(tag.name))
-                            ])
-                          ]
-                        )
-                      ],
-                      1
-                    )
-                  }),
-                  0
-                )
-              ],
-              1
-            )
+                  }
+                },
+                [
+                  _c("p", { staticClass: "my-0 text-grey" }, [
+                    _vm._v(_vm._s(category.name))
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _vm.category_id == category.id && _vm.open_tags == true
+                ? _c(
+                    "div",
+                    { staticClass: "row mx-2 my-2" },
+                    _vm._l(_vm.categories_tags, function(tag) {
+                      return _c(
+                        "div",
+                        { staticClass: "col-md-6 tag-link" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "my-2",
+                              attrs: {
+                                to: { name: "tag", params: { id: tag.id } },
+                                tag: "a"
+                              }
+                            },
+                            [
+                              _c(
+                                "p",
+                                { staticClass: "my-0 text-grey lighter" },
+                                [_vm._v(_vm._s(tag.name))]
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  )
+                : _vm._e()
+            ])
           }),
           0
         )

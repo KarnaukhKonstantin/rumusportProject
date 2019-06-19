@@ -10682,8 +10682,12 @@ i:hover {
   color: #07fdd8;
 }
 
+button {
+  outline: 0 !important;
+}
+
 .text-grey {
-  color: #8d8d8d;
+  color: #BDBDBD;
 }
 
 .text-grey .post:hover:after {
@@ -10694,6 +10698,17 @@ i:hover {
   background-color: #07fdd8;
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+.lighter {
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.category-button {
+  background-color: #252628;
+  color: #8d8d8d;
+  border: none;
 }
 
 .body-platform {

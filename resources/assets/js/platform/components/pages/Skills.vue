@@ -31,7 +31,6 @@
 		data() {
 			return {
 				styleObject: {
-					color: '#ffffff',
 					border: '2px solid #252628'
 				},
 				skills: [{

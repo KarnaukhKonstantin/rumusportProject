@@ -9,13 +9,16 @@
 
 				<div class="row">
 					<div class="col-md-12 mb-3" v-for="category in categories">
-						<router-link class="my-2" :to="{ name: 'category', params: { id: category.id }}" tag="a">
-							<p class="my-0 exp-tags">{{category.name}}</p>
-						</router-link>
-						<div class="row">
-							<div class="col-md-6 tag-link" v-for="tag in category.tags">
+						<button class="category-button" @click="openTags(category.id)">
+							<!-- <router-link class="my-2" :to="{ name: 'category', params: { id: category.id }}" tag="a"> -->
+								<p class="my-0 text-grey">{{category.name}}</p>
+							<!-- </router-link> -->
+						</button>
+						
+					<div class="row mx-2 my-2" v-if="category_id == category.id && open_tags == true">
+							<div class="col-md-6 tag-link" v-for="tag in categories_tags">
 								<router-link class="my-2" :to="{ name: 'tag', params: { id: tag.id }}" tag="a">
-									<p class=" tag-ul my-0">{{ tag.name }}</p>
+									<p class="my-0 text-grey lighter">{{ tag.name }}</p>
 								</router-link>
 							</div>
 						</div>
@@ -36,6 +39,9 @@
 		data() {
 			return {
 				tags: [],
+				categories_tags: [],
+				open_tags: false,
+				category_id: '',
 				categories: [{
 					tags: [],
 				}],
@@ -192,6 +198,16 @@
 		methods: {
 			lcb (link) {
 				return link
+			},
+			openTags(category_id) {
+				this.open_tags = !this.open_tags
+				for (var i = 0; i < this.categories.length; i++) {
+					if(this.categories[i].id == category_id) {
+						this.categories_tags = this.categories[i].tags
+						this.category_id = this.categories[i].id
+					}
+				}
+
 			}
 		},
 		created() {
