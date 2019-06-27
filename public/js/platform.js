@@ -2615,6 +2615,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -85403,59 +85404,71 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c(
-      "div",
-      { staticClass: "row all-posts-row" },
-      _vm._l(_vm.posts, function(post) {
-        return _c("div", { staticClass: "col-md-4 mt-3" }, [
-          _c(
-            "div",
-            {
-              staticClass: "box",
-              on: {
-                mouseover: function($event) {
-                  return _vm.getDate(post)
-                }
-              }
-            },
-            [
+    _vm.posts.length > 0
+      ? _c(
+          "div",
+          { staticClass: "row all-posts-row" },
+          _vm._l(_vm.posts, function(post) {
+            return _c("div", { staticClass: "col-md-4 mt-3" }, [
               _c(
-                "router-link",
+                "div",
                 {
-                  attrs: {
-                    to: { name: "post", params: { id: post.id } },
-                    tag: "a"
+                  staticClass: "box",
+                  on: {
+                    mouseover: function($event) {
+                      return _vm.getDate(post)
+                    }
                   }
                 },
                 [
-                  _c("img", {
-                    attrs: { src: post.image, width: "100%", height: "100%" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "hover-effect" }, [
-                    _c(
-                      "a",
-                      { staticClass: "hover-text", attrs: { href: "#" } },
-                      [
-                        _c("h1", [_vm._v(_vm._s(post.title))]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(post.short_description))]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "mt-2" }, [
-                          _vm._v(_vm._s(_vm.date))
-                        ])
-                      ]
-                    )
-                  ])
-                ]
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "post", params: { id: post.id } },
+                        tag: "a"
+                      }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: post.image,
+                          width: "100%",
+                          height: "100%"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "hover-effect" }, [
+                        _c(
+                          "a",
+                          { staticClass: "hover-text", attrs: { href: "#" } },
+                          [
+                            _c("h1", [_vm._v(_vm._s(post.title))]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(post.short_description))]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "mt-2" }, [
+                              _vm._v(_vm._s(_vm.date))
+                            ])
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          )
+            ])
+          }),
+          0
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.posts.length < 0
+      ? _c("h1", { staticClass: "text-center" }, [
+          _vm._v("Ooooops! No Post Now...")
         ])
-      }),
-      0
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []

@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<div class="row all-posts-row">
+		<div class="row all-posts-row" v-if="posts.length > 0">
 			<div class="col-md-4 mt-3" v-for="post in posts">
 				<div class="box" @mouseover="getDate(post)">
 					<router-link :to="{ name: 'post', params: { id: post.id }}" tag="a">
@@ -16,6 +16,7 @@
 				</div>
 			</div>
 		</div>
+		<h1 class="text-center" v-if="posts.length < 0">Ooooops! No Post Now...</h1>
 	</section>
 </template>
 <script>
