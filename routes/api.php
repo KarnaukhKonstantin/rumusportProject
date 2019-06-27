@@ -70,6 +70,7 @@ Route::post('/login', 'Api\AuthController@login');
 	Route::post('/posts', 'API\Blog\PostController@storePost');
 	Route::put('/posts/{post_id}', 'API\Blog\PostController@updatePost');
 	Route::delete('/posts/{post_id}', 'API\Blog\PostController@deletePost');
+	Route::get('/main-posts', 'API\Blog\PostController@getMainPosts');
 
 	//projects
 	Route::get('/projects', 'API\Projects\ProjectController@getAllProjects');

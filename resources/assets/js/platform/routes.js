@@ -27,6 +27,11 @@ let routes = [
 		name: 'post'
 	},
 	{
+		path: '/blog-posts',
+		component: require('./components/pages/BlogPosts.vue').default,
+		name: 'all-posts'
+	},
+	{
 		path: '/category/:id',
 		component: require('./components/pages/Category.vue').default,
 		name: 'category'
