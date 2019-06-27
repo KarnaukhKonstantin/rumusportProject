@@ -1,52 +1,53 @@
 <template>
-	<section class="section-expirience d-block mt-5">
+	<section class="section-expirience d-block">
 		<div class="row ml-0">
-			<div class="col-md-9">
-				<d3-network  class="my-0 py-0" ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb"/>
-			</div>
 			<div class="col-md-3">
-				<h3 class="text-center exp-tags">My Expirience...</h3>
-
-				<div class="row">
-					<div class="col-md-12 mb-3" v-for="category in categories">
+				<open-doc class="expirience-doctype"></open-doc>
+				<img src="images/testimage.png" width="80" class="ml-5 mt-5">
+				<h1 class="exp-tags expirience-title ml-5">Expirience<img src="images/testimage2.png" width="80"></h1>
+				<div class="row ml-5 mb-5">
+					<div class="col-md-12 mb-3 text-left" v-for="category in categories">
 						<button class="category-button" @click="openTags(category.id)">
 							<!-- <router-link class="my-2" :to="{ name: 'category', params: { id: category.id }}" tag="a"> -->
 								<p class="my-0 text-grey">{{category.name}}</p>
-							<!-- </router-link> -->
-						</button>
-						
-					<div class="row mx-2 my-2" v-if="category_id == category.id && open_tags == true">
-							<div class="col-md-6 tag-link" v-for="tag in categories_tags">
-								<router-link class="my-2" :to="{ name: 'tag', params: { id: tag.id }}" tag="a">
-									<p class="my-0 text-grey lighter">{{ tag.name }}</p>
-								</router-link>
+								<!-- </router-link> -->
+							</button>
+
+							<div class="row mx-2 my-2" v-if="category_id == category.id && open_tags == true">
+								<div class="col-md-6 tag-link" v-for="tag in categories_tags">
+									<router-link class="my-2" :to="{ name: 'tag', params: { id: tag.id }}" tag="a">
+										<p class="my-0 text-grey lighter">{{ tag.name }}</p>
+									</router-link>
+								</div>
 							</div>
 						</div>
 					</div>
+					<close-doc></close-doc>
 				</div>
-				
+				<div class="col-md-9">
+					<d3-network  class="my-0 py-0" ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb"/>
+				</div>
 			</div>
-		</div>
-	</section>
-</template>
-<script>
-	import D3Network from 'vue-d3-network'
-	export default {
-		components: {
-			D3Network
-		},
-		props: ['categories_list', 'tags_list'],
-		data() {
-			return {
-				tags: [],
-				categories_tags: [],
-				open_tags: false,
-				category_id: '',
-				categories: [{
+		</section>
+	</template>
+	<script>
+		import D3Network from 'vue-d3-network'
+		export default {
+			components: {
+				D3Network
+			},
+			props: ['categories_list', 'tags_list'],
+			data() {
+				return {
 					tags: [],
-				}],
-				nodes: [],
-				links: [],
+					categories_tags: [],
+					open_tags: false,
+					category_id: '',
+					categories: [{
+						tags: [],
+					}],
+					nodes: [],
+					links: [],
 				// nodes: [
 				// { id: 1, name: 'Full Stack', _color: '#07fdd8', _border: '5px solid red'},
 				// { id: 2, name: 'PHP', _color: '#8892BF', _border: '5px solid red'},

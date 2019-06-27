@@ -20,6 +20,8 @@
 
 	<!-- CSS -->
 	<link href="{{ mix('css/platform.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="v-infinite-scroll/dist/v-infinite-scroll.css"></link>
+	<script src="v-infinite-scroll/dist/v-infinite-scroll.js"></script>
 
 </head>
 

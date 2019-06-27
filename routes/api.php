@@ -94,6 +94,11 @@ Route::post('/login', 'Api\AuthController@login');
 	Route::put('/soclinks/{soclink_id}', 'API\SocialLinks\SocialLinkController@updateSocLink');
 	Route::delete('/soclinks/{soclink_id}', 'API\SocialLinks\SocialLinkController@deleteSocLink');
 
+	//contact me
+	Route::get('/messages', 'API\ContactMe\MessageController@getAllMessages');
+	Route::post('/messages', 'API\ContactMe\MessageController@storeMessage');
+	Route::delete('/messages/{id}', 'API\ContactMe\MessageController@deleteMessage');
+
 	//image upload
 	Route::post('/images/{type}','API\Files\ImageController@store');
 	Route::post('/images/resize/{type}','API\Files\ImageController@storeResize');

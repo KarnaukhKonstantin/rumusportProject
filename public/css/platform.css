@@ -10686,8 +10686,66 @@ button {
   outline: 0 !important;
 }
 
+.contact-input,
+textarea {
+  background-color: #37393b !important;
+  border: none;
+  border-radius: 0px !important;
+  outline: none !important;
+  outline-offset: 0;
+  box-shadow: none;
+  font-weight: lighter !important;
+  color: #fff;
+}
+
+.contact-input:focus,
+textarea:focus {
+  outline: none !important;
+  outline-offset: 0;
+  box-shadow: none;
+  border-bottom: 2px solid #07fdd8;
+  color: #fff;
+}
+
+.contact-input:focus:after,
+textarea:focus:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #07fdd8;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  color: #fff;
+}
+
+#contact_name,
+#contact_email,
+#contact_subject {
+  height: 50px !important;
+}
+
+.contact-me {
+  background-color: #252628;
+  color: #07fdd8;
+  border: 1px solid #07fdd8;
+  border-radius: 5px;
+  font-weight: lighter;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.contact-me:hover {
+  color: #252628 !important;
+  background-color: #07fdd8;
+}
+
+.main-text-font {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .text-grey {
-  color: #BDBDBD;
+  color: #BDBDBD !important;
 }
 
 .text-grey .post:hover:after {
@@ -10698,6 +10756,10 @@ button {
   background-color: #07fdd8;
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+.fullstack-text {
+  letter-spacing: 5px;
 }
 
 .lighter {
@@ -10764,6 +10826,7 @@ button {
 
 .block-name {
   height: 80px;
+  width: 70px;
   background-color: #000 !important;
 }
 
@@ -10845,6 +10908,36 @@ button {
   width: 100%;
   height: 1px;
   background-color: #000;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.img-container {
+  height: 300px !important;
+  text-align: -webkit-center;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+.project-hover:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  transition: all 0.3s;
+}
+
+.project-hover:hover:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #07fdd8;
   -webkit-transform: scale(1);
           transform: scale(1);
 }
@@ -10990,5 +11083,21 @@ li {
 
 .tag-link:hover {
   border-left: 3px solid #07fdd8;
+}
+
+.home-page {
+  min-height: 100%;
+}
+
+.contact-title,
+.main-title,
+.expirience-title,
+.skill-title {
+  font-size: 60px;
+  letter-spacing: 0px;
+}
+
+.expirience-doctype {
+  margin-left: -29px;
 }
 

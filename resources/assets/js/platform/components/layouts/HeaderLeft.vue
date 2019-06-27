@@ -1,8 +1,10 @@
 <template>
 	<section class="header-platform-left">
 
-		<div class="block-name px-2 text-center">
-			<h1 class="text-white">R</h1>
+		<div class="block-name text-center">
+			<router-link :to="{ name: 'home'}" tag="a">
+				<img class="pb-0 w-100 logo" src="images/R.png">
+			</router-link>
 		</div>
 
 		<div class="center-content text-center block-content mb-3">
@@ -35,19 +37,12 @@
 				</router-link>
 			</div>
 
-			<div class="block-content">
-				<router-link :to="{ name: 'platform-blog'}" tag="a">
-					<i class="fa fa-pencil-square-o link" @mouseover="blogIcon = false" @mouseleave="blogIcon = true" :class="[blogIcon === true ? 'fa fa-pencil-square-o' : '']"></i>
-					<p class="text-center projects" v-show="!blogIcon">BLOG</p>
-				</router-link>
-			</div>
-
-			<div class="block-content">
+			<!-- <div class="block-content">
 				<router-link :to="{ name: 'platform-other'}" tag="a">
 					<i class="fa fa-th link" @mouseover="otherIcon = false" @mouseleave="otherIcon = true" :class="[otherIcon === true ? 'fa fa-th' : '']"></i>
 					<p class="text-center projects" v-show="!otherIcon">OTHER</p>
 				</router-link>
-			</div>
+			</div> -->
 
 			<!-- <div class="block-content">
 				<router-link :to="{ name: 'platform-stack'}" tag="a">
@@ -56,10 +51,24 @@
 				</router-link>
 			</div> -->
 
-			<div class="block-content">
+			<!-- <div class="block-content">
 				<router-link :to="{ name: 'platform-links'}" tag="a">
-					<i class="fa fa-code link" @mouseover="linksIcon = false" @mouseleave="linksIcon = true" :class="[linksIcon === true ? 'fa fa-cog' : '']"></i>
+					<i class="fa fa-code link" @mouseover="linksIcon = false" @mouseleave="linksIcon = true" :class="[linksIcon === true ? 'fa fa-code' : '']"></i>
 					<p class="text-center projects" v-show="!linksIcon">LINKS</p>
+				</router-link>
+			</div> -->
+
+			<div class="block-content">
+				<router-link :to="{ name: 'platform-contacts'}" tag="a">
+					<i class="fa fa-envelope-o link" @mouseover="contactIcon = false" @mouseleave="contactIcon = true" :class="[contactIcon === true ? 'fa fa-envelope-o' : '']"></i>
+					<p class="text-center projects" v-show="!contactIcon">CONTACT</p>
+				</router-link>
+			</div>
+
+			<div class="block-content mt-5">
+				<router-link :to="{ name: 'platform-blog'}" tag="a">
+					<i class="fa fa-pencil-square-o link" @mouseover="blogIcon = false" @mouseleave="blogIcon = true" :class="[blogIcon === true ? 'fa fa-pencil-square-o' : '']"></i>
+					<p class="text-center projects" v-show="!blogIcon">BLOG</p>
 				</router-link>
 			</div>
 		</div>
@@ -104,6 +113,7 @@
 				skillsIcon: true,
 				stackIcon: true,
 				linksIcon: true,
+				contactIcon: true,
 			}
 		}	
 	}

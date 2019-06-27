@@ -12,6 +12,11 @@ let routes = [
 		name: 'platform-projects',
 	},
 	{
+		path: '/project/:id',
+		component: require('./components/pages/Project.vue').default,
+		name: 'project'
+	},
+	{
 		path: '/blog',
 		component: require('./components/pages/Blog.vue').default,
 		name: 'platform-blog',
@@ -65,6 +70,11 @@ let routes = [
 		path: '/links',
 		component: require('./components/pages/Links.vue').default,
 		name: 'platform-links',
+	},
+	{
+		path: '/contact',
+		component: require('./components/pages/Contact.vue').default,
+		name: 'platform-contacts',
 	},
 
 	 // {
