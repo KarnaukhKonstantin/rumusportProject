@@ -71,6 +71,7 @@ Route::post('/login', 'Api\AuthController@login');
 	Route::put('/posts/{post_id}', 'API\Blog\PostController@updatePost');
 	Route::delete('/posts/{post_id}', 'API\Blog\PostController@deletePost');
 	Route::get('/main-posts', 'API\Blog\PostController@getMainPosts');
+	Route::get('/posts/category-posts/{id}', 'API\Blog\PostController@getPostsByCategory');
 
 	//projects
 	Route::get('/projects', 'API\Projects\ProjectController@getAllProjects');

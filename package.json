@@ -16,15 +16,16 @@
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
+        "moment": "^2.22.2",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10",
-        "moment": "^2.22.2"
+        "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@inotom/vue-go-top": "^1.1.0",
         "d3-force": "^2.0.1",
         "install": "^0.12.2",
         "leaflet": "^1.5.1",

@@ -1,39 +1,80 @@
 <template>
 	<section>
-		<div class="row all-posts-row" v-if="posts.length > 0">
-			<div class="col-md-4 mt-3" v-for="post in posts">
-				<div class="box" @mouseover="getDate(post)">
-					<router-link :to="{ name: 'post', params: { id: post.id }}" tag="a">
-						<img :src="post.image" width="100%" height="100%">
-						<div class="hover-effect">
-							<a href="#" class="hover-text">
-								<h1>{{post.title}}</h1>
-								<p>{{post.short_description}}</p>
-								<p class="mt-2">{{date}}</p>
-							</a>
+		<go-top 
+		:size="100" 
+		:right="50" 
+		fg-color="#07fdd8" 
+		bg-color="#37393b" 
+		ripple-bg="#07fdd8" 
+		:has-outline="false" 
+		:radius="10" 
+		:src="null" 
+		weight="lighter" 
+		box-shadow="1px 1px 2px #07fdd8" 
+		alt="`SCROLL`">
+		</go-top>
+		<div class="row all-posts-row">
+			<div class="col-md-4">
+				<div class="row mt-5 mx-1">
+					<div class="col-md-12" v-for="category in categories">
+						<div class="project-hover">
+							<p class="text-white text-center pt-3 btn-category" @click="categoryPosts(category.id)">{{category.name}}</p>
 						</div>
-					</router-link>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-6 mt-3" v-for="post in posts" v-if="posts.length > 0">
+						<div class="box" @mouseover="getDate(post)">
+							<router-link :to="{ name: 'post', params: { id: post.id }}" tag="a">
+								<img :src="post.image" width="100%" height="100%">
+								<div class="hover-effect">
+									<a href="#" class="hover-text">
+										<h1>{{post.title}}</h1>
+										<p>{{post.short_description}}</p>
+										<p class="mt-2">{{date}}</p>
+									</a>
+								</div>
+							</router-link>
+						</div>
+					</div>
+					<h1 class="text-white mt-5" v-if="posts.length == 0">OOOOPPPPS! This Category is empty now...</h1>
 				</div>
 			</div>
 		</div>
-		<h1 class="text-center" v-if="posts.length < 0">Ooooops! No Post Now...</h1>
 	</section>
 </template>
 <script>
+	import GoTop from '@inotom/vue-go-top';
 	import moment from 'moment'
 	export default {
+		components: {
+			GoTop
+		},
 		data() {
 			return {
 				posts: [],
 				date:'',
+				categories: [],
 			}
 		},
 		methods: {
+			categoryPosts(category_id) {
+				axios.get('/api/posts/category-posts/' + category_id)
+					.then(response => {
+						this.posts = response.data
+					})
+			},
 			getDate(post) {
 				this.date = moment(post.created_at).format('ll');
 			}
 		},
 		created() {
+			axios.get('/api/categories')
+			.then(response => {
+				this.categories = response.data
+			})
 			axios.get('/api/posts')
 			.then(response => {
 				this.posts = response.data

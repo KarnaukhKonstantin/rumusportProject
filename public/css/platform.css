@@ -10686,6 +10686,30 @@ button {
   outline: 0 !important;
 }
 
+.btn-category {
+  cursor: pointer;
+}
+
+.btn-category:hover {
+  color: #BDBDBD !important;
+}
+
+.scrollToTop {
+  position: fixed;
+  bottom: 60px;
+  right: 50px;
+  border-radius: 4px;
+  display: none;
+  z-index: 1001;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.scrollToTop:hover {
+  text-decoration: none;
+  outline: none;
+}
+
 .pt-55 {
   padding-top: 55%;
 }
@@ -10916,6 +10940,10 @@ textarea:focus:after {
           transform: scale(1);
 }
 
+.post-text img {
+  width: 100%;
+}
+
 .img-container {
   height: 300px !important;
   text-align: -webkit-center;
@@ -10923,6 +10951,10 @@ textarea:focus:after {
 
 .img-container img {
   width: 100%;
+}
+
+.sticky {
+  margin-top: 10%;
 }
 
 .project-hover:after {

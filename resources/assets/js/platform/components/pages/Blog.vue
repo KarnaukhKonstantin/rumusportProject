@@ -1,20 +1,25 @@
 <template>
-	<section>
+	<section class="post-place">
 		<div class="row main-post mt-3">
 			<div class="col-md-4">
 				<div class="img-container project-hover">
-					<img :src="posts[0].image" width="100%" height="100%">
-				</div>
-
-			</div>
-			<div class="col-md-4">
-				<div class="img-container project-hover">
-					<img :src="posts[1].image" width="100%" height="100%">
+					<router-link :to="{ name: 'post', params: { id: posts[1].id }}" tag="a">
+						<img :src="posts[1].image" width="100%" height="100%">
+					</router-link>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="img-container project-hover">
-					<img :src="posts[2].image" width="100%" height="100%">
+					<router-link :to="{ name: 'post', params: { id: posts[2].id }}" tag="a">
+						<img :src="posts[2].image" width="100%" height="100%">
+					</router-link>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="img-container project-hover">
+					<router-link :to="{ name: 'post', params: { id: posts[3].id }}" tag="a">
+						<img :src="posts[3].image" width="100%" height="100%">
+					</router-link>
 				</div>
 			</div>
 		</div>
@@ -30,7 +35,7 @@
 						<!-- <div class="col-md-12 project-hover mt-5" v-for="post in posts" v-scroll-reveal.reset> -->
 							<div class="box" @mouseover="getDate(posts[0])">
 								<router-link :to="{ name: 'post', params: { id: posts[0].id }}" tag="a">
-									<img :src="posts[3].image" width="100%">
+									<img :src="posts[0].image" width="100%">
 									<div class="hover-effect">
 										<a href="#" class="hover-text">
 											<h1>{{posts[0].title}}</h1>
@@ -61,7 +66,8 @@
 		data() {
 			return {
 				posts: [{
-					image: ''
+					image: '',
+					id: ''
 				}],
 				mainposts: [],
 				date: '',
@@ -73,10 +79,10 @@
 			}
 		},
 		created() {
-			axios.get('/api/main-posts')
-				.then(response => {
-					this.mainposts = response.data
-				})
+			// axios.get('/api/main-posts')
+			// 	.then(response => {
+			// 		this.mainposts = response.data
+			// 	})
 			axios.get('/api/posts')
 			.then(response => {
 				this.posts = response.data
@@ -146,5 +152,5 @@
     display: inline-block;
     text-align: right;
     }*/
-
+	
 </style>

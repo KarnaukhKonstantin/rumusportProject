@@ -32,6 +32,12 @@ class PostController extends Controller
 
 
 
+    public function getPostsByCategory(Request $request, $id)
+    {
+        $posts = Post::where('category_id', $id)->get();
+
+        return response()->json($posts);
+    }
     // public function getMainPosts()
     // {
     //      $posts = Post::where('id', '<', 4)->get();
