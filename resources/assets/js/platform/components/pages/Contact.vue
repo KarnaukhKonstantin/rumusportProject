@@ -3,8 +3,8 @@
 		<div class="row">
 			<div class="col-md-5">
 				<open-doc v-scroll-reveal.reset></open-doc>
-				<img src="images/testimage.png" width="80" class="ml-5 mt-5">
-				<h2 class="contact-title exp-tags my-0 ml-5">Contact me...<img src="images/testimage2.png" width="80"></h2>
+				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
+				<h2 class="contact-title exp-tags my-0 ml-5">Contact me...<img src="images/testimage2.png" width="60"></h2>
 				<p class="text-grey lighter ml-5">If you have any questions, please don’t hesitate to contact using form below…</p>
 				<div class="contact-form ml-5">
 					<div class="row">

@@ -10695,6 +10695,10 @@ button {
   font-size: 12px;
 }
 
+.text-big {
+  font-size: 100px;
+}
+
 .rotatable {
   font-size: 700px;
   margin-top: -550px;
@@ -10706,6 +10710,11 @@ button {
   -webkit-transform: rotate(-405deg);
   transform: rotate(-405deg);
   transition: all 0.9s;
+}
+
+.preloader-block {
+  height: 500px;
+  margin-top: 300px;
 }
 
 .sitehere-style-3dtext {

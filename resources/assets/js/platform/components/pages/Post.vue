@@ -16,7 +16,7 @@
 		<div class="row mt-3">
 			<div class="col-md-3 sticky">
 				<div class="row justify-content-center mt-3">
-					<button class="contact-me py-2 px-2 mb-5 mr-3 class='sticky-top'">
+					<button class="contact-me py-2 px-2 mb-5 mr-3 class='sticky-top'" v-scroll-reveal.reset>
 						<router-link :to="{ name: 'all-posts'}" tag="a">
 							<p class="text-uppercase my-0 text-align-center">All Posts...</p>
 						</router-link>

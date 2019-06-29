@@ -46,6 +46,7 @@ Vue.component('categories-list', require('./components/layouts/Categories.vue').
 Vue.component('article-post', require('./components/layouts/Article.vue').default);
 Vue.component('open-doc', require('./components/layouts/OpenDoc.vue').default);
 Vue.component('close-doc', require('./components/layouts/CloseDoc.vue').default);
+Vue.component('preload-page', require('./components/layouts/Preloader.vue').default);
 
 
 

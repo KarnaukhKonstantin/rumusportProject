@@ -3,8 +3,8 @@
 		<div class="row ml-0">
 			<div class="col-md-3">
 				<open-doc class="expirience-doctype" v-scroll-reveal.reset></open-doc>
-				<img src="images/testimage.png" width="80" class="ml-5 mt-5">
-				<h1 class="exp-tags expirience-title ml-5">Expirience<img src="images/testimage2.png" width="80"></h1>
+				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
+				<h1 class="exp-tags expirience-title ml-5">Expirience<img src="images/testimage2.png" width="60"></h1>
 				<div class="row ml-5 mb-5" v-scroll-reveal.reset>
 					<div class="col-md-12 mb-3 text-left" v-for="category in categories">
 						<button class="category-button" @click="openTags(category.id)">

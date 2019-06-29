@@ -14,7 +14,7 @@
 		alt="`SCROLL`">
 		</go-top>
 		<div class="row all-posts-row">
-			<div class="col-md-4">
+			<div class="col-md-4" v-scroll-reveal.reset>
 				<div class="row mt-5 mx-1">
 					<div class="col-md-12" v-for="category in categories">
 						<div class="project-hover">
