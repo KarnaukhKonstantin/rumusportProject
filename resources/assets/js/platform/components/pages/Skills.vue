@@ -2,13 +2,13 @@
 	<section>
 		<div class="row px-0">
 			<div class="col-md-6">
-				<open-doc></open-doc>
+				<open-doc v-scroll-reveal.reset></open-doc>
 				<img src="images/testimage.png" width="80" class="ml-5 mt-5">
 				<h1 class="exp-tags mb-3 ml-5 skill-title">Skills<img src="images/testimage2.png" width="80"></h1>
-				<h4 class="text-grey ml-5 mb-5 lighter">
+				<h4 class="text-grey ml-5 mb-5 lighter" v-scroll-reveal.reset>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod corporis, alias sapiente placeat ipsum minus, hic blanditiis, ab earum at eveniet distinctio dolor veniam tempore tempora, officiis cupiditate ea eligendi nisi? Animi saepe quia optio, possimus soluta rem ex temporibus eaque doloremque beatae nobis delectus eos voluptatibus! Molestiae consectetur labore, laborum in magnam ullam quaerat esse tempora quibusdam! Delectus rem impedit quasi pariatur rerum quis unde omnis dolor necessitatibus facilis cumque, quas fugit ipsa magnam labore! Laudantium doloribus iste reprehenderit facilis officiis harum mollitia libero voluptatem consequatur alias quis veniam consequuntur placeat culpa, temporibus ipsum explicabo officia non. Provident, hic.	
 				</h4>
-				<close-doc></close-doc>
+				<close-doc v-scroll-reveal.reset></close-doc>
 			</div>
 			<div class="col-md-6">
 				<tags-ball v-bind:style='styleObject' 

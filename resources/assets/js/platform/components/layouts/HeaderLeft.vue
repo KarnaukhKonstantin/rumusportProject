@@ -3,7 +3,8 @@
 
 		<div class="block-name text-center">
 			<router-link :to="{ name: 'home'}" tag="a">
-				<img class="pb-0 w-100 logo" src="images/R.png">
+				<h1 class="text-green">R</h1>
+				<p class="text-white text-small">Rumus</p>
 			</router-link>
 		</div>
 

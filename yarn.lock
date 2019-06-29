@@ -5636,6 +5636,11 @@ vue-scroll-reveal@^1.0.8:
   dependencies:
     scrollreveal "^4.0.2"
 
+vue-scrollin@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/vue-scrollin/-/vue-scrollin-0.1.2.tgz#48f2b96645ed6255a926063451946899c260b96c"
+  integrity sha512-8kkz6VmhRwkgPDmiCGNGKcO6kQMRHFvT6f//91tUQFxDjYwWRgqLQuUkhH9s7n7Qskz/AS/qT8iFVPzPK1HGIg==
+
 vue-select@^2.4.0:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-2.6.4.tgz#cb82ea3417a4b0f68101f53528ba1c0b04de5308"

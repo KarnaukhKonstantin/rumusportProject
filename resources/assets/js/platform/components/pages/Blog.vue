@@ -1,6 +1,6 @@
 <template>
 	<section class="post-place">
-		<div class="row main-post mt-3">
+		<div class="row main-post mt-3" v-scroll-reveal.reset>
 			<div class="col-md-4">
 				<div class="img-container project-hover">
 					<router-link :to="{ name: 'post', params: { id: posts[1].id }}" tag="a">
@@ -27,7 +27,7 @@
 			<div class="col-md-6">
 				<img src="images/testimage.png" width="80" class="ml-5 mt-5">
 				<h1 class="expirience-title mb-3 ml-5 exp-tags">Writing...<img src="images/testimage2.png" width="80"></h1>
-				<h4 class="text-grey lighter mb-5 ml-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. </h4>
+				<h4 class="text-grey lighter mb-5 ml-5" v-scroll-reveal.reset>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. </h4>
 			</div>
 			<div class="col-md-6">
 				<div class="row align-items-start">
@@ -56,8 +56,6 @@
 				</router-link>
 			</button>
 		</div>
-
-
 	</section>
 </template>
 <script>

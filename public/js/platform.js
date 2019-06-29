@@ -2131,6 +2131,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2512,8 +2513,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
 //
 //
 //
@@ -3185,6 +3184,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_scrollin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-scrollin */ "./node_modules/vue-scrollin/dist/v-scrollin.esm.js");
 //
 //
 //
@@ -3210,7 +3210,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    "v-scrollin": vue_scrollin__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {};
   },
@@ -84054,10 +84059,9 @@ var render = function() {
       { staticClass: "block-name text-center" },
       [
         _c("router-link", { attrs: { to: { name: "home" }, tag: "a" } }, [
-          _c("img", {
-            staticClass: "pb-0 w-100 logo",
-            attrs: { src: "images/R.png" }
-          })
+          _c("h1", { staticClass: "text-green" }, [_vm._v("R")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-white text-small" }, [_vm._v("Rumus")])
         ])
       ],
       1
@@ -85261,7 +85265,15 @@ var render = function() {
         "div",
         { staticClass: "col-md-6" },
         [
-          _c("open-doc"),
+          _c("open-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ]
+          }),
           _vm._v(" "),
           _c("img", {
             staticClass: "ml-5 mt-5",
@@ -85270,13 +85282,34 @@ var render = function() {
           _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
-          _c("h4", { staticClass: "text-grey lighter mb-5 ml-5" }, [
-            _vm._v(
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
-            )
-          ]),
+          _c(
+            "h4",
+            {
+              directives: [
+                {
+                  name: "scroll-reveal",
+                  rawName: "v-scroll-reveal.reset",
+                  modifiers: { reset: true }
+                }
+              ],
+              staticClass: "text-grey lighter mb-5 ml-5"
+            },
+            [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
+              )
+            ]
+          ),
           _vm._v(" "),
-          _c("close-doc")
+          _c("close-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ]
+          })
         ],
         1
       ),
@@ -85388,94 +85421,133 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "post-place" }, [
-    _c("div", { staticClass: "row main-post mt-3" }, [
-      _c("div", { staticClass: "col-md-4" }, [
-        _c(
-          "div",
-          { staticClass: "img-container project-hover" },
-          [
-            _c(
-              "router-link",
-              {
-                attrs: {
-                  to: { name: "post", params: { id: _vm.posts[1].id } },
-                  tag: "a"
-                }
-              },
-              [
-                _c("img", {
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "scroll-reveal",
+            rawName: "v-scroll-reveal.reset",
+            modifiers: { reset: true }
+          }
+        ],
+        staticClass: "row main-post mt-3"
+      },
+      [
+        _c("div", { staticClass: "col-md-4" }, [
+          _c(
+            "div",
+            { staticClass: "img-container project-hover" },
+            [
+              _c(
+                "router-link",
+                {
                   attrs: {
-                    src: _vm.posts[1].image,
-                    width: "100%",
-                    height: "100%"
+                    to: { name: "post", params: { id: _vm.posts[1].id } },
+                    tag: "a"
                   }
-                })
-              ]
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" }, [
-        _c(
-          "div",
-          { staticClass: "img-container project-hover" },
-          [
-            _c(
-              "router-link",
-              {
-                attrs: {
-                  to: { name: "post", params: { id: _vm.posts[2].id } },
-                  tag: "a"
-                }
-              },
-              [
-                _c("img", {
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: _vm.posts[1].image,
+                      width: "100%",
+                      height: "100%"
+                    }
+                  })
+                ]
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" }, [
+          _c(
+            "div",
+            { staticClass: "img-container project-hover" },
+            [
+              _c(
+                "router-link",
+                {
                   attrs: {
-                    src: _vm.posts[2].image,
-                    width: "100%",
-                    height: "100%"
+                    to: { name: "post", params: { id: _vm.posts[2].id } },
+                    tag: "a"
                   }
-                })
-              ]
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" }, [
-        _c(
-          "div",
-          { staticClass: "img-container project-hover" },
-          [
-            _c(
-              "router-link",
-              {
-                attrs: {
-                  to: { name: "post", params: { id: _vm.posts[3].id } },
-                  tag: "a"
-                }
-              },
-              [
-                _c("img", {
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: _vm.posts[2].image,
+                      width: "100%",
+                      height: "100%"
+                    }
+                  })
+                ]
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" }, [
+          _c(
+            "div",
+            { staticClass: "img-container project-hover" },
+            [
+              _c(
+                "router-link",
+                {
                   attrs: {
-                    src: _vm.posts[3].image,
-                    width: "100%",
-                    height: "100%"
+                    to: { name: "post", params: { id: _vm.posts[3].id } },
+                    tag: "a"
                   }
-                })
-              ]
-            )
-          ],
-          1
-        )
-      ])
-    ]),
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: _vm.posts[3].image,
+                      width: "100%",
+                      height: "100%"
+                    }
+                  })
+                ]
+              )
+            ],
+            1
+          )
+        ])
+      ]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "row content-block mt-3" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("img", {
+          staticClass: "ml-5 mt-5",
+          attrs: { src: "images/testimage.png", width: "80" }
+        }),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "h4",
+          {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ],
+            staticClass: "text-grey lighter mb-5 ml-5"
+          },
+          [
+            _vm._v(
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
+            )
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-6" }, [
         _c("div", { staticClass: "row align-items-start" }, [
@@ -85567,22 +85639,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("img", {
-        staticClass: "ml-5 mt-5",
-        attrs: { src: "images/testimage.png", width: "80" }
-      }),
-      _vm._v(" "),
-      _c("h1", { staticClass: "expirience-title mb-3 ml-5 exp-tags" }, [
-        _vm._v("Writing..."),
-        _c("img", { attrs: { src: "images/testimage2.png", width: "80" } })
-      ]),
-      _vm._v(" "),
-      _c("h4", { staticClass: "text-grey lighter mb-5 ml-5" }, [
-        _vm._v(
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
-        )
-      ])
+    return _c("h1", { staticClass: "expirience-title mb-3 ml-5 exp-tags" }, [
+      _vm._v("Writing..."),
+      _c("img", { attrs: { src: "images/testimage2.png", width: "80" } })
     ])
   }
 ]
@@ -85884,7 +85943,15 @@ var render = function() {
         "div",
         { staticClass: "col-md-5" },
         [
-          _c("open-doc"),
+          _c("open-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ]
+          }),
           _vm._v(" "),
           _c("img", {
             staticClass: "ml-5 mt-5",
@@ -85902,121 +85969,173 @@ var render = function() {
           _c("div", { staticClass: "contact-form ml-5" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("input", {
+                _c(
+                  "div",
+                  {
                     directives: [
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.name,
-                        expression: "form.name"
+                        name: "scroll-reveal",
+                        rawName: "v-scroll-reveal.reset",
+                        modifiers: { reset: true }
                       }
                     ],
-                    staticClass: "form-control br-dark-blue contact-input",
-                    attrs: {
-                      type: "text",
-                      placeholder: "Name",
-                      id: "contact_name"
-                    },
-                    domProps: { value: _vm.form.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                    staticClass: "form-group"
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.name,
+                          expression: "form.name"
                         }
-                        _vm.$set(_vm.form, "name", $event.target.value)
+                      ],
+                      staticClass: "form-control br-dark-blue contact-input",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Name",
+                        id: "contact_name"
+                      },
+                      domProps: { value: _vm.form.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "name", $event.target.value)
+                        }
                       }
-                    }
-                  })
-                ])
+                    })
+                  ]
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("input", {
+                _c(
+                  "div",
+                  {
                     directives: [
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.email,
-                        expression: "form.email"
+                        name: "scroll-reveal",
+                        rawName: "v-scroll-reveal.reset",
+                        modifiers: { reset: true }
                       }
                     ],
-                    staticClass: "form-control br-dark-blue contact-input",
-                    attrs: {
-                      type: "text",
-                      placeholder: "Email",
-                      id: "contact_email"
-                    },
-                    domProps: { value: _vm.form.email },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                    staticClass: "form-group"
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.email,
+                          expression: "form.email"
                         }
-                        _vm.$set(_vm.form, "email", $event.target.value)
+                      ],
+                      staticClass: "form-control br-dark-blue contact-input",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Email",
+                        id: "contact_email"
+                      },
+                      domProps: { value: _vm.form.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "email", $event.target.value)
+                        }
                       }
-                    }
-                  })
-                ])
+                    })
+                  ]
+                )
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("input", {
+            _c(
+              "div",
+              {
                 directives: [
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.subject,
-                    expression: "form.subject"
+                    name: "scroll-reveal",
+                    rawName: "v-scroll-reveal.reset",
+                    modifiers: { reset: true }
                   }
                 ],
-                staticClass: "form-control  br-dark-blue contact-input",
-                attrs: {
-                  type: "text",
-                  id: "contact_subject",
-                  placeholder: "Subject"
-                },
-                domProps: { value: _vm.form.subject },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                staticClass: "form-group"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.subject,
+                      expression: "form.subject"
                     }
-                    _vm.$set(_vm.form, "subject", $event.target.value)
+                  ],
+                  staticClass: "form-control  br-dark-blue contact-input",
+                  attrs: {
+                    type: "text",
+                    id: "contact_subject",
+                    placeholder: "Subject"
+                  },
+                  domProps: { value: _vm.form.subject },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "subject", $event.target.value)
+                    }
                   }
-                }
-              })
-            ]),
+                })
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("textarea", {
+            _c(
+              "div",
+              {
                 directives: [
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.message,
-                    expression: "form.message"
+                    name: "scroll-reveal",
+                    rawName: "v-scroll-reveal.reset",
+                    modifiers: { reset: true }
                   }
                 ],
-                staticClass: "form-control contact-input",
-                attrs: {
-                  rows: "6",
-                  id: "contact_description",
-                  placeholder: "Message"
-                },
-                domProps: { value: _vm.form.message },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                staticClass: "form-group"
+              },
+              [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.message,
+                      expression: "form.message"
                     }
-                    _vm.$set(_vm.form, "message", $event.target.value)
+                  ],
+                  staticClass: "form-control contact-input",
+                  attrs: {
+                    rows: "6",
+                    id: "contact_description",
+                    placeholder: "Message"
+                  },
+                  domProps: { value: _vm.form.message },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "message", $event.target.value)
+                    }
                   }
-                }
-              })
-            ])
+                })
+              ]
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row justify-content-end" }, [
@@ -86038,7 +86157,15 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("close-doc")
+          _c("close-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ]
+          })
         ],
         1
       ),
@@ -86096,7 +86223,16 @@ var render = function() {
         "div",
         { staticClass: "col-md-3" },
         [
-          _c("open-doc", { staticClass: "expirience-doctype" }),
+          _c("open-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ],
+            staticClass: "expirience-doctype"
+          }),
           _vm._v(" "),
           _c("img", {
             staticClass: "ml-5 mt-5",
@@ -86107,7 +86243,16 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "row ml-5 mb-5" },
+            {
+              directives: [
+                {
+                  name: "scroll-reveal",
+                  rawName: "v-scroll-reveal.reset",
+                  modifiers: { reset: true }
+                }
+              ],
+              staticClass: "row ml-5 mb-5"
+            },
             _vm._l(_vm.categories, function(category) {
               return _c("div", { staticClass: "col-md-12 mb-3 text-left" }, [
                 _c(
@@ -86165,7 +86310,15 @@ var render = function() {
             0
           ),
           _vm._v(" "),
-          _c("close-doc")
+          _c("close-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ]
+          })
         ],
         1
       ),
@@ -86256,7 +86409,65 @@ var render = function() {
   return _c(
     "section",
     { staticClass: "home-page" },
-    [_c("open-doc"), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("close-doc")],
+    [
+      _c("open-doc"),
+      _vm._v(" "),
+      _c("div", { staticClass: "row body-content" }, [
+        _c("div", { staticClass: "col-md-6 ml-5 mt-5" }, [
+          _c("img", { attrs: { src: "images/testimage.png", width: "80" } }),
+          _vm._v(" "),
+          _c(
+            "h2",
+            {
+              staticClass:
+                "main-title text-white my-0 main-text-font text-green"
+            },
+            [
+              _c("v-scrollin", { attrs: { speed: 50, misses: 3 } }, [
+                _vm._v("Hi,")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "h2",
+            { staticClass: "main-title text-white my-0 main-text-font" },
+            [
+              _c("v-scrollin", { attrs: { speed: 50, misses: 3 } }, [
+                _vm._v("I'm Rumus,")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "h2",
+            { staticClass: "main-title text-white my-0 main-text-font" },
+            [
+              _c("v-scrollin", { attrs: { speed: 50, misses: 3 } }, [
+                _vm._v("web developer.")
+              ]),
+              _vm._v(" "),
+              _c("img", {
+                attrs: { src: "images/testimage2.png", width: "80" }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-grey lighter fullstack-text my-3" }, [
+            _vm._v("Full-Stack Developer / Laravel / Vue JS")
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
+      ]),
+      _vm._v(" "),
+      _c("close-doc")
+    ],
     1
   )
 }
@@ -86265,37 +86476,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row body-content" }, [
-      _c("div", { staticClass: "col-md-1" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 py-0" }, [
-        _c("img", { attrs: { src: "images/testimage.png", width: "100" } }),
-        _vm._v(" "),
-        _c("h2", { staticClass: "main-title text-white my-0 main-text-font" }, [
-          _vm._v("Hi,")
-        ]),
-        _vm._v(" "),
-        _c("h2", { staticClass: "main-title text-white my-0 main-text-font" }, [
-          _vm._v("I'm Rumus,")
-        ]),
-        _vm._v(" "),
-        _c("h2", { staticClass: "main-title text-white my-0 main-text-font" }, [
-          _vm._v("web developer. "),
-          _c("img", { attrs: { src: "images/testimage2.png", width: "100" } })
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-grey lighter fullstack-text my-3" }, [
-          _vm._v("Full-Stack Developer / Laravel / Vue JS")
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "contact-me pt-2 pb-2 px-5 mb-5 mt-3" }, [
-          _c("p", { staticClass: "text-uppercase my-0" }, [
-            _vm._v("Contact Me")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-5" })
+    return _c(
+      "button",
+      { staticClass: "contact-me pt-2 pb-2 px-5 mb-5 mt-3" },
+      [_c("p", { staticClass: "text-uppercase my-0" }, [_vm._v("Contact Me")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-5" }, [
+      _c("p", { staticClass: "rotatable text-green" }, [_vm._v("R")])
     ])
   }
 ]
@@ -86631,7 +86823,15 @@ var render = function() {
         "div",
         { staticClass: "col-md-6" },
         [
-          _c("open-doc"),
+          _c("open-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ]
+          }),
           _vm._v(" "),
           _c("img", {
             staticClass: "ml-5 mt-5",
@@ -86640,81 +86840,120 @@ var render = function() {
           _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
-          _c("h4", { staticClass: "text-grey lighter mb-5 ml-5" }, [
-            _vm._v(
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
-            )
-          ]),
+          _c(
+            "h4",
+            {
+              directives: [
+                {
+                  name: "scroll-reveal",
+                  rawName: "v-scroll-reveal.reset",
+                  modifiers: { reset: true }
+                }
+              ],
+              staticClass: "text-grey lighter mb-5 ml-5"
+            },
+            [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
+              )
+            ]
+          ),
           _vm._v(" "),
-          _c("close-doc")
+          _c("close-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ]
+          })
         ],
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 pt-5" }, [
-        _c(
-          "div",
-          { staticClass: "row project-simple" },
-          [
-            _c(
-              "v-infinite-scroll",
-              {
-                staticStyle: { "max-height": "100vh", "overflow-y": "scroll" },
-                attrs: { loading: _vm.loading, offset: 50 },
-                on: { top: _vm.prevPage, bottom: _vm.nextPage }
-              },
-              _vm._l(_vm.projects, function(project) {
-                return _c(
-                  "div",
-                  { staticClass: "col-md-12 project-block mb-5 project-hover" },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "single-project",
-                        attrs: {
-                          "data-toggle": "modal",
-                          "data-target": "#singleProjectModal"
-                        },
-                        on: {
-                          click: function($event) {
-                            return _vm.openProject(project)
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "scroll-reveal",
+              rawName: "v-scroll-reveal.reset",
+              modifiers: { reset: true }
+            }
+          ],
+          staticClass: "col-md-6 pt-5"
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "row project-simple" },
+            [
+              _c(
+                "v-infinite-scroll",
+                {
+                  staticStyle: {
+                    "max-height": "100vh",
+                    "overflow-y": "scroll"
+                  },
+                  attrs: { loading: _vm.loading, offset: 50 },
+                  on: { top: _vm.prevPage, bottom: _vm.nextPage }
+                },
+                _vm._l(_vm.projects, function(project) {
+                  return _c(
+                    "div",
+                    {
+                      staticClass: "col-md-12 project-block mb-5 project-hover"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "single-project",
+                          attrs: {
+                            "data-toggle": "modal",
+                            "data-target": "#singleProjectModal"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.openProject(project)
+                            }
                           }
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-md-2" }, [
-                            _c("p", { staticClass: "exp-tags" }, [
-                              _vm._v(_vm._s(project.name))
+                        },
+                        [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-2" }, [
+                              _c("p", { staticClass: "exp-tags" }, [
+                                _vm._v(_vm._s(project.name))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-10" }, [
+                              _c("img", {
+                                staticClass: "project-image",
+                                attrs: { src: project.image, width: "100%" }
+                              })
                             ])
                           ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-10" }, [
-                            _c("img", {
-                              staticClass: "project-image",
-                              attrs: { src: project.image, width: "100%" }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", {
-                          staticClass: "mt-5 text-grey lighter",
-                          domProps: {
-                            innerHTML: _vm._s(project.main_description)
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              }),
-              0
-            )
-          ],
-          1
-        )
-      ])
+                          _c("p", {
+                            staticClass: "mt-5 text-grey lighter",
+                            domProps: {
+                              innerHTML: _vm._s(project.main_description)
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ],
+            1
+          )
+        ]
+      )
     ]),
     _vm._v(" "),
     _c(
@@ -86886,7 +87125,15 @@ var render = function() {
         "div",
         { staticClass: "col-md-6" },
         [
-          _c("open-doc"),
+          _c("open-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ]
+          }),
           _vm._v(" "),
           _c("img", {
             staticClass: "ml-5 mt-5",
@@ -86895,13 +87142,34 @@ var render = function() {
           _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
-          _c("h4", { staticClass: "text-grey ml-5 mb-5 lighter" }, [
-            _vm._v(
-              "\n\t\t\t\tLorem ipsum dolor sit amet, consectetur adipisicing elit. Quod corporis, alias sapiente placeat ipsum minus, hic blanditiis, ab earum at eveniet distinctio dolor veniam tempore tempora, officiis cupiditate ea eligendi nisi? Animi saepe quia optio, possimus soluta rem ex temporibus eaque doloremque beatae nobis delectus eos voluptatibus! Molestiae consectetur labore, laborum in magnam ullam quaerat esse tempora quibusdam! Delectus rem impedit quasi pariatur rerum quis unde omnis dolor necessitatibus facilis cumque, quas fugit ipsa magnam labore! Laudantium doloribus iste reprehenderit facilis officiis harum mollitia libero voluptatem consequatur alias quis veniam consequuntur placeat culpa, temporibus ipsum explicabo officia non. Provident, hic.\t\n\t\t\t"
-            )
-          ]),
+          _c(
+            "h4",
+            {
+              directives: [
+                {
+                  name: "scroll-reveal",
+                  rawName: "v-scroll-reveal.reset",
+                  modifiers: { reset: true }
+                }
+              ],
+              staticClass: "text-grey ml-5 mb-5 lighter"
+            },
+            [
+              _vm._v(
+                "\n\t\t\t\tLorem ipsum dolor sit amet, consectetur adipisicing elit. Quod corporis, alias sapiente placeat ipsum minus, hic blanditiis, ab earum at eveniet distinctio dolor veniam tempore tempora, officiis cupiditate ea eligendi nisi? Animi saepe quia optio, possimus soluta rem ex temporibus eaque doloremque beatae nobis delectus eos voluptatibus! Molestiae consectetur labore, laborum in magnam ullam quaerat esse tempora quibusdam! Delectus rem impedit quasi pariatur rerum quis unde omnis dolor necessitatibus facilis cumque, quas fugit ipsa magnam labore! Laudantium doloribus iste reprehenderit facilis officiis harum mollitia libero voluptatem consequatur alias quis veniam consequuntur placeat culpa, temporibus ipsum explicabo officia non. Provident, hic.\t\n\t\t\t"
+              )
+            ]
+          ),
           _vm._v(" "),
-          _c("close-doc")
+          _c("close-doc", {
+            directives: [
+              {
+                name: "scroll-reveal",
+                rawName: "v-scroll-reveal.reset",
+                modifiers: { reset: true }
+              }
+            ]
+          })
         ],
         1
       ),
@@ -89982,6 +90250,165 @@ var VueScrollReveal = {
 
 exports.default = VueScrollReveal;
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-scrollin/dist/v-scrollin.esm.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vue-scrollin/dist/v-scrollin.esm.js ***!
+  \**********************************************************/
+/*! exports provided: default, install */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
+/* harmony import */ var timers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! timers */ "./node_modules/timers-browserify/main.js");
+/* harmony import */ var timers__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(timers__WEBPACK_IMPORTED_MODULE_0__);
+
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+
+var component = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-scrollin"},[_vm._v(" "+_vm._s(_vm.scrollingText)+" ")])},staticRenderFns: [],
+  name: "VScrollin",
+  props: {
+    characters: {
+      // characters used during flicker
+      type: Array,
+      required: false,
+      default: function () { return "qwertyuiopasdfghjklzxcvbnm".split(""); }
+    },
+    misses: {
+      // amount of scrolls before correct letter
+      type: Number,
+      required: false,
+      default: 4
+    },
+    speed: {
+      // delay of each letter scroll (ms)
+      type: Number,
+      required: false,
+      default: 80
+    }
+  },
+  data: function data() {
+    return {
+      amountFinished: 0,
+      currentMisses: 0,
+      finishedText: this.$slots.default[0].text,
+      scroll: null,
+      scrollingText: "",
+      workingIndices: []
+    };
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    this.fillRandomLetters();
+    this.scroll = Object(timers__WEBPACK_IMPORTED_MODULE_0__["setInterval"])(function () {
+      this$1.tick();
+    }, this.speed);
+  },
+  methods: {
+    fillRandomLetters: function fillRandomLetters() {
+      var this$1 = this;
+
+      var startingLetters = [];
+      for (var n = 0; n < this.finishedText.length; n++) {
+        startingLetters.push(this$1.getRandomLetter());
+      }
+      this.scrollingText = startingLetters.join("");
+    },
+    getRandomLetter: function getRandomLetter() {
+      return this.characters[
+        Math.floor(Math.random() * this.characters.length)
+      ];
+    },
+    replace: function replace(str, i, replacement) {
+      if (!replacement) { return str }
+      return (
+        str.substr(0, i) + replacement + str.substr(i + replacement.length)
+      );
+    },
+    tick: function tick() {
+      var this$1 = this;
+
+      for (
+        var n = this.amountFinished;
+        n < this.amountFinished + this.workingIndices.length;
+        n++
+      ) {
+        this$1.scrollingText = this$1.replace(
+          this$1.scrollingText,
+          n,
+          this$1.getRandomLetter()
+        );
+      }
+      if (this.workingIndices.length < 3 && !this.amountFinished) {
+        this.workingIndices.push(this.workingIndices.length);
+      }
+      if (
+        this.scrollingText === this.finishedText &&
+        this.currentMisses === this.misses
+      ) {
+        Object(timers__WEBPACK_IMPORTED_MODULE_0__["clearInterval"])(this.scroll);
+      } else if (++this.currentMisses === this.misses) {
+        this.scrollingText = this.replace(
+          this.scrollingText,
+          this.amountFinished,
+          this.finishedText[this.amountFinished]
+        );
+        this.currentMisses = 0;
+        if (++this.amountFinished >= this.finishedText.length - 2) {
+          this.workingIndices
+            .sort(function(a, b) {
+              return a - b;
+            })
+            .shift();
+        } else {
+          this.workingIndices.sort(function(a, b) {
+            return a - b;
+          })[0] =
+            this.amountFinished + 3;
+        }
+      }
+    }
+  }
+};
+
+// Import vue component
+
+// install function executed by Vue.use()
+function install(Vue) {
+	if (install.installed) { return; }
+	install.installed = true;
+	Vue.component('VScrollin', component);
+}
+
+// Create module definition for Vue.use()
+var plugin = {
+	install: install,
+};
+
+// To auto-install when vue is found
+var GlobalVue = null;
+if (typeof window !== 'undefined') {
+	GlobalVue = window.Vue;
+} else if (typeof global !== 'undefined') {
+	GlobalVue = global.Vue;
+}
+if (GlobalVue) {
+	GlobalVue.use(plugin);
+}
+
+// It's possible to expose named exports when writing components that can
+// also be used as directives, etc. - eg. import { RollupDemoDirective } from 'rollup-demo';
+// export const RollupDemoDirective = component;
+
+/* harmony default export */ __webpack_exports__["default"] = (component);
+
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 
