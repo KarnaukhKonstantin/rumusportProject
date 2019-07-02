@@ -1,21 +1,21 @@
 <template>
 	<section class="post-place">
 		<div class="row main-post mt-3" v-scroll-reveal.reset>
-			<div class="col-md-4">
+			<div class="col-md-6 col-lg-4 first-post">
 				<div class="img-container project-hover">
 					<router-link :to="{ name: 'post', params: { id: posts[1].id }}" tag="a">
 						<img :src="posts[1].image" width="100%" height="100%">
 					</router-link>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-6 col-lg-4">
 				<div class="img-container project-hover">
 					<router-link :to="{ name: 'post', params: { id: posts[2].id }}" tag="a">
 						<img :src="posts[2].image" width="100%" height="100%">
 					</router-link>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-lg-4 col-md-6 third-post">
 				<div class="img-container project-hover">
 					<router-link :to="{ name: 'post', params: { id: posts[3].id }}" tag="a">
 						<img :src="posts[3].image" width="100%" height="100%">
@@ -24,14 +24,14 @@
 			</div>
 		</div>
 		<div class="row content-block mt-3">
-			<div class="col-md-6">
+			<div class="col-md-12 col-lg-6 blog-text-preview">
 				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
 				<h1 class="expirience-title mb-3 ml-5 exp-tags">Writing...<img src="images/testimage2.png" width="60"></h1>
 				<h4 class="text-grey lighter mb-5 ml-5" v-scroll-reveal.reset>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. </h4>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-12 col-lg-6">
 				<div class="row align-items-start">
-					<div class="col-md-12 project-hover mt-5" v-scroll-reveal.reset>
+					<div class="col-md-12 project-hover mt-5 large-main-post" v-scroll-reveal.reset>
 						<!-- <div class="col-md-12 project-hover mt-5" v-for="post in posts" v-scroll-reveal.reset> -->
 							<div class="box" @mouseover="getDate(posts[0])">
 								<router-link :to="{ name: 'post', params: { id: posts[0].id }}" tag="a">

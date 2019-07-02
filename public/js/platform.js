@@ -85608,7 +85608,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
+  return _c("section", { staticClass: "section-about" }, [
     _vm.preloader == true
       ? _c(
           "div",
@@ -85652,7 +85652,7 @@ var render = function() {
       ? _c("div", { staticClass: "row" }, [
           _c(
             "div",
-            { staticClass: "col-md-6" },
+            { staticClass: "col-sm-12 col-md-6" },
             [
               _c("open-doc", {
                 directives: [
@@ -85722,7 +85722,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6 stack" }, [
+    return _c("div", { staticClass: "col-sm-12 col-md-6 stack" }, [
       _c("div", { staticClass: "wrap" }, [
         _c("div", { staticClass: "cube" }, [
           _c("div", { staticClass: "front text-center pt-5" }, [
@@ -85824,7 +85824,7 @@ var render = function() {
         staticClass: "row main-post mt-3"
       },
       [
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-md-6 col-lg-4 first-post" }, [
           _c(
             "div",
             { staticClass: "img-container project-hover" },
@@ -85852,7 +85852,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-md-6 col-lg-4" }, [
           _c(
             "div",
             { staticClass: "img-container project-hover" },
@@ -85880,7 +85880,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-lg-4 col-md-6 third-post" }, [
           _c(
             "div",
             { staticClass: "img-container project-hover" },
@@ -85911,7 +85911,7 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "row content-block mt-3" }, [
-      _c("div", { staticClass: "col-md-6" }, [
+      _c("div", { staticClass: "col-md-12 col-lg-6 blog-text-preview" }, [
         _c("img", {
           staticClass: "ml-5 mt-5",
           attrs: { src: "images/testimage.png", width: "60" }
@@ -85939,7 +85939,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
+      _c("div", { staticClass: "col-md-12 col-lg-6" }, [
         _c("div", { staticClass: "row align-items-start" }, [
           _c(
             "div",
@@ -85951,7 +85951,7 @@ var render = function() {
                   modifiers: { reset: true }
                 }
               ],
-              staticClass: "col-md-12 project-hover mt-5"
+              staticClass: "col-md-12 project-hover mt-5 large-main-post"
             },
             [
               _c(
@@ -86058,6 +86058,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
+    { staticClass: "all-blog-posts" },
     [
       _c("go-top", {
         attrs: {
@@ -86086,7 +86087,7 @@ var render = function() {
                 modifiers: { reset: true }
               }
             ],
-            staticClass: "col-md-4"
+            staticClass: "col-md-12 col-lg-4"
           },
           [
             _c(
@@ -86115,14 +86116,14 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "col-md-12 col-lg-8" }, [
           _c(
             "div",
             { staticClass: "row" },
             [
               _vm._l(_vm.posts, function(post) {
                 return _vm.posts.length > 0
-                  ? _c("div", { staticClass: "col-md-6 mt-3" }, [
+                  ? _c("div", { staticClass: "col-md-12 col-lg-6 mt-3" }, [
                       _c(
                         "div",
                         {
@@ -86144,6 +86145,7 @@ var render = function() {
                             },
                             [
                               _c("img", {
+                                staticClass: "post-img",
                                 attrs: {
                                   src: post.image,
                                   width: "100%",
@@ -86340,7 +86342,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
+  return _c("section", { staticClass: "section-contact" }, [
     _vm.preloader == true
       ? _c(
           "div",
@@ -86384,7 +86386,7 @@ var render = function() {
       ? _c("div", { staticClass: "row" }, [
           _c(
             "div",
-            { staticClass: "col-md-5" },
+            { staticClass: "col-md-12 col-lg-5" },
             [
               _c("open-doc", {
                 directives: [
@@ -86634,7 +86636,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-7 map-section" }, [
+    return _c("div", { staticClass: "col-md-12 col-lg-7 map-section mt-2" }, [
       _c("img", {
         staticClass: "w-100 h-100",
         attrs: { src: "images/map.png" }
@@ -86707,7 +86709,7 @@ var render = function() {
       ? _c("div", { staticClass: "row ml-0" }, [
           _c(
             "div",
-            { staticClass: "col-md-3" },
+            { staticClass: "col-md-3 col-sm-12" },
             [
               _c("open-doc", {
                 directives: [
@@ -86820,11 +86822,11 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-md-9" },
+            { staticClass: "col-md-9 col-sm-12" },
             [
               _c("d3-network", {
                 ref: "net",
-                staticClass: "my-0 py-0",
+                staticClass: "my-0 py-0 exp-graph",
                 attrs: {
                   "net-nodes": _vm.nodes,
                   "net-links": _vm.links,
@@ -86919,7 +86921,7 @@ var render = function() {
       _c("div", { staticClass: "row body-content" }, [
         _c(
           "div",
-          { staticClass: "col-md-6 ml-5 mt-5" },
+          { staticClass: "col-md-12 col-lg-6 ml-5 mt-5" },
           [
             _c("img", { attrs: { src: "images/testimage.png", width: "60" } }),
             _vm._v(" "),
@@ -87007,7 +87009,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-5" }, [
+    return _c("div", { staticClass: "col-md-12 col-lg-5" }, [
       _c("p", { staticClass: "rotatable text-green" }, [_vm._v("R")])
     ])
   }
@@ -87066,6 +87068,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
+    { staticClass: "single-post" },
     [
       _c("go-top", {
         attrs: {
@@ -87689,7 +87692,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
+  return _c("section", { staticClass: "skill-section" }, [
     _vm.preloader == true
       ? _c(
           "div",
@@ -87733,7 +87736,7 @@ var render = function() {
       ? _c("div", { staticClass: "row px-0" }, [
           _c(
             "div",
-            { staticClass: "col-md-6" },
+            { staticClass: "col-sm-12 col-md-6" },
             [
               _c("open-doc", {
                 directives: [
@@ -87786,7 +87789,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-md-6" },
+            { staticClass: "col-sm-12 col-md-6" },
             [
               _c("tags-ball", {
                 style: _vm.styleObject,
@@ -114536,7 +114539,7 @@ var findRealParent = function (firstVueParent) {
 /*!***********************************************************!*\
   !*** ./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js ***!
   \***********************************************************/
-/*! exports provided: CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer, debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent */
+/*! exports provided: debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent, CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

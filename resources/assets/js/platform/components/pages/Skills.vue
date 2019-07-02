@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="skill-section">
 		<div class="preloader-block" id="preload-block" v-if="preloader == true">
 			<p class="text-green text-big text-center mb-0" id="preload-logo">R</p>
 			<h1 class="text-center text-small text-white mt-0" id="preload" v-if="preloader == true">Rumus</h1>
@@ -7,7 +7,7 @@
 			<div class="loader mx-auto"></div>
 		</div>
 		<div class="row px-0" v-if="preloader !== true">
-			<div class="col-md-6">
+			<div class="col-sm-12 col-md-6">
 				<open-doc v-scroll-reveal.reset></open-doc>
 				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
 				<h1 class="exp-tags mb-3 ml-5 skill-title">Skills<img src="images/testimage2.png" width="60"></h1>
@@ -16,7 +16,7 @@
 				</h4>
 				<close-doc v-scroll-reveal.reset></close-doc>
 			</div>
-			<div class="col-md-6">
+			<div class="col-sm-12 col-md-6">
 				<tags-ball v-bind:style='styleObject' 
 				:width='800' 
 				:height='800'

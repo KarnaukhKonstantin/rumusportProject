@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="section-contact">
 		<div class="preloader-block" id="preload-block" v-if="preloader == true">
 			<p class="text-green text-big text-center mb-0" id="preload-logo">R</p>
 			<h1 class="text-center text-small text-white mt-0" id="preload" v-if="preloader == true">Rumus</h1>
@@ -7,7 +7,7 @@
 			<div class="loader mx-auto"></div>
 		</div>
 		<div class="row" v-if="preloader !== true">
-			<div class="col-md-5">
+			<div class="col-md-12 col-lg-5">
 				<open-doc v-scroll-reveal.reset></open-doc>
 				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
 				<h2 class="contact-title exp-tags my-0 ml-5">Contact me...<img src="images/testimage2.png" width="60"></h2>
@@ -42,7 +42,7 @@
 				</div>
 				<close-doc v-scroll-reveal.reset></close-doc>
 			</div>
-			<div class="col-md-7 map-section">
+			<div class="col-md-12 col-lg-7 map-section mt-2">
 				<!-- <l-map :zoom="zoom" :center="center">
 			      <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
 			      <l-marker :lat-lng="marker"></l-marker>

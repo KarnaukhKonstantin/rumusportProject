@@ -2,7 +2,7 @@
 	<section class="home-page">
 		<open-doc v-scroll-reveal.reset></open-doc>
 		<div class="row body-content">
-			<div class="col-md-6 ml-5 mt-5">
+			<div class="col-md-12 col-lg-6 ml-5 mt-5">
 				<img src="images/testimage.png" width="60">
 				<h2 class="main-title text-white my-0 main-text-font text-green"><v-scrollin :speed="50" :misses="3">Hi,</v-scrollin></h2>
 				<h2 class="main-title text-white my-0 main-text-font"><v-scrollin :speed="50" :misses="3">I'm Rumus,</v-scrollin></h2>
@@ -18,7 +18,7 @@
 				</router-link>
 
 			</div>
-			<div class="col-md-5">
+			<div class="col-md-12 col-lg-5">
 				<p class="rotatable text-green">R</p>
 				<!-- <img class="text-right" src="images/R.png" width="500"> -->
 			</div>

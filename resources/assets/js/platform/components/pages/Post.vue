@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="single-post">
 		<go-top 
 		:size="100" 
 		:right="50" 

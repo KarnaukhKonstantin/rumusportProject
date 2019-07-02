@@ -7,7 +7,7 @@
 			<div class="loader mx-auto"></div>
 		</div>
 		<div class="row ml-0" v-if="preloader !== true">
-			<div class="col-md-3">
+			<div class="col-md-3 col-sm-12">
 				<open-doc class="expirience-doctype" v-scroll-reveal.reset></open-doc>
 				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
 				<h1 class="exp-tags expirience-title ml-5">Expirience<img src="images/testimage2.png" width="60"></h1>
@@ -30,8 +30,8 @@
 					</div>
 					<close-doc v-scroll-reveal.reset></close-doc>
 				</div>
-				<div class="col-md-9">
-					<d3-network  class="my-0 py-0" ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb"/>
+				<div class="col-md-9 col-sm-12">
+					<d3-network  class="my-0 py-0 exp-graph" ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb"/>
 				</div>
 			</div>
 		</section>

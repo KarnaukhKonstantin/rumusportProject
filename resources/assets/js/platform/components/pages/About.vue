@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="section-about">
 		<div class="preloader-block" id="preload-block" v-if="preloader == true">
 			<p class="text-green text-big text-center mb-0" id="preload-logo">R</p>
 			<h1 class="text-center text-small text-white mt-0" id="preload" v-if="preloader == true">Rumus</h1>
@@ -8,14 +8,14 @@
 		</div>
 		
 		<div class="row" v-if="preloader !== true">
-			<div class="col-md-6">
+			<div class="col-sm-12 col-md-6">
 				<open-doc v-scroll-reveal.reset></open-doc>
 				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
 				<h1 class="expirience-title mb-3 ml-5 exp-tags">About Me<img src="images/testimage2.png" width="60"></h1>
 				<h4 class="text-grey lighter mb-5 ml-5" v-scroll-reveal.reset>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. </h4>
 				<close-doc v-scroll-reveal.reset></close-doc>
 			</div>
-			<div class="col-md-6 stack">
+			<div class="col-sm-12 col-md-6 stack">
 				<div class="wrap">
 					<div class="cube">
 						<div class="front text-center pt-5">
