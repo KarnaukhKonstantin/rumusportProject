@@ -31,15 +31,12 @@ class TagController extends Controller
 
 
 
-
-
     public function getAllTagsWithoutPaginate()
     {
         $tags = Tag::all();
 
         return $tags;
     }
-
 
 
 
@@ -87,7 +84,6 @@ class TagController extends Controller
 
 
 
-
     public function updateTag(Request $request, $id)
     {
         $newTag = request()->validate([
@@ -99,7 +95,6 @@ class TagController extends Controller
 
         return response()->json(Tag::find($id));
     }
-
 
 
 

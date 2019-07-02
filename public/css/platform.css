@@ -10695,8 +10695,13 @@ button {
   font-size: 12px;
 }
 
+.text-small-lighter {
+  font-weight: lighter;
+  font-size: 10px;
+}
+
 .text-big {
-  font-size: 100px;
+  font-size: 80px;
 }
 
 .rotatable {

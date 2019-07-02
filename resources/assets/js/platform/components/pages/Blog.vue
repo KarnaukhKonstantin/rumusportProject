@@ -63,6 +63,7 @@
 	export default {
 		data() {
 			return {
+				preloader: false,
 				posts: [{
 					image: '',
 					id: ''

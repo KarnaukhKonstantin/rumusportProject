@@ -33,8 +33,6 @@ class CategoryController extends Controller
 
 
 
-
-
     public function categoriesWithoutPagination()
     {
         $categories = Category::all();
@@ -46,6 +44,7 @@ class CategoryController extends Controller
 
         return response()->json($categories);
     }
+
 
 
     public function storeCategory(Request $request)

@@ -17,8 +17,6 @@ class SocialLinkController extends Controller
 
 
 
-
-
     public function getSocLinks()
     {
         $social_links = SocialLink::all();
@@ -29,16 +27,12 @@ class SocialLinkController extends Controller
 
 
 
-
-
     public function getSocLink($id)
     {
     	$social_link = SocialLink::where('id', $id)->first();
 
         return response()->json($social_link);	
     }
-
-
 
 
 
@@ -55,8 +49,6 @@ class SocialLinkController extends Controller
 
 
 
-
-
     public function updateSocLink(Request $request, $id)
     {
     	$newSoc = request()->validate([
@@ -67,8 +59,6 @@ class SocialLinkController extends Controller
 
         return response()->json(SocialLink::find($id));
     }
-
-
 
 
 

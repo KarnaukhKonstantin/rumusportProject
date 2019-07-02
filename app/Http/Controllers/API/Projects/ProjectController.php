@@ -20,16 +20,12 @@ class ProjectController extends Controller
 
 
 
-
-
     public function getProjectsWithoutPaginate()
     {
     	$projects = Project::all();
 
     	return response()->json($projects);
     }
-
-
 
 
 
@@ -42,8 +38,6 @@ class ProjectController extends Controller
 
 
 
-
-    
     public function storeProject(Request $request)
     {
     	$project = Project::create([
@@ -82,8 +76,6 @@ class ProjectController extends Controller
             }
         }
     }
-
-
 
 
 
@@ -144,8 +136,6 @@ class ProjectController extends Controller
 
         return response()->json($project);	
     }
-
-
 
 
 

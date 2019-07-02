@@ -17,8 +17,6 @@ class SkillController extends Controller
 
 
 
-
-
     public function getSkills()
     {
         $skills = Skill::all();
@@ -28,17 +26,12 @@ class SkillController extends Controller
 
 
 
-
-
-
     public function getSkill($id)
     {
         $skill = Skill::where('id', $id)->first();
 
         return response()->json($skill);  
     }
-
-
 
 
 
@@ -56,8 +49,6 @@ class SkillController extends Controller
 
 
 
-
-
     public function updateSkill(Request $request, $id)
     {
     	$skill = Skill::where('id', $id)->update([
@@ -68,8 +59,6 @@ class SkillController extends Controller
 
     	return response()->json($skill);
     }
-
-
 
 
 

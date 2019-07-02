@@ -1,6 +1,12 @@
 <template>
 	<section class="projects-section">
-		<div class="row pr-2">
+		<div class="preloader-block" id="preload-block" v-if="preloader == true">
+			<p class="text-green text-big text-center mb-0" id="preload-logo">R</p>
+			<h1 class="text-center text-small text-white mt-0" id="preload" v-if="preloader == true">Rumus</h1>
+			<p class="text-grey text-small-lighter text-center" id="preload-think">Rumus is thinking</p>
+			<div class="loader mx-auto"></div>
+		</div>
+		<div class="row pr-2"  v-if="preloader !== true">
 			<div class="col-md-6">
 				<open-doc v-scroll-reveal.reset></open-doc>
 				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
@@ -60,6 +66,7 @@
 		export default {
 			data() {
 				return {
+					preloader: false,
 					projects: [],
 					project: {},
 					page: 1,
@@ -67,7 +74,21 @@
 					loading: true,
 				}
 			},
+			watch: {
+			    'preloader'(val){
+			    	console.log(val)
+			    }
+			},
 			methods: {
+				showPreloader() {
+					setTimeout(() => {
+						$('#preload').fadeOut('fast');
+						$('#preload-logo').fadeOut('fast');
+						$('#preload-think').fadeOut('fast');
+						this.preloader = false;
+					}, 2500);
+					
+				},
 				prevPage () {
 					if (this.page == 1) return
 						--this.page
@@ -90,6 +111,8 @@
 				}
 			},
 			created() {
+				this.preloader = true
+				this.showPreloader()
 				axios.get('/api/projects/without-paginate')
 				.then(response => {
 					this.projects = response.data
@@ -97,3 +120,45 @@
 			}	
 		}
 	</script>
+<style type="text/css">
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.preloader-block{
+  	animation: 1s ease-out 0s 1 slideInFromLeft;
+  	/*background: #333;*/
+  	padding: 30px;
+}
+.loader {
+  	height: 1px;
+  	width: 30%;
+  	position: relative;
+  	overflow: hidden;
+  	background-color: #ddd;
+}
+.loader:before{
+  	display: block;
+  	position: absolute;
+  	content: "";
+  	left: -200px;
+  	width: 200px;
+  	height: 4px;
+  	background-color: #07fdd8;
+  	animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+    from {left: -200px; width: 30%;}
+    50% {width: 30%;}
+    70% {width: 70%;}
+    80% { left: 50%;}
+    95% {left: 120%;}
+    to {left: 100%;}
+}
+	</style>

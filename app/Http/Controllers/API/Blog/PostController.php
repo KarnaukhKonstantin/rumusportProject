@@ -82,18 +82,12 @@ class PostController extends Controller
 
 
 
-
-
-
     public function getPost($id)
     {
         $post = Post::where('id', $id)->first();    
 
         return response()->json($post);   
     }
-
-
-
 
 
 
@@ -142,8 +136,6 @@ class PostController extends Controller
 
         return response()->json($post);
     }
-
-
 
 
 
