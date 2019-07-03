@@ -1862,6 +1862,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -2159,6 +2163,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -84077,12 +84093,19 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row align-items-end close-body" }, [
       _c("div", { staticClass: "col-md-1" }, [
-        _c("img", {
-          staticClass: "ml-5",
-          attrs: { src: "images/bodyclose.png", width: "100" }
-        }),
+        _c("div", [
+          _c("img", {
+            staticClass: "close-body-img",
+            attrs: { src: "images/bodyclose.png", width: "100" }
+          })
+        ]),
         _vm._v(" "),
-        _c("img", { attrs: { src: "images/htmlclose.png", width: "100" } })
+        _c("div", [
+          _c("img", {
+            staticClass: "close-html",
+            attrs: { src: "images/htmlclose.png", width: "100" }
+          })
+        ])
       ])
     ])
   }
@@ -84592,7 +84615,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "block-content mt-5" },
+          { staticClass: "block-content block-post-header" },
           [
             _c(
               "router-link",
@@ -84634,59 +84657,63 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "bottom-content my-5 text-center" }, [
-      _c(
-        "div",
-        { staticClass: "block-contacts mb-2" },
-        [
-          _c(
-            "router-link",
-            { attrs: { to: { name: "platform-links" }, tag: "a" } },
-            [_c("i", { staticClass: "fa fa-twitter" })]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "block-contacts mb-2" },
-        [
-          _c(
-            "router-link",
-            { attrs: { to: { name: "platform-links" }, tag: "a" } },
-            [_c("i", { staticClass: "fa fa-linkedin" })]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "block-contacts mb-2" },
-        [
-          _c(
-            "router-link",
-            { attrs: { to: { name: "platform-links" }, tag: "a" } },
-            [_c("i", { staticClass: "fa fa-facebook" })]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "block-contacts" },
-        [
-          _c(
-            "router-link",
-            { attrs: { to: { name: "platform-links" }, tag: "a" } },
-            [_c("i", { staticClass: "fa fa-instagram" })]
-          )
-        ],
-        1
-      )
-    ])
+    _c(
+      "div",
+      { staticClass: "bottom-content block-social-header text-center" },
+      [
+        _c(
+          "div",
+          { staticClass: "block-contacts mb-2" },
+          [
+            _c(
+              "router-link",
+              { attrs: { to: { name: "platform-links" }, tag: "a" } },
+              [_c("i", { staticClass: "fa fa-twitter" })]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "block-contacts mb-2" },
+          [
+            _c(
+              "router-link",
+              { attrs: { to: { name: "platform-links" }, tag: "a" } },
+              [_c("i", { staticClass: "fa fa-linkedin" })]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "block-contacts mb-2" },
+          [
+            _c(
+              "router-link",
+              { attrs: { to: { name: "platform-links" }, tag: "a" } },
+              [_c("i", { staticClass: "fa fa-facebook" })]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "block-contacts" },
+          [
+            _c(
+              "router-link",
+              { attrs: { to: { name: "platform-links" }, tag: "a" } },
+              [_c("i", { staticClass: "fa fa-instagram" })]
+            )
+          ],
+          1
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -84720,35 +84747,47 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row open-body px-0" }, [
       _c("div", { staticClass: "col-md-1" }, [
-        _c("img", {
-          staticClass: "pb-0",
-          attrs: { src: "images/doctype.png", width: "300" }
-        }),
+        _c("div", [
+          _c("img", {
+            staticClass: "pb-0",
+            attrs: { src: "images/doctype.png", width: "300" }
+          })
+        ]),
         _vm._v(" "),
-        _c("img", {
-          staticClass: "pb-0",
-          attrs: { src: "images/htmlopen.png", width: "100" }
-        }),
+        _c("div", [
+          _c("img", {
+            staticClass: "pb-0",
+            attrs: { src: "images/htmlopen.png", width: "100" }
+          })
+        ]),
         _vm._v(" "),
-        _c("img", {
-          staticClass: "pb-0",
-          attrs: { src: "images/headopen.png", width: "100" }
-        }),
+        _c("div", [
+          _c("img", {
+            staticClass: "pb-0",
+            attrs: { src: "images/headopen.png", width: "100" }
+          })
+        ]),
         _vm._v(" "),
-        _c("img", {
-          staticClass: "pb-0",
-          attrs: { src: "images/titleoftest.png", width: "400" }
-        }),
+        _c("div", [
+          _c("img", {
+            staticClass: "pb-0",
+            attrs: { src: "images/titleoftest.png", width: "400" }
+          })
+        ]),
         _vm._v(" "),
-        _c("img", {
-          staticClass: "pb-0",
-          attrs: { src: "images/headclose.png", width: "100" }
-        }),
+        _c("div", [
+          _c("img", {
+            staticClass: "pb-0",
+            attrs: { src: "images/headclose.png", width: "100" }
+          })
+        ]),
         _vm._v(" "),
-        _c("img", {
-          staticClass: "ml-5",
-          attrs: { src: "images/bodyopen.png", width: "100" }
-        })
+        _c("div", [
+          _c("img", {
+            staticClass: "open-body-img",
+            attrs: { src: "images/bodyopen.png", width: "100" }
+          })
+        ])
       ])
     ])
   }
@@ -86723,7 +86762,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("img", {
-                staticClass: "ml-5 mt-5",
+                staticClass: "h-margin-left mt-5",
                 attrs: { src: "images/testimage.png", width: "60" }
               }),
               _vm._v(" "),
@@ -86846,10 +86885,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h1", { staticClass: "exp-tags expirience-title ml-5" }, [
-      _vm._v("Expirience"),
-      _c("img", { attrs: { src: "images/testimage2.png", width: "60" } })
-    ])
+    return _c(
+      "h1",
+      { staticClass: "exp-tags expirience-title h-margin-left" },
+      [
+        _vm._v("Expirience"),
+        _c("img", { attrs: { src: "images/testimage2.png", width: "60" } })
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -87792,6 +87835,7 @@ var render = function() {
             { staticClass: "col-sm-12 col-md-6" },
             [
               _c("tags-ball", {
+                staticClass: "tag-ball",
                 style: _vm.styleObject,
                 attrs: {
                   width: 800,

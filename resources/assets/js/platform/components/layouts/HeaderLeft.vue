@@ -66,7 +66,7 @@
 				</router-link>
 			</div>
 
-			<div class="block-content mt-5">
+			<div class="block-content block-post-header">
 				<router-link :to="{ name: 'platform-blog'}" tag="a">
 					<i class="fa fa-pencil-square-o link" @mouseover="blogIcon = false" @mouseleave="blogIcon = true" :class="[blogIcon === true ? 'fa fa-pencil-square-o' : '']"></i>
 					<p class="text-center projects" v-show="!blogIcon">BLOG</p>
@@ -75,7 +75,7 @@
 		</div>
 
 
-		<div class="bottom-content my-5 text-center">
+		<div class="bottom-content block-social-header text-center">
 			<div class="block-contacts mb-2">
 				<router-link :to="{ name: 'platform-links'}" tag="a">
 					<i class="fa fa-twitter"></i>

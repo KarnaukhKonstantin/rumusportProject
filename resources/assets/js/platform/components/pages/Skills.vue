@@ -17,7 +17,7 @@
 				<close-doc v-scroll-reveal.reset></close-doc>
 			</div>
 			<div class="col-sm-12 col-md-6">
-				<tags-ball v-bind:style='styleObject' 
+				<tags-ball class="tag-ball" v-bind:style='styleObject' 
 				:width='800' 
 				:height='800'
 				:radius='300'
