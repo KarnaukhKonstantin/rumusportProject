@@ -17,7 +17,7 @@
 			<div class="col-md-12 col-lg-6">
 				<div class="row align-items-start">
 					<v-infinite-scroll :loading="loading" @top="prevPage" @bottom="nextPage" :offset='50' style="max-height: 100vh; overflow-y: scroll;">
-						<div class="col-md-12 project-hover mt-5 large-main-post" v-for="project in projects">
+						<div class="col-md-12 project-hover mt-5 large-main-post projects-column" v-for="project in projects">
 							<!-- <div class="col-md-12 project-hover mt-5" v-for="post in project-scroll-reveal.reset> -->
 								<div class="box" @mouseover="getDate(projects)">
 									<router-link :to="{ name: 'project', params: { id: project.id }}" tag="a">

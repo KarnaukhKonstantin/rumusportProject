@@ -11201,15 +11201,29 @@ li {
   margin-left: -29px;
 }
 
+@media (max-width: 5000px) {
+  .tags-cloud-if {
+    display: none;
+  }
+}
+
 @media (max-width: 1550px) {
   .rotatable {
     font-size: 500px;
     margin-top: -350px;
   }
+
+  .tags-cloud-if {
+    display: none;
+  }
 }
 
 @media (max-width: 990px) {
   .third-post {
+    display: none;
+  }
+
+  .tags-cloud-if {
     display: none;
   }
 }
@@ -11222,6 +11236,10 @@ li {
 
   .img-container {
     height: 250px !important;
+  }
+
+  .tags-cloud-if {
+    display: none;
   }
 }
 
@@ -11241,6 +11259,10 @@ li {
 
   .center-content {
     margin-top: 5px;
+  }
+
+  .tags-cloud-if {
+    display: none;
   }
 }
 
@@ -11296,10 +11318,18 @@ li {
   .section-single-project {
     margin-left: 100px;
   }
+
+  .tags-cloud-if {
+    display: none;
+  }
 }
 
 @media (max-width: 700px) {
   .rotatable {
+    display: none;
+  }
+
+  .tags-cloud-if {
     display: none;
   }
 }
@@ -11319,6 +11349,10 @@ li {
 
   .block-social-header {
     margin-top: 15px;
+  }
+
+  .tags-cloud-if {
+    display: none;
   }
 }
 
@@ -11354,8 +11388,18 @@ li {
     display: none;
   }
 
+  .tags-cloud-if {
+    visibility: visible;
+    display: inline;
+    margin-left: -10px;
+  }
+
   .exp-graph {
     display: none;
+  }
+
+  .projects-column {
+    margin-left: 15px;
   }
 }
 

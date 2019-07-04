@@ -25,6 +25,15 @@
 				:stop='true'
 				:tags='tags'/>
 			</div>
+			<div class="col-sm-12 col-md-6">
+				<tags-ball class="tags-cloud-if" v-bind:style='styleObject' 
+				:width='350' 
+				:height='350'
+				:radius='125'
+				:fontMax='75'
+				:stop='true'
+				:tags='tags'/>
+			</div>
 		</div>
 	</section>
 </template>
