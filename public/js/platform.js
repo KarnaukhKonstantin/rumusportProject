@@ -3603,29 +3603,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_infinite_scroll_dist_v_infinite_scroll_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-infinite-scroll/dist/v-infinite-scroll.css */ "./node_modules/v-infinite-scroll/dist/v-infinite-scroll.css");
 /* harmony import */ var v_infinite_scroll_dist_v_infinite_scroll_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_infinite_scroll_dist_v_infinite_scroll_css__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -3667,9 +3646,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      date: '',
       preloader: false,
       projects: [],
       project: {},
@@ -3684,6 +3665,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    getDate: function getDate(post) {
+      this.date = moment__WEBPACK_IMPORTED_MODULE_1___default()(post.created_at).format('ll');
+    },
     showPreloader: function showPreloader() {
       var _this = this;
 
@@ -10604,7 +10588,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n@-webkit-keyframes slideInFromLeft {\n0% {\n    -webkit-transform: translateX(-100%);\n            transform: translateX(-100%);\n}\n100% {\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n}\n}\n@keyframes slideInFromLeft {\n0% {\n    -webkit-transform: translateX(-100%);\n            transform: translateX(-100%);\n}\n100% {\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n}\n}\n.preloader-block{\n  \t-webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\n  \t        animation: 1s ease-out 0s 1 slideInFromLeft;\n  \t/*background: #333;*/\n  \tpadding: 30px;\n}\n.loader {\n  \theight: 1px;\n  \twidth: 30%;\n  \tposition: relative;\n  \toverflow: hidden;\n  \tbackground-color: #ddd;\n}\n.loader:before{\n  \tdisplay: block;\n  \tposition: absolute;\n  \tcontent: \"\";\n  \tleft: -200px;\n  \twidth: 200px;\n  \theight: 4px;\n  \tbackground-color: #07fdd8;\n  \t-webkit-animation: loading 2s linear infinite;\n  \t        animation: loading 2s linear infinite;\n}\n@-webkit-keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n@keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n\t", ""]);
+exports.push([module.i, "\n@-webkit-keyframes slideInFromLeft {\n0% {\n\t\t-webkit-transform: translateX(-100%);\n\t\t        transform: translateX(-100%);\n}\n100% {\n\t\t-webkit-transform: translateX(0);\n\t\t        transform: translateX(0);\n}\n}\n@keyframes slideInFromLeft {\n0% {\n\t\t-webkit-transform: translateX(-100%);\n\t\t        transform: translateX(-100%);\n}\n100% {\n\t\t-webkit-transform: translateX(0);\n\t\t        transform: translateX(0);\n}\n}\n.preloader-block{\n\t-webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\n\t        animation: 1s ease-out 0s 1 slideInFromLeft;\n\t/*background: #333;*/\n\tpadding: 30px;\n}\n.loader {\n\theight: 1px;\n\twidth: 30%;\n\tposition: relative;\n\toverflow: hidden;\n\tbackground-color: #ddd;\n}\n.loader:before{\n\tdisplay: block;\n\tposition: absolute;\n\tcontent: \"\";\n\tleft: -200px;\n\twidth: 200px;\n\theight: 4px;\n\tbackground-color: #07fdd8;\n\t-webkit-animation: loading 2s linear infinite;\n\t        animation: loading 2s linear infinite;\n}\n@-webkit-keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n@keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n", ""]);
 
 // exports
 
@@ -87291,11 +87275,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
+  return _c("section", { staticClass: "section-single-project" }, [
     _c("div", { staticClass: "row" }, [
       _c(
         "div",
-        { staticClass: "col-md-6" },
+        { staticClass: "col-md-12 col-lg-6" },
         [
           _c("open-doc"),
           _vm._v(" "),
@@ -87335,7 +87319,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 mt-5" }, [
+      _c("div", { staticClass: "col-md-12 col-lg-6 mt-5" }, [
         _vm._m(0),
         _vm._v(" "),
         _c("img", {
@@ -87353,7 +87337,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-6" }, [
-        _c("h4", { staticClass: "text-grey lighter mb-5" }, [
+        _c("h4", { staticClass: "text-grey lighter mb-5 ml-5" }, [
           _vm._v(
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
           )
@@ -87435,7 +87419,7 @@ var render = function() {
       ? _c("div", { staticClass: "row pr-2" }, [
           _c(
             "div",
-            { staticClass: "col-md-6" },
+            { staticClass: "col-md-12 col-lg-6" },
             [
               _c("open-doc", {
                 directives: [
@@ -87486,150 +87470,96 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "scroll-reveal",
-                  rawName: "v-scroll-reveal.reset",
-                  modifiers: { reset: true }
-                }
-              ],
-              staticClass: "col-md-6 pt-5"
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "row project-simple" },
-                [
-                  _c(
-                    "v-infinite-scroll",
-                    {
-                      staticStyle: {
-                        "max-height": "100vh",
-                        "overflow-y": "scroll"
+          _c("div", { staticClass: "col-md-12 col-lg-6" }, [
+            _c(
+              "div",
+              { staticClass: "row align-items-start" },
+              [
+                _c(
+                  "v-infinite-scroll",
+                  {
+                    staticStyle: {
+                      "max-height": "100vh",
+                      "overflow-y": "scroll"
+                    },
+                    attrs: { loading: _vm.loading, offset: 50 },
+                    on: { top: _vm.prevPage, bottom: _vm.nextPage }
+                  },
+                  _vm._l(_vm.projects, function(project) {
+                    return _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-md-12 project-hover mt-5 large-main-post"
                       },
-                      attrs: { loading: _vm.loading, offset: 50 },
-                      on: { top: _vm.prevPage, bottom: _vm.nextPage }
-                    },
-                    _vm._l(_vm.projects, function(project) {
-                      return _c(
-                        "div",
-                        {
-                          staticClass:
-                            "col-md-12 project-block mb-5 project-hover"
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "single-project",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#singleProjectModal"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.openProject(project)
-                                }
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "box",
+                            on: {
+                              mouseover: function($event) {
+                                return _vm.getDate(_vm.projects)
                               }
-                            },
-                            [
-                              _c("div", { staticClass: "row" }, [
-                                _c("div", { staticClass: "col-md-2" }, [
-                                  _c("p", { staticClass: "exp-tags" }, [
-                                    _vm._v(_vm._s(project.name))
-                                  ])
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-10" }, [
-                                  _c("img", {
-                                    staticClass: "project-image",
-                                    attrs: { src: project.image, width: "100%" }
-                                  })
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("p", {
-                                staticClass: "mt-5 text-grey lighter",
-                                domProps: {
-                                  innerHTML: _vm._s(project.main_description)
+                            }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                attrs: {
+                                  to: {
+                                    name: "project",
+                                    params: { id: project.id }
+                                  },
+                                  tag: "a"
                                 }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                ],
-                1
-              )
-            ]
-          )
+                              },
+                              [
+                                _c("img", {
+                                  attrs: { src: project.image, width: "100%" }
+                                }),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "hover-effect" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "hover-text",
+                                      attrs: { href: "#" }
+                                    },
+                                    [
+                                      _c("h1", { staticClass: "exp-tags" }, [
+                                        _vm._v(_vm._s(project.name))
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", {
+                                        domProps: {
+                                          innerHTML: _vm._s(
+                                            project.secondary_description
+                                          )
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("p", [_vm._v(_vm._s(_vm.date))])
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ],
+              1
+            )
+          ])
         ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "singleProjectModal",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c(
-                "div",
-                { staticClass: "modal-header float-right" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "my-2",
-                      attrs: {
-                        to: { name: "project", params: { id: _vm.project.id } },
-                        tag: "a"
-                      }
-                    },
-                    [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "close",
-                          attrs: { type: "button", "data-dismiss": "modal" }
-                        },
-                        [_vm._v("...read more")]
-                      )
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("img", {
-                  staticClass: "project-image",
-                  attrs: { src: _vm.project.image, width: "100%" }
-                }),
-                _vm._v(" "),
-                _vm._m(1)
-              ])
-            ])
-          ]
-        )
-      ]
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -87640,23 +87570,6 @@ var staticRenderFns = [
     return _c("h1", { staticClass: "expirience-title mb-3 ml-5 exp-tags" }, [
       _vm._v("My Works"),
       _c("img", { attrs: { src: "images/testimage2.png", width: "60" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c("div", { staticClass: "row mt-5" }, [
-        _c(
-          "button",
-          {
-            staticClass: "contact-me py-2 px-2 float-right",
-            attrs: { type: "button", "data-dismiss": "modal" }
-          },
-          [_c("p", { staticClass: "text-uppercase my-0" }, [_vm._v("Close")])]
-        )
-      ])
     ])
   }
 ]
@@ -114583,7 +114496,7 @@ var findRealParent = function (firstVueParent) {
 /*!***********************************************************!*\
   !*** ./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js ***!
   \***********************************************************/
-/*! exports provided: debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent, CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer */
+/*! exports provided: CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer, debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
