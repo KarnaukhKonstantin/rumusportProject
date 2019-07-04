@@ -26,9 +26,10 @@
 			<div class="col-md-12 col-lg-8">
 				<div class="row">
 					<div class="col-md-12 col-lg-6 mt-3" v-for="post in posts" v-if="posts.length > 0">
-						<div class="box" @mouseover="getDate(post)">
+						<div class="box posts-margin-top" @mouseover="getDate(post)">
 							<router-link :to="{ name: 'post', params: { id: post.id }}" tag="a">
 								<img :src="post.image" width="100%" height="100%" class="post-img">
+								<p class="exp-tags hidden-name">{{post.title}}</p>
 								<div class="hover-effect">
 									<a href="#" class="hover-text">
 										<h1>{{post.title}}</h1>

@@ -10733,6 +10733,10 @@ button {
   margin-left: 40px;
 }
 
+.posts-margin-top {
+  margin-top: 15px;
+}
+
 .preloader-block {
   height: 500px;
   margin-top: 300px;
@@ -11202,7 +11206,8 @@ li {
 }
 
 @media (max-width: 5000px) {
-  .tags-cloud-if {
+  .tags-cloud-if,
+  .hidden-name {
     display: none;
   }
 }
@@ -11213,7 +11218,8 @@ li {
     margin-top: -350px;
   }
 
-  .tags-cloud-if {
+  .tags-cloud-if,
+  .hidden-name {
     display: none;
   }
 }
@@ -11223,7 +11229,8 @@ li {
     display: none;
   }
 
-  .tags-cloud-if {
+  .tags-cloud-if,
+  .hidden-name {
     display: none;
   }
 }
@@ -11238,7 +11245,8 @@ li {
     height: 250px !important;
   }
 
-  .tags-cloud-if {
+  .tags-cloud-if,
+  .hidden-name {
     display: none;
   }
 }
@@ -11261,7 +11269,8 @@ li {
     margin-top: 5px;
   }
 
-  .tags-cloud-if {
+  .tags-cloud-if,
+  .hidden-name {
     display: none;
   }
 }
@@ -11319,7 +11328,8 @@ li {
     margin-left: 100px;
   }
 
-  .tags-cloud-if {
+  .tags-cloud-if,
+  .hidden-name {
     display: none;
   }
 }
@@ -11329,7 +11339,8 @@ li {
     display: none;
   }
 
-  .tags-cloud-if {
+  .tags-cloud-if,
+  .hidden-name {
     display: none;
   }
 }
@@ -11351,7 +11362,8 @@ li {
     margin-top: 15px;
   }
 
-  .tags-cloud-if {
+  .tags-cloud-if,
+  .hidden-name {
     display: none;
   }
 }
@@ -11401,6 +11413,15 @@ li {
   .projects-column {
     margin-left: 15px;
   }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
+  }
+
+  .posts-margin-top {
+    margin-bottom: -75px !important;
+  }
 }
 
 @media (max-width: 400px) {
@@ -11413,7 +11434,7 @@ li {
   }
 
   .post-img {
-    height: 200px !important;
+    height: 180px !important;
   }
 
   .contact-title,

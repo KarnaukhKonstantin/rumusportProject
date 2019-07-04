@@ -2803,6 +2803,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -86159,7 +86160,7 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "box",
+                          staticClass: "box posts-margin-top",
                           on: {
                             mouseover: function($event) {
                               return _vm.getDate(post)
@@ -86184,6 +86185,10 @@ var render = function() {
                                   height: "100%"
                                 }
                               }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "exp-tags hidden-name" }, [
+                                _vm._v(_vm._s(post.title))
+                              ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "hover-effect" }, [
                                 _c(
