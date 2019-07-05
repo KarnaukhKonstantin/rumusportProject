@@ -3578,10 +3578,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      project: {}
+      project: {
+        links: [{
+          body: ''
+        }]
+      }
     };
   },
   methods: {},
@@ -87320,11 +87339,20 @@ var render = function() {
             [_vm._v(_vm._s(_vm.project.name))]
           ),
           _vm._v(" "),
-          _c("h4", { staticClass: "text-grey lighter mb-5 ml-5" }, [
-            _vm._v(
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
-            )
-          ]),
+          _c("h4", {
+            staticClass: "text-grey lighter mb-5 ml-5",
+            domProps: { innerHTML: _vm._s(_vm.project.main_description) }
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            { attrs: { href: _vm.project.links[0].body, target: "_blank" } },
+            [
+              _c("p", { staticClass: "exp-tags ml-5" }, [
+                _vm._v(_vm._s(_vm.project.links[0].body))
+              ])
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -87351,40 +87379,65 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-12 col-lg-6 mt-5" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("h4", { staticClass: "exp-tags" }, [_vm._v("About project...")]),
+            _vm._v(" "),
+            _c("h4", {
+              staticClass: "text-grey lighter mb-5",
+              domProps: { innerHTML: _vm._s(_vm.project.embedded_experience) }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("h4", { staticClass: "exp-tags" }, [
+              _vm._v("Applied features...")
+            ]),
+            _vm._v(" "),
+            _c("h4", {
+              staticClass: "text-grey lighter mb-5",
+              domProps: { innerHTML: _vm._s(_vm.project.secondary_description) }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("h4", { staticClass: "exp-tags" }, [_vm._v("Applied Skills")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row mb-3" },
+          _vm._l(_vm.project.skills, function(skill) {
+            return _c("div", { staticClass: "col-sm-6 col-md-4 col-lg-2" }, [
+              _c("p", { staticClass: "text-grey" }, [
+                _vm._v(_vm._s(skill.name))
+              ])
+            ])
+          }),
+          0
+        ),
         _vm._v(" "),
         _c("img", {
           staticClass: "project-image",
           attrs: { src: _vm.project.image, width: "100%" }
-        })
+        }),
+        _vm._v(" "),
+        _c("h4", { staticClass: "exp-tags tag-margin" }, [_vm._v("Tags")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row mb-3" },
+          _vm._l(_vm.project.tags, function(tag) {
+            return _c("div", { staticClass: "col-sm-6 col-md-4 col-lg-3" }, [
+              _c("p", { staticClass: "exp-tags" }, [_vm._v(_vm._s(tag.name))])
+            ])
+          }),
+          0
+        )
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("h4", { staticClass: "text-grey lighter mb-5" }, [
-          _vm._v(
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("h4", { staticClass: "text-grey lighter mb-5" }, [
-          _vm._v(
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
-          )
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
