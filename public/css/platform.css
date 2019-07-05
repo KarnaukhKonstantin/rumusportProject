@@ -11212,6 +11212,18 @@ li {
   }
 }
 
+@media (max-width: 2560px) {
+  .tags-cloud-if,
+  .hidden-name {
+    display: none;
+  }
+
+  .post-img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
 @media (max-width: 1550px) {
   .rotatable {
     font-size: 500px;
@@ -11229,9 +11241,13 @@ li {
     display: none;
   }
 
-  .tags-cloud-if,
-  .hidden-name {
+  .tags-cloud-if {
     display: none;
+  }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
   }
 }
 
@@ -11245,9 +11261,13 @@ li {
     height: 250px !important;
   }
 
-  .tags-cloud-if,
-  .hidden-name {
+  .tags-cloud-if {
     display: none;
+  }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
   }
 }
 
@@ -11269,9 +11289,13 @@ li {
     margin-top: 5px;
   }
 
-  .tags-cloud-if,
-  .hidden-name {
+  .tags-cloud-if {
     display: none;
+  }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
   }
 }
 
@@ -11328,9 +11352,17 @@ li {
     margin-left: 100px;
   }
 
-  .tags-cloud-if,
-  .hidden-name {
+  .section-single-tag {
+    margin-left: 100px;
+  }
+
+  .tags-cloud-if {
     display: none;
+  }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
   }
 }
 
@@ -11339,9 +11371,13 @@ li {
     display: none;
   }
 
-  .tags-cloud-if,
-  .hidden-name {
+  .tags-cloud-if {
     display: none;
+  }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
   }
 }
 
@@ -11362,9 +11398,13 @@ li {
     margin-top: 15px;
   }
 
-  .tags-cloud-if,
-  .hidden-name {
+  .tags-cloud-if {
     display: none;
+  }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
   }
 }
 
@@ -11372,7 +11412,8 @@ li {
   .section-about,
   .skill-section,
   .projects-section,
-  .section-single-project {
+  .section-single-project,
+  .section-single-tag {
     margin-left: 70px;
     margin-right: 5px;
     display: block;
@@ -11422,6 +11463,11 @@ li {
   .posts-margin-top {
     margin-bottom: -75px !important;
   }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
+  }
 }
 
 @media (max-width: 400px) {
@@ -11446,6 +11492,11 @@ li {
     margin-right: 0px;
     padding-right: 0px;
   }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
+  }
 }
 
 @media (max-width: 375px) {
@@ -11460,6 +11511,11 @@ li {
   .post-img {
     height: 175px !important;
   }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
+  }
 }
 
 @media (max-width: 300px) {
@@ -11473,6 +11529,11 @@ li {
 
   .post-img {
     height: 150px !important;
+  }
+
+  .hidden-name {
+    visibility: visible;
+    display: inline;
   }
 }
 

@@ -2804,6 +2804,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -85714,7 +85717,7 @@ var render = function() {
                       modifiers: { reset: true }
                     }
                   ],
-                  staticClass: "text-grey lighter mb-5 ml-5"
+                  staticClass: "text-grey lighter mb-5 ml-5 text-xl"
                 },
                 [
                   _vm._v(
@@ -86160,7 +86163,7 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "box posts-margin-top",
+                          staticClass: "box",
                           on: {
                             mouseover: function($event) {
                               return _vm.getDate(post)
@@ -86188,6 +86191,17 @@ var render = function() {
                               _vm._v(" "),
                               _c("p", { staticClass: "exp-tags hidden-name" }, [
                                 _vm._v(_vm._s(post.title))
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass:
+                                      "text-left text-grey hidden-name"
+                                  },
+                                  [_vm._v(_vm._s(post.short_description))]
+                                )
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "hover-effect" }, [
@@ -87149,7 +87163,10 @@ var render = function() {
                   [
                     _c(
                       "p",
-                      { staticClass: "text-uppercase my-0 text-align-center" },
+                      {
+                        staticClass:
+                          "text-uppercase my-0 text-align-center text-xl"
+                      },
                       [_vm._v("All Posts...")]
                     )
                   ]
@@ -87172,7 +87189,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "content-place post-text" }, [
             _c("p", {
-              staticClass: "text-grey lighter",
+              staticClass: "text-grey lighter text-xl",
               domProps: { innerHTML: _vm._s(_vm.post.description) }
             })
           ]),
@@ -87184,11 +87201,11 @@ var render = function() {
                 staticClass: "row d-flex justify-content-end align-items-center"
               },
               [
-                _c("p", { staticClass: "text-right mx-1" }, [
+                _c("p", { staticClass: "text-right mx-1 text-xl" }, [
                   _vm._v("category")
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "text-right mx-1" }, [
+                _c("p", { staticClass: "text-right mx-1 text-xl exp-tags" }, [
                   _vm._v(_vm._s(_vm.post.category.name))
                 ])
               ]
@@ -87202,11 +87219,11 @@ var render = function() {
                 staticClass: "row d-flex justify-content-end align-items-center"
               },
               [
-                _c("p", { staticClass: "text-right mx-1" }, [
+                _c("p", { staticClass: "text-right mx-1 text-xl" }, [
                   _vm._v("posted on ")
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "text-right mx-1" }, [
+                _c("p", { staticClass: "text-right mx-1 text-xl" }, [
                   _vm._v(_vm._s(_vm.post.created_at))
                 ])
               ]
@@ -87235,7 +87252,7 @@ var render = function() {
                       }
                     },
                     [
-                      _c("p", { staticClass: "text-center" }, [
+                      _c("p", { staticClass: "text-center tag-xl" }, [
                         _vm._v(_vm._s(tag.name))
                       ])
                     ]
@@ -87261,9 +87278,9 @@ var staticRenderFns = [
       "div",
       { staticClass: "row d-flex justify-content-end align-items-center" },
       [
-        _c("p", { staticClass: "text-right mx-1" }, [_vm._v("author")]),
+        _c("p", { staticClass: "text-right mx-1 text-xl" }, [_vm._v("author")]),
         _vm._v(" "),
-        _c("p", { staticClass: "text-right mx-1" }, [_vm._v("Kost")])
+        _c("p", { staticClass: "text-right mx-1 text-xl" }, [_vm._v("Kost")])
       ]
     )
   }
@@ -87735,7 +87752,7 @@ var render = function() {
                       modifiers: { reset: true }
                     }
                   ],
-                  staticClass: "text-grey ml-5 mb-5 lighter"
+                  staticClass: "text-grey ml-5 mb-5 lighter text-xl"
                 },
                 [
                   _vm._v(
@@ -87933,18 +87950,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "text-grey" }, [
+  return _c("section", { staticClass: "text-grey section-single-tag" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-4 mt-5 block-category pr-4" }, [
-        _c("h1", { staticClass: "text-right" }, [_vm._v(_vm._s(_vm.tag.name))])
-      ]),
+      _c(
+        "div",
+        { staticClass: "col-md-12 col-lg-2 mt-5 block-category pr-4" },
+        [
+          _c("h1", { staticClass: "text-right exp-tags" }, [
+            _vm._v(_vm._s(_vm.tag.name))
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col-md-8 pl-4" },
+        { staticClass: "col-md-12 col-lg-10 pl-4" },
         [
+          _vm.projects.length > 0
+            ? _c("h3", { staticClass: "my-5 exp-tags" }, [_vm._v("Projects")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(_vm.projects, function(project) {
+            return _vm.projects.length > 0
+              ? _c("div", { staticClass: "row mb-4 pb-2 align-items-end" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-2" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "my-2",
+                          attrs: {
+                            to: { name: "project", params: { id: project.id } },
+                            tag: "a"
+                          }
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: project.image, width: "100%" }
+                          })
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-10 post" }, [
+                    _c("p", {
+                      staticClass: "text-left text-xl",
+                      domProps: {
+                        innerHTML: _vm._s(project.secondary_description)
+                      }
+                    })
+                  ])
+                ])
+              : _vm._e()
+          }),
+          _vm._v(" "),
           _vm.posts.length > 0
-            ? _c("h3", { staticClass: "my-5" }, [_vm._v("Posts")])
+            ? _c("h3", { staticClass: "my-5 exp-tags" }, [_vm._v("Posts")])
             : _vm._e(),
           _vm._v(" "),
           _vm._l(_vm.posts, function(post) {
@@ -87974,47 +88039,14 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-10 post" }, [
-                    _c("p", { staticClass: "text-left" }, [
+                    _c(
+                      "p",
+                      { staticClass: "text-left exp-tags hidden-name text-xl" },
+                      [_vm._v(_vm._s(post.title))]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-left text-xl" }, [
                       _vm._v(_vm._s(post.short_description))
-                    ])
-                  ])
-                ])
-              : _vm._e()
-          }),
-          _vm._v(" "),
-          _vm.projects.length > 0
-            ? _c("h3", { staticClass: " mt-5" }, [_vm._v("Projects")])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm._l(_vm.projects, function(project) {
-            return _vm.projects.length > 0
-              ? _c("div", { staticClass: "row mb-4 pb-2 align-items-end" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-md-2" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "my-2",
-                          attrs: {
-                            to: { name: "post", params: { id: project.id } },
-                            tag: "a"
-                          }
-                        },
-                        [
-                          _c("img", {
-                            attrs: { src: project.image, width: "100%" }
-                          })
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-10 post" }, [
-                    _c("p", { staticClass: "text-left" }, [
-                      _vm._v(_vm._s(project.short_description))
                     ])
                   ])
                 ])

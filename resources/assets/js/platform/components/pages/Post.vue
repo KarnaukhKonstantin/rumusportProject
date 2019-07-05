@@ -18,7 +18,7 @@
 				<div class="row justify-content-center mt-3">
 					<button class="contact-me py-2 px-2 mb-5 mr-3 class='sticky-top'" v-scroll-reveal.reset>
 						<router-link :to="{ name: 'all-posts'}" tag="a">
-							<p class="text-uppercase my-0 text-align-center">All Posts...</p>
+							<p class="text-uppercase my-0 text-align-center text-xl">All Posts...</p>
 						</router-link>
 					</button>
 				</div>
@@ -28,27 +28,27 @@
 				<h1 class="text-center my-5 exp-tags">{{post.title}}</h1>
 
 				<div class="content-place post-text">
-					<p v-html="post.description" class="text-grey lighter"></p>
+					<p v-html="post.description" class="text-grey lighter text-xl"></p>
 				</div>
 				<div class="col-md-12 mt-5 text-grey lighter">
 					<div class="row d-flex justify-content-end align-items-center">
-						<p class="text-right mx-1">category</p>
-						<p class="text-right mx-1">{{post.category.name}}</p>
+						<p class="text-right mx-1 text-xl">category</p>
+						<p class="text-right mx-1 text-xl exp-tags">{{post.category.name}}</p>
 					</div>
 					<div class="row d-flex justify-content-end align-items-center">
-						<p class="text-right mx-1">author</p>
-						<p class="text-right mx-1">Kost</p>
+						<p class="text-right mx-1 text-xl">author</p>
+						<p class="text-right mx-1 text-xl">Kost</p>
 					</div>
 					<div class="row d-flex justify-content-end align-items-center">
-						<p class="text-right mx-1">posted on </p>
-						<p class="text-right mx-1">{{post.created_at}}</p>
+						<p class="text-right mx-1 text-xl">posted on </p>
+						<p class="text-right mx-1 text-xl">{{post.created_at}}</p>
 					</div>
 				</div>
 				<h1 class="text-center text-uppercase mt-5">Tags</h1>
 				<div class="row mt-5 row-tags">
 					<div class="col-md-1 mx-auto px-0 exp-tags project-hover" v-for="tag in post.tags">
 						<router-link class="my-2" :to="{ name: 'tag', params: { id: tag.id }}" tag="a">
-							<p class="text-center">{{tag.name}}</p>
+							<p class="text-center tag-xl">{{tag.name}}</p>
 						</router-link>
 					</div>
 				</div>
