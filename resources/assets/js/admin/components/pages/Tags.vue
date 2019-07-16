@@ -160,8 +160,10 @@
 			}
 		},
 		viewItem(item) {
+			// console.log(item)
 			this.modal_type = 'Update'
 			this.form = item
+			this.form._color = item.node._color
 		},
 		save() {
 			if(this.modal_type == 'Create') {

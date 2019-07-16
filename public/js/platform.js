@@ -2608,6 +2608,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3138,6 +3144,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['categories_list', 'tags_list'],
   data: function data() {
     return {
+      all_nodes: true,
       preloader: false,
       tags: [],
       categories_tags: [],
@@ -3270,14 +3277,14 @@ __webpack_require__.r(__webpack_exports__);
       // { sid: 1, tid: 58, _color: '#07fdd8'},
       // { sid: 1, tid: 59, _color: '#07fdd8'},
       // ],
-      nodeSize: 20,
+      nodeSize: 60,
       canvas: false
     };
   },
   computed: {
     options: function options() {
       return {
-        force: 4000,
+        force: 15000,
         size: {
           w: 1200,
           h: 1000
@@ -3296,14 +3303,22 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    showPreloader: function showPreloader() {
+    checkNode: function checkNode(event, node) {
       var _this = this;
+
+      axios.get('/api/graphs-by-node/' + node.id).then(function (response) {
+        _this.nodes = response.data.nodes;
+        _this.links = response.data.nodeLinks;
+      });
+    },
+    showPreloader: function showPreloader() {
+      var _this2 = this;
 
       setTimeout(function () {
         $('#preload').fadeOut('fast');
         $('#preload-logo').fadeOut('fast');
         $('#preload-think').fadeOut('fast');
-        _this.preloader = false;
+        _this2.preloader = false;
       }, 2500);
     },
     lcb: function lcb(link) {
@@ -3321,21 +3336,21 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    var _this2 = this;
+    var _this3 = this;
 
     this.preloader = true;
     this.showPreloader();
     axios.get('/api/categories-without-pagination').then(function (response) {
-      _this2.categories = response.data;
+      _this3.categories = response.data;
     });
     axios.get('/api/tags-without-paginate').then(function (response) {
-      _this2.tags = response.data;
+      _this3.tags = response.data;
     });
     axios.get('/api/nodes').then(function (response) {
-      _this2.nodes = response.data;
+      _this3.nodes = response.data;
     });
     axios.get('/api/all-graph-lines-without-paginate').then(function (response) {
-      _this2.links = response.data;
+      _this3.links = response.data;
     });
   }
 });
@@ -3593,6 +3608,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3791,6 +3808,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_tags_ball__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-tags-ball */ "./node_modules/vue-tags-ball/src/TagsBall.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10506,7 +10534,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n.wrap {\n\tmargin-top: 150px;\n\t-webkit-perspective: 1000px;\n\t        perspective: 1000px;\n\t-webkit-perspective-origin: 50% 50%;\n\t        perspective-origin: 50% 50%;\n}\n.cube {\n\tmargin: auto;\n\tposition: relative;\n\theight: 200px;\n\twidth: 200px;\n\t-webkit-transform-style: preserve-3d;\n\t        transform-style: preserve-3d;\n}\n.cube > div {\n\tposition: absolute;\n\tbox-sizing: border-box;\n\tpadding: 10px;\n\theight: 100%;\n\twidth: 100%;\n\topacity: 0.9;\n\tbackground-color: #484848;\n\tborder: solid 1px #07fdd8;\n\tcolor: #ffffff;\n}\n.front {\n\t-webkit-transform: translateZ(100px);\n\t        transform: translateZ(100px);\n}\n.back {\n\t-webkit-transform: translateZ(-100px) rotateY(180deg);\n\t        transform: translateZ(-100px) rotateY(180deg);\n}\n.right {\n\t-webkit-transform: rotateY(-270deg) translateX(100px);\n\t        transform: rotateY(-270deg) translateX(100px);\n\t-webkit-transform-origin: top right;\n\t        transform-origin: top right;\n}\n.left {\n\t-webkit-transform: rotateY(270deg) translateX(-100px);\n\t        transform: rotateY(270deg) translateX(-100px);\n\t-webkit-transform-origin: center left;\n\t        transform-origin: center left;\n}\n.top {\n\t-webkit-transform: rotateX(-270deg) translateY(-100px);\n\t        transform: rotateX(-270deg) translateY(-100px);\n\t-webkit-transform-origin: top center;\n\t        transform-origin: top center;\n}\n.bottom {\n\t-webkit-transform: rotateX(270deg) translateY(100px);\n\t        transform: rotateX(270deg) translateY(100px);\n\t-webkit-transform-origin: bottom center;\n\t        transform-origin: bottom center;\n}\n@-webkit-keyframes rotate {\nfrom {\n\t\t-webkit-transform: rotateX(0deg) rotateY(0deg);\n\t\t        transform: rotateX(0deg) rotateY(0deg);\n}\nto {\n\t\t-webkit-transform: rotateX(360deg) rotateY(360deg);\n\t\t        transform: rotateX(360deg) rotateY(360deg);\n}\n}\n@keyframes rotate {\nfrom {\n\t\t-webkit-transform: rotateX(0deg) rotateY(0deg);\n\t\t        transform: rotateX(0deg) rotateY(0deg);\n}\nto {\n\t\t-webkit-transform: rotateX(360deg) rotateY(360deg);\n\t\t        transform: rotateX(360deg) rotateY(360deg);\n}\n}\n.cube {\n\t-webkit-animation: rotate 20s infinite linear;\n\t        animation: rotate 20s infinite linear;\n}\n.wrap:hover .front {\n\t-webkit-transform: translateZ(200px);\n\t        transform: translateZ(200px);\n}\n.wrap:hover .back {\n\t-webkit-transform: translateZ(-200px) rotateY(180deg);\n\t        transform: translateZ(-200px) rotateY(180deg);\n}\n.wrap:hover .right {\n\t-webkit-transform: rotateY(-270deg) translateZ(100px) translateX(100px);\n\t        transform: rotateY(-270deg) translateZ(100px) translateX(100px);\n}\n.wrap:hover .left {\n\t-webkit-transform: rotateY(270deg) translateZ(100px) translateX(-100px);\n\t        transform: rotateY(270deg) translateZ(100px) translateX(-100px);\n}\n.wrap:hover .top {\n\t-webkit-transform: rotateX(-270deg) translateZ(100px) translateY(-100px);\n\t        transform: rotateX(-270deg) translateZ(100px) translateY(-100px);\n}\n.wrap:hover .bottom {\n\t-webkit-transform: rotateX(270deg) translateZ(100px) translateY(100px);\n\t        transform: rotateX(270deg) translateZ(100px) translateY(100px);\n}\n.cube > div {\n\ttransition: -webkit-transform 0.2s ease-in;\n\ttransition: transform 0.2s ease-in;\n\ttransition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;\n}\n@-webkit-keyframes slideInFromLeft {\n0% {\n    -webkit-transform: translateX(-100%);\n            transform: translateX(-100%);\n}\n100% {\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n}\n}\n@keyframes slideInFromLeft {\n0% {\n    -webkit-transform: translateX(-100%);\n            transform: translateX(-100%);\n}\n100% {\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n}\n}\n.preloader-block{\n  \t-webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\n  \t        animation: 1s ease-out 0s 1 slideInFromLeft;\n  \t/*background: #333;*/\n  \tpadding: 30px;\n}\n.loader {\n  \theight: 1px;\n  \twidth: 30%;\n  \tposition: relative;\n  \toverflow: hidden;\n  \tbackground-color: #ddd;\n}\n.loader:before{\n  \tdisplay: block;\n  \tposition: absolute;\n  \tcontent: \"\";\n  \tleft: -200px;\n  \twidth: 200px;\n  \theight: 4px;\n  \tbackground-color: #07fdd8;\n  \t-webkit-animation: loading 2s linear infinite;\n  \t        animation: loading 2s linear infinite;\n}\n@-webkit-keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n@keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n", ""]);
+exports.push([module.i, "\n.wrap {\n\tmargin-top: 200px;\n\t-webkit-perspective: 1000px;\n\t        perspective: 1000px;\n\t-webkit-perspective-origin: 50% 50%;\n\t        perspective-origin: 50% 50%;\n}\n.cube {\n\tmargin: auto;\n\tposition: relative;\n\theight: 200px;\n\twidth: 200px;\n\t-webkit-transform-style: preserve-3d;\n\t        transform-style: preserve-3d;\n}\n.cube > div {\n\tposition: absolute;\n\tbox-sizing: border-box;\n\tpadding: 10px;\n\theight: 100%;\n\twidth: 100%;\n\topacity: 0.9;\n\tbackground-color: #484848;\n\tborder: solid 1px #07fdd8;\n\tcolor: #ffffff;\n}\n.front {\n\t-webkit-transform: translateZ(100px);\n\t        transform: translateZ(100px);\n}\n.back {\n\t-webkit-transform: translateZ(-100px) rotateY(180deg);\n\t        transform: translateZ(-100px) rotateY(180deg);\n}\n.right {\n\t-webkit-transform: rotateY(-270deg) translateX(100px);\n\t        transform: rotateY(-270deg) translateX(100px);\n\t-webkit-transform-origin: top right;\n\t        transform-origin: top right;\n}\n.left {\n\t-webkit-transform: rotateY(270deg) translateX(-100px);\n\t        transform: rotateY(270deg) translateX(-100px);\n\t-webkit-transform-origin: center left;\n\t        transform-origin: center left;\n}\n.top {\n\t-webkit-transform: rotateX(-270deg) translateY(-100px);\n\t        transform: rotateX(-270deg) translateY(-100px);\n\t-webkit-transform-origin: top center;\n\t        transform-origin: top center;\n}\n.bottom {\n\t-webkit-transform: rotateX(270deg) translateY(100px);\n\t        transform: rotateX(270deg) translateY(100px);\n\t-webkit-transform-origin: bottom center;\n\t        transform-origin: bottom center;\n}\n@-webkit-keyframes rotate {\nfrom {\n\t\t-webkit-transform: rotateX(0deg) rotateY(0deg);\n\t\t        transform: rotateX(0deg) rotateY(0deg);\n}\nto {\n\t\t-webkit-transform: rotateX(360deg) rotateY(360deg);\n\t\t        transform: rotateX(360deg) rotateY(360deg);\n}\n}\n@keyframes rotate {\nfrom {\n\t\t-webkit-transform: rotateX(0deg) rotateY(0deg);\n\t\t        transform: rotateX(0deg) rotateY(0deg);\n}\nto {\n\t\t-webkit-transform: rotateX(360deg) rotateY(360deg);\n\t\t        transform: rotateX(360deg) rotateY(360deg);\n}\n}\n.cube {\n\t-webkit-animation: rotate 20s infinite linear;\n\t        animation: rotate 20s infinite linear;\n}\n.wrap:hover .front {\n\t-webkit-transform: translateZ(200px);\n\t        transform: translateZ(200px);\n}\n.wrap:hover .back {\n\t-webkit-transform: translateZ(-200px) rotateY(180deg);\n\t        transform: translateZ(-200px) rotateY(180deg);\n}\n.wrap:hover .right {\n\t-webkit-transform: rotateY(-270deg) translateZ(100px) translateX(100px);\n\t        transform: rotateY(-270deg) translateZ(100px) translateX(100px);\n}\n.wrap:hover .left {\n\t-webkit-transform: rotateY(270deg) translateZ(100px) translateX(-100px);\n\t        transform: rotateY(270deg) translateZ(100px) translateX(-100px);\n}\n.wrap:hover .top {\n\t-webkit-transform: rotateX(-270deg) translateZ(100px) translateY(-100px);\n\t        transform: rotateX(-270deg) translateZ(100px) translateY(-100px);\n}\n.wrap:hover .bottom {\n\t-webkit-transform: rotateX(270deg) translateZ(100px) translateY(100px);\n\t        transform: rotateX(270deg) translateZ(100px) translateY(100px);\n}\n.cube > div {\n\ttransition: -webkit-transform 0.2s ease-in;\n\ttransition: transform 0.2s ease-in;\n\ttransition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;\n}\n@-webkit-keyframes slideInFromLeft {\n0% {\n    -webkit-transform: translateX(-100%);\n            transform: translateX(-100%);\n}\n100% {\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n}\n}\n@keyframes slideInFromLeft {\n0% {\n    -webkit-transform: translateX(-100%);\n            transform: translateX(-100%);\n}\n100% {\n    -webkit-transform: translateX(0);\n            transform: translateX(0);\n}\n}\n.preloader-block{\n  \t-webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\n  \t        animation: 1s ease-out 0s 1 slideInFromLeft;\n  \t/*background: #333;*/\n  \tpadding: 30px;\n}\n.loader {\n  \theight: 1px;\n  \twidth: 30%;\n  \tposition: relative;\n  \toverflow: hidden;\n  \tbackground-color: #ddd;\n}\n.loader:before{\n  \tdisplay: block;\n  \tposition: absolute;\n  \tcontent: \"\";\n  \tleft: -200px;\n  \twidth: 200px;\n  \theight: 4px;\n  \tbackground-color: #07fdd8;\n  \t-webkit-animation: loading 2s linear infinite;\n  \t        animation: loading 2s linear infinite;\n}\n@-webkit-keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n@keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n", ""]);
 
 // exports
 
@@ -10639,7 +10667,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n@-webkit-keyframes slideInFromLeft {\n0% {\n\t\t-webkit-transform: translateX(-100%);\n\t\t        transform: translateX(-100%);\n}\n100% {\n\t\t-webkit-transform: translateX(0);\n\t\t        transform: translateX(0);\n}\n}\n@keyframes slideInFromLeft {\n0% {\n\t\t-webkit-transform: translateX(-100%);\n\t\t        transform: translateX(-100%);\n}\n100% {\n\t\t-webkit-transform: translateX(0);\n\t\t        transform: translateX(0);\n}\n}\n.preloader-block{\n-webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\n        animation: 1s ease-out 0s 1 slideInFromLeft;\n\t/*background: #333;*/\npadding: 30px;\n}\n.loader {\nheight: 1px;\nwidth: 30%;\nposition: relative;\noverflow: hidden;\nbackground-color: #ddd;\n}\n.loader:before{\ndisplay: block;\nposition: absolute;\ncontent: \"\";\nleft: -200px;\nwidth: 200px;\nheight: 4px;\nbackground-color: #07fdd8;\n-webkit-animation: loading 2s linear infinite;\n        animation: loading 2s linear infinite;\n}\n@-webkit-keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n@keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n", ""]);
+exports.push([module.i, "\n@-webkit-keyframes slideInFromLeft {\n0% {\n\t\t-webkit-transform: translateX(-100%);\n\t\t        transform: translateX(-100%);\n}\n100% {\n\t\t-webkit-transform: translateX(0);\n\t\t        transform: translateX(0);\n}\n}\n@keyframes slideInFromLeft {\n0% {\n\t\t-webkit-transform: translateX(-100%);\n\t\t        transform: translateX(-100%);\n}\n100% {\n\t\t-webkit-transform: translateX(0);\n\t\t        transform: translateX(0);\n}\n}\n.preloader-block{\n\t-webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\n\t        animation: 1s ease-out 0s 1 slideInFromLeft;\n\t/*background: #333;*/\n\tpadding: 30px;\n}\n.loader {\n\theight: 1px;\n\twidth: 30%;\n\tposition: relative;\n\toverflow: hidden;\n\tbackground-color: #ddd;\n}\n.loader:before{\n\tdisplay: block;\n\tposition: absolute;\n\tcontent: \"\";\n\tleft: -200px;\n\twidth: 200px;\n\theight: 4px;\n\tbackground-color: #07fdd8;\n\t-webkit-animation: loading 2s linear infinite;\n\t        animation: loading 2s linear infinite;\n}\n@-webkit-keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n@keyframes loading {\nfrom {left: -200px; width: 30%;}\n50% {width: 30%;}\n70% {width: 70%;}\n80% { left: 50%;}\n95% {left: 120%;}\nto {left: 100%;}\n}\n", ""]);
 
 // exports
 
@@ -85727,7 +85755,7 @@ var render = function() {
               _vm._m(0),
               _vm._v(" "),
               _c(
-                "h4",
+                "div",
                 {
                   directives: [
                     {
@@ -85736,12 +85764,38 @@ var render = function() {
                       modifiers: { reset: true }
                     }
                   ],
-                  staticClass: "text-grey lighter mb-5 ml-5 text-xl"
+                  staticClass: "text-grey lighter mb-4 ml-5 text-xl"
                 },
                 [
-                  _vm._v(
-                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. "
-                  )
+                  _c("h4", { staticClass: "text-grey lighter mb-4 text-xl" }, [
+                    _vm._v(
+                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "text-grey lighter mb-4 text-xl" }, [
+                    _vm._v(
+                      "Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas!"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "text-grey lighter mb-4 text-xl" }, [
+                    _vm._v(
+                      "Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea?"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "text-grey lighter mb-4 text-xl" }, [
+                    _vm._v(
+                      "Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "text-grey lighter mb-4 text-xl" }, [
+                    _vm._v(
+                      "Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur."
+                    )
+                  ])
                 ]
               ),
               _vm._v(" "),
@@ -86902,7 +86956,8 @@ var render = function() {
                   "net-links": _vm.links,
                   options: _vm.options,
                   "link-cb": _vm.lcb
-                }
+                },
+                on: { "node-click": _vm.checkNode }
               })
             ],
             1
@@ -87084,7 +87139,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12 col-lg-5" }, [
-      _c("p", { staticClass: "rotatable text-green" }, [_vm._v("R")])
+      _c("img", {
+        staticClass: "rotatable",
+        attrs: { src: "images/R-logo2.png", width: "100%" }
+      })
     ])
   }
 ]
@@ -87427,9 +87485,28 @@ var render = function() {
           "div",
           { staticClass: "row mb-3" },
           _vm._l(_vm.project.tags, function(tag) {
-            return _c("div", { staticClass: "col-sm-6 col-md-4 col-lg-3" }, [
-              _c("p", { staticClass: "exp-tags" }, [_vm._v(_vm._s(tag.name))])
-            ])
+            return _c(
+              "div",
+              { staticClass: "col-sm-6 col-md-4 col-lg-3" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "my-2",
+                    attrs: {
+                      to: { name: "tag", params: { id: tag.id } },
+                      tag: "a"
+                    }
+                  },
+                  [
+                    _c("p", { staticClass: "exp-tags" }, [
+                      _vm._v(_vm._s(tag.name))
+                    ])
+                  ]
+                )
+              ],
+              1
+            )
           }),
           0
         )
@@ -87796,7 +87873,7 @@ var render = function() {
               _vm._m(0),
               _vm._v(" "),
               _c(
-                "h4",
+                "div",
                 {
                   directives: [
                     {
@@ -87805,11 +87882,43 @@ var render = function() {
                       modifiers: { reset: true }
                     }
                   ],
-                  staticClass: "text-grey ml-5 mb-5 lighter text-xl"
+                  staticClass: "text-grey ml-5 mb-3 lighter text-xl"
                 },
                 [
-                  _vm._v(
-                    "\n\t\t\t\tLorem ipsum dolor sit amet, consectetur adipisicing elit. Quod corporis, alias sapiente placeat ipsum minus, hic blanditiis, ab earum at eveniet distinctio dolor veniam tempore tempora, officiis cupiditate ea eligendi nisi? Animi saepe quia optio, possimus soluta rem ex temporibus eaque doloremque beatae nobis delectus eos voluptatibus! Molestiae consectetur labore, laborum in magnam ullam quaerat esse tempora quibusdam! Delectus rem impedit quasi pariatur rerum quis unde omnis dolor necessitatibus facilis cumque, quas fugit ipsa magnam labore! Laudantium doloribus iste reprehenderit facilis officiis harum mollitia libero voluptatem consequatur alias quis veniam consequuntur placeat culpa, temporibus ipsum explicabo officia non. Provident, hic.\t\n\t\t\t"
+                  _c(
+                    "h4",
+                    { staticClass: "text-grey ml-5 mb-3 lighter text-xl" },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\tLorem ipsum dolor sit amet, consectetur adipisicing elit. Quod corporis, alias sapiente placeat ipsum minus, hic blanditiis, ab earum at eveniet distinctio dolor veniam tempore tempora, officiis cupiditate ea eligendi nisi? \t\n\t\t\t\t"
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h4",
+                    { staticClass: "text-grey ml-5 mb-3 lighter text-xl" },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\tAnimi saepe quia optio, possimus soluta rem ex temporibus eaque doloremque beatae nobis delectus eos voluptatibus! Molestiae consectetur labore, laborum in magnam ullam quaerat esse tempora quibusdam! \n\t\t\t\t"
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h4",
+                    { staticClass: "text-grey ml-5 mb-3 lighter text-xl" },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\tDelectus rem impedit quasi pariatur rerum quis unde omnis dolor necessitatibus facilis cumque, quas fugit ipsa magnam labore! Laudantium doloribus iste reprehenderit facilis officiis harum mollitia libero voluptatem consequatur alias quis veniam consequuntur placeat culpa, temporibus ipsum explicabo officia non. \n\t\t\t\t"
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h4",
+                    { staticClass: "text-grey ml-5 mb-3 lighter text-xl" },
+                    [_vm._v("\n\t\t\t\t\tProvident, hic.\n\t\t\t\t")]
                   )
                 ]
               ),
@@ -114615,7 +114724,7 @@ var findRealParent = function (firstVueParent) {
 /*!***********************************************************!*\
   !*** ./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js ***!
   \***********************************************************/
-/*! exports provided: debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent, CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer */
+/*! exports provided: CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer, debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

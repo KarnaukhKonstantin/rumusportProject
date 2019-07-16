@@ -11,9 +11,20 @@
 				<open-doc v-scroll-reveal.reset></open-doc>
 				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
 				<h1 class="exp-tags mb-3 ml-5 skill-title">Skills<img src="images/testimage2.png" width="60"></h1>
-				<h4 class="text-grey ml-5 mb-5 lighter text-xl" v-scroll-reveal.reset>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod corporis, alias sapiente placeat ipsum minus, hic blanditiis, ab earum at eveniet distinctio dolor veniam tempore tempora, officiis cupiditate ea eligendi nisi? Animi saepe quia optio, possimus soluta rem ex temporibus eaque doloremque beatae nobis delectus eos voluptatibus! Molestiae consectetur labore, laborum in magnam ullam quaerat esse tempora quibusdam! Delectus rem impedit quasi pariatur rerum quis unde omnis dolor necessitatibus facilis cumque, quas fugit ipsa magnam labore! Laudantium doloribus iste reprehenderit facilis officiis harum mollitia libero voluptatem consequatur alias quis veniam consequuntur placeat culpa, temporibus ipsum explicabo officia non. Provident, hic.	
-				</h4>
+				<div class="text-grey ml-5 mb-3 lighter text-xl" v-scroll-reveal.reset>
+					<h4 class="text-grey ml-5 mb-3 lighter text-xl">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod corporis, alias sapiente placeat ipsum minus, hic blanditiis, ab earum at eveniet distinctio dolor veniam tempore tempora, officiis cupiditate ea eligendi nisi? 	
+					</h4>
+					<h4 class="text-grey ml-5 mb-3 lighter text-xl">
+						Animi saepe quia optio, possimus soluta rem ex temporibus eaque doloremque beatae nobis delectus eos voluptatibus! Molestiae consectetur labore, laborum in magnam ullam quaerat esse tempora quibusdam! 
+					</h4>
+					<h4 class="text-grey ml-5 mb-3 lighter text-xl">
+						Delectus rem impedit quasi pariatur rerum quis unde omnis dolor necessitatibus facilis cumque, quas fugit ipsa magnam labore! Laudantium doloribus iste reprehenderit facilis officiis harum mollitia libero voluptatem consequatur alias quis veniam consequuntur placeat culpa, temporibus ipsum explicabo officia non. 
+					</h4>
+					<h4 class="text-grey ml-5 mb-3 lighter text-xl">
+						Provident, hic.
+					</h4>
+				</div>
 				<close-doc v-scroll-reveal.reset></close-doc>
 			</div>
 			<div class="col-sm-12 col-md-6">
@@ -79,9 +90,9 @@
 			}
 		},
 		watch: {
-		    'preloader'(val){
-		    	console.log(val)
-		    }
+			'preloader'(val){
+				console.log(val)
+			}
 		},
 		methods: {
 			showPreloader() {
@@ -117,26 +128,26 @@
 }
 
 .preloader-block{
-animation: 1s ease-out 0s 1 slideInFromLeft;
+	animation: 1s ease-out 0s 1 slideInFromLeft;
 	/*background: #333;*/
-padding: 30px;
+	padding: 30px;
 }
 .loader {
-height: 1px;
-width: 30%;
-position: relative;
-overflow: hidden;
-background-color: #ddd;
+	height: 1px;
+	width: 30%;
+	position: relative;
+	overflow: hidden;
+	background-color: #ddd;
 }
 .loader:before{
-display: block;
-position: absolute;
-content: "";
-left: -200px;
-width: 200px;
-height: 4px;
-background-color: #07fdd8;
-animation: loading 2s linear infinite;
+	display: block;
+	position: absolute;
+	content: "";
+	left: -200px;
+	width: 200px;
+	height: 4px;
+	background-color: #07fdd8;
+	animation: loading 2s linear infinite;
 }
 
 @keyframes loading {

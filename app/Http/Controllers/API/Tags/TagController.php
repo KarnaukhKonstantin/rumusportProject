@@ -63,21 +63,24 @@ class TagController extends Controller
     {
         $tag = Tag::where('id', $id)->first();
 
-         $posts = Post::whereHas('tags',function($query)use($tag){
+        $posts = Post::whereHas('tags',function($query)use($tag){
                 $query->where('id',$tag->id);
             })->get();
 
-         $projects = Project::whereHas('tags',function($query)use($tag){
+        $projects = Project::whereHas('tags',function($query)use($tag){
                 $query->where('id',$tag->id);
             })->get();
 
-         if($posts){
+        if($posts){
             $tag->posts = $posts;
-         }
+        }
 
-         if($projects){
+        if($projects){
             $tag->projects = $projects;
-         }
+        }
+
+        $node = Node::where('name', $tag->name)->first();
+        $tag->node = $node;
 
          return response()->json(['tag' => $tag, 'posts' => $posts, 'projects' => $projects]);
     }

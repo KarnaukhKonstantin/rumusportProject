@@ -4931,8 +4931,10 @@ __webpack_require__.r(__webpack_exports__);
       };
     },
     viewItem: function viewItem(item) {
+      // console.log(item)
       this.modal_type = 'Update';
       this.form = item;
+      this.form._color = item.node._color;
     },
     save: function save() {
       var _this = this;

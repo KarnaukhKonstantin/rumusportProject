@@ -19,8 +19,8 @@
 
 			</div>
 			<div class="col-md-12 col-lg-5">
-				<p class="rotatable text-green">R</p>
-				<!-- <img class="text-right" src="images/R.png" width="500"> -->
+				<!-- <p class="rotatable text-green">R</p> -->
+				<img src="images/R-logo2.png" class="rotatable" width="100%">
 			</div>
 		</div>
 		<close-doc v-scroll-reveal.reset></close-doc>

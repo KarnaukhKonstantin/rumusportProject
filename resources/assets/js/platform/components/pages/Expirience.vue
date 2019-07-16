@@ -31,7 +31,7 @@
 					<close-doc v-scroll-reveal.reset></close-doc>
 				</div>
 				<div class="col-md-9 col-sm-12">
-					<d3-network  class="my-0 py-0 exp-graph" ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb"/>
+					<d3-network  class="my-0 py-0 exp-graph" ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb" @node-click="checkNode"/>
 				</div>
 			</div>
 		</section>
@@ -45,6 +45,7 @@
 			props: ['categories_list', 'tags_list'],
 			data() {
 				return {
+					all_nodes: true,
 					preloader: false,
 					tags: [],
 					categories_tags: [],
@@ -186,14 +187,14 @@
 				
 
 				// ],
-				nodeSize:20,
+				nodeSize:60,
 				canvas:false
 			}
 		},
 		computed:{
 			options(){
 				return{
-					force: 4000,
+					force: 15000,
 					size:{ w:1200, h:1000},
 					nodeSize: this.nodeSize,
 					nodeLabels: true,
@@ -209,6 +210,13 @@
 		    }
 		},
 		methods: {
+			checkNode(event, node) {
+				axios.get('/api/graphs-by-node/' + node.id)
+				.then(response => {
+					this.nodes = response.data.nodes
+					this.links = response.data.nodeLinks
+				})
+			},
 			showPreloader() {
 				setTimeout(() => {
 					$('#preload').fadeOut('fast');

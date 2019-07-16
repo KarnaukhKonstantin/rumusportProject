@@ -11,7 +11,11 @@ class NodeController extends Controller
 {
 	public function allNodes()
 	{
-		$nodes = Node::all();
+		// $nodes = Node::all();
+		$node = Node::where('name', 'FullStack')->first();
+		$nodes_ids = NodeLink::where('sid', $node->id)->pluck('tid');
+		$nodes_ids[] = $node->id;
+		$nodes = Node::whereIn('id', $nodes_ids)->get();
 
 		return response()->json($nodes);
 	}
@@ -59,9 +63,28 @@ class NodeController extends Controller
 
 	public function graphsWithoutPaginate()
 	{
-		$graphs = NodeLink::all();
+		// $graphs = NodeLink::all();
+		$node = Node::where('name', 'FullStack')->first();
+		$graphs = NodeLink::where('sid', $node->id)->get();
 
 		return response()->json($graphs);
+	}
+
+
+
+	public function graphsByNode($node_id)
+	{
+		$node = Node::where('id', $node_id)->first();
+
+		$nodeLinks = NodeLink::where('sid', $node_id)->get();
+
+		$nodes_ids = NodeLink::where('sid', $node_id)->pluck('tid');
+
+		$nodes_ids[] = $node_id;
+
+		$nodes = Node::whereIn('id', $nodes_ids)->get();
+
+		return response()->json(['nodes' => $nodes, 'node' => $node, 'nodeLinks' => $nodeLinks]);
 	}
 
 

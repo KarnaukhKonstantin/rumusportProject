@@ -36,7 +36,9 @@
 				<h4 class="exp-tags tag-margin">Tags</h4>
 				<div class="row mb-3">
 					<div class="col-sm-6 col-md-4 col-lg-3" v-for="tag in project.tags">
-						<p class="exp-tags">{{tag.name}}</p>
+						<router-link class="my-2" :to="{ name: 'tag', params: { id: tag.id }}" tag="a">
+							<p class="exp-tags">{{tag.name}}</p>
+						</router-link>
 					</div>
 				</div>
 			</div>

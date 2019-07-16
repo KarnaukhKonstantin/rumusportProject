@@ -12,7 +12,13 @@
 				<open-doc v-scroll-reveal.reset></open-doc>
 				<img src="images/testimage.png" width="60" class="ml-5 mt-5">
 				<h1 class="expirience-title mb-3 ml-5 exp-tags">About Me<img src="images/testimage2.png" width="60"></h1>
-				<h4 class="text-grey lighter mb-5 ml-5 text-xl" v-scroll-reveal.reset>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas! Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea? Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur. </h4>
+				<div class="text-grey lighter mb-4 ml-5 text-xl" v-scroll-reveal.reset>
+					<h4 class="text-grey lighter mb-4 text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h4>
+					<h4 class="text-grey lighter mb-4 text-xl">Inventore totam doloribus quidem harum quos dolor eligendi nulla, amet, officiis impedit. Aperiam eum suscipit minus iusto modi dolores, nesciunt rem repellendus harum voluptas!</h4>
+					<h4 class="text-grey lighter mb-4 text-xl">Repellat, totam, ipsum! Sequi assumenda quidem natus architecto voluptate molestias amet quibusdam nulla cupiditate, dignissimos perferendis, dicta cum porro enim nesciunt aliquam ratione inventore ea?</h4>
+					<h4 class="text-grey lighter mb-4 text-xl">Iure necessitatibus quis facilis ut. Aut harum, voluptatibus, assumenda est sapiente iure velit sed placeat nulla rem ullam consequatur, suscipit voluptatum officia, molestias ipsa at. </h4>
+					<h4 class="text-grey lighter mb-4 text-xl">Consequatur voluptatem, ipsum, sequi repudiandae magni, porro ducimus in commodi repellendus harum velit quos mollitia! Magnam ipsum quas quasi? Aliquam dicta quos aut itaque labore sit magnam aperiam nesciunt doloremque quae quasi cumque eum, suscipit, temporibus nobis, dignissimos sunt quo consequuntur consequatur.</h4> 
+				</div>
 				<close-doc v-scroll-reveal.reset></close-doc>
 			</div>
 			<div class="col-sm-12 col-md-6 stack">
@@ -75,7 +81,7 @@
 
 <style type="text/css">
 .wrap {
-	margin-top: 150px;
+	margin-top: 200px;
 	perspective: 1000px;
 	perspective-origin: 50% 50%;
 }
