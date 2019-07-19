@@ -239,7 +239,7 @@
 	},
 	created() {
 		this.categories = JSON.parse(this.categories_list)
-		axios.get('/api/nodes')
+		axios.get('/api/all-nodes')
 		.then(response => {
 			this.nodes = response.data
 		})

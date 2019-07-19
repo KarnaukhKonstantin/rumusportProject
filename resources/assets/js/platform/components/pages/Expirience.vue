@@ -32,6 +32,9 @@
 				</div>
 				<div class="col-md-9 col-sm-12">
 					<d3-network  class="my-0 py-0 exp-graph" ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb" @node-click="checkNode"/>
+					<button class="contact-me py-2 px-2 mb-5 mr-3" @click="onlyFirstNode()">
+						<p class="text-uppercase my-0">Magic...</p>
+					</button>
 				</div>
 			</div>
 		</section>
@@ -56,6 +59,7 @@
 					}],
 					nodes: [],
 					links: [],
+					points: ['PHP', 'Laravel', 'JavaScript', 'Vue JS'],
 				// nodes: [
 				// { id: 1, name: 'Full Stack', _color: '#07fdd8', _border: '5px solid red'},
 				// { id: 2, name: 'PHP', _color: '#8892BF', _border: '5px solid red'},
@@ -182,19 +186,15 @@
 				// { sid: 1, tid: 57, _color: '#07fdd8'},
 				// { sid: 1, tid: 58, _color: '#07fdd8'},
 				// { sid: 1, tid: 59, _color: '#07fdd8'},
-
-
-				
-
 				// ],
-				nodeSize:60,
+				nodeSize:100,
 				canvas:false
 			}
 		},
 		computed:{
 			options(){
 				return{
-					force: 15000,
+					force: 10000,
 					size:{ w:1200, h:1000},
 					nodeSize: this.nodeSize,
 					nodeLabels: true,
@@ -215,6 +215,14 @@
 				.then(response => {
 					this.nodes = response.data.nodes
 					this.links = response.data.nodeLinks
+					if(this.nodes.length < 10) {
+						this.nodeSize = 100
+						this.options.force = 25000
+					}
+					if(this.nodes.length > 10) {
+						this.nodeSize = 50
+						this.options.force = 17500
+					}
 				})
 			},
 			showPreloader() {
@@ -238,6 +246,84 @@
 					}
 				}
 
+			},
+			getNodesAndlines() {
+				axios.get('/api/nodes')
+					.then(response => {
+						this.nodes = response.data
+						this.nodeSize = 200
+						this.options.force = 17500
+						setTimeout(() => {
+							this.animatGraphById(this.nodes[0].id);
+						}, 4000);
+					})
+				// axios.get('/api/all-graph-lines-without-paginate')
+				// 	.then(response => {
+				// 		this.links = response.data
+				// 	})
+			},
+			animatGraphById(id) {
+				axios.get('/api/graphs-by-node/' + id)
+				.then(response => {
+					this.nodes = response.data.nodes
+					this.links = response.data.nodeLinks
+					if(this.nodes.length < 10) {
+						this.nodeSize = 100
+						this.options.force = 25000
+					}
+					if(this.nodes.length > 10) {
+						this.nodeSize = 50
+						this.options.force = 17500
+					}
+					this.startNodes(0)	
+				})
+			},
+			startNodes(i) {
+				setTimeout(() => {
+					console.log(this.points[i])
+					this.animatGraphByName(this.points[i], i);
+				}, 3000);
+			},
+			animatGraphByName(name, i) {
+				axios.get('/api/animated-graph/' + name)
+				.then(response => {
+					this.nodes = response.data.nodes
+					this.links = response.data.nodeLinks
+					if(this.nodes.length < 10) {
+						this.nodeSize = 100
+						this.options.force = 25000
+					}
+					if(this.nodes.length > 10) {
+						this.nodeSize = 50
+						this.options.force = 17500
+					}
+					if(this.points[i+1]) {
+						this.startNodes(i+1) 
+					}else{
+						this.finishNode()
+					}
+				})
+			},
+			finishNode() {
+				axios.get('/api/all-nodes')
+					.then(response => {
+						this.nodes = response.data
+						this.nodeSize = 20
+						this.options.force = 4000
+					})
+				axios.get('/api/all-graph-links')
+					.then(response => {
+						this.links = response.data
+					})
+			},
+			onlyFirstNode() {
+				axios.get('/api/nodes')
+					.then(response => {
+						this.nodes = response.data
+						this.links = []
+						this.nodeSize = 200
+						this.options.force = 17500
+					})
 			}
 		},
 		created() {
@@ -251,14 +337,8 @@
 			.then(response => {
 				this.tags = response.data
 			})
-			axios.get('/api/nodes')
-			.then(response => {
-				this.nodes = response.data
-			})
-			axios.get('/api/all-graph-lines-without-paginate')
-			.then(response => {
-				this.links = response.data
-			})
+			this.getNodesAndlines()
+			
 		}	
 	}
 </script>

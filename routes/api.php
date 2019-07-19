@@ -42,9 +42,12 @@ Route::post('/login', 'Api\AuthController@login');
 
 	//nodes
 	Route::get('/nodes', 'API\TagNodes\NodeController@allNodes');
+	Route::get('/all-nodes', 'API\TagNodes\NodeController@nodesForAdmin');
 	Route::get('/all-graph-lines-without-paginate', 'API\TagNodes\NodeController@graphsWithoutPaginate');
+	Route::get('/all-graph-links', 'API\TagNodes\NodeController@graphsAllLinks');
 	Route::get('/all-graphs', 'API\TagNodes\NodeController@graphsAll');
 	Route::get('/graphs-by-node/{node_id}', 'API\TagNodes\NodeController@graphsByNode');
+	Route::get('/animated-graph/{name}', 'API\TagNodes\NodeController@animationGraph');
 	Route::post('/add-graph-line', 'API\TagNodes\NodeController@addGraphLineRelation');
 	Route::put('/update-graph-line/{id}', 'API\TagNodes\NodeController@updateGraphLineRelation');
 	Route::delete('/delete-graph-line/{id}', 'API\TagNodes\NodeController@deleteGraphLineRelation');

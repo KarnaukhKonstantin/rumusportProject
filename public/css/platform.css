@@ -11209,6 +11209,10 @@ li {
   margin-left: -29px;
 }
 
+.exp-graph {
+  transition: all 0.9s !important;
+}
+
 @media (max-width: 5000px) {
   .tags-cloud-if,
   .hidden-name {

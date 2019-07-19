@@ -3136,6 +3136,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3155,6 +3158,7 @@ __webpack_require__.r(__webpack_exports__);
       }],
       nodes: [],
       links: [],
+      points: ['PHP', 'Laravel', 'JavaScript', 'Vue JS'],
       // nodes: [
       // { id: 1, name: 'Full Stack', _color: '#07fdd8', _border: '5px solid red'},
       // { id: 2, name: 'PHP', _color: '#8892BF', _border: '5px solid red'},
@@ -3277,14 +3281,14 @@ __webpack_require__.r(__webpack_exports__);
       // { sid: 1, tid: 58, _color: '#07fdd8'},
       // { sid: 1, tid: 59, _color: '#07fdd8'},
       // ],
-      nodeSize: 60,
+      nodeSize: 100,
       canvas: false
     };
   },
   computed: {
     options: function options() {
       return {
-        force: 15000,
+        force: 10000,
         size: {
           w: 1200,
           h: 1000
@@ -3309,6 +3313,16 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/graphs-by-node/' + node.id).then(function (response) {
         _this.nodes = response.data.nodes;
         _this.links = response.data.nodeLinks;
+
+        if (_this.nodes.length < 10) {
+          _this.nodeSize = 100;
+          _this.options.force = 25000;
+        }
+
+        if (_this.nodes.length > 10) {
+          _this.nodeSize = 50;
+          _this.options.force = 17500;
+        }
       });
     },
     showPreloader: function showPreloader() {
@@ -3333,25 +3347,110 @@ __webpack_require__.r(__webpack_exports__);
           this.category_id = this.categories[i].id;
         }
       }
+    },
+    getNodesAndlines: function getNodesAndlines() {
+      var _this3 = this;
+
+      axios.get('/api/nodes').then(function (response) {
+        _this3.nodes = response.data;
+        _this3.nodeSize = 200;
+        _this3.options.force = 17500;
+        setTimeout(function () {
+          _this3.animatGraphById(_this3.nodes[0].id);
+        }, 4000);
+      }); // axios.get('/api/all-graph-lines-without-paginate')
+      // 	.then(response => {
+      // 		this.links = response.data
+      // 	})
+    },
+    animatGraphById: function animatGraphById(id) {
+      var _this4 = this;
+
+      axios.get('/api/graphs-by-node/' + id).then(function (response) {
+        _this4.nodes = response.data.nodes;
+        _this4.links = response.data.nodeLinks;
+
+        if (_this4.nodes.length < 10) {
+          _this4.nodeSize = 100;
+          _this4.options.force = 25000;
+        }
+
+        if (_this4.nodes.length > 10) {
+          _this4.nodeSize = 50;
+          _this4.options.force = 17500;
+        }
+
+        _this4.startNodes(0);
+      });
+    },
+    startNodes: function startNodes(i) {
+      var _this5 = this;
+
+      setTimeout(function () {
+        console.log(_this5.points[i]);
+
+        _this5.animatGraphByName(_this5.points[i], i);
+      }, 3000);
+    },
+    animatGraphByName: function animatGraphByName(name, i) {
+      var _this6 = this;
+
+      axios.get('/api/animated-graph/' + name).then(function (response) {
+        _this6.nodes = response.data.nodes;
+        _this6.links = response.data.nodeLinks;
+
+        if (_this6.nodes.length < 10) {
+          _this6.nodeSize = 100;
+          _this6.options.force = 25000;
+        }
+
+        if (_this6.nodes.length > 10) {
+          _this6.nodeSize = 50;
+          _this6.options.force = 17500;
+        }
+
+        if (_this6.points[i + 1]) {
+          _this6.startNodes(i + 1);
+        } else {
+          _this6.finishNode();
+        }
+      });
+    },
+    finishNode: function finishNode() {
+      var _this7 = this;
+
+      axios.get('/api/all-nodes').then(function (response) {
+        _this7.nodes = response.data;
+        _this7.nodeSize = 20;
+        _this7.options.force = 4000;
+      });
+      axios.get('/api/all-graph-links').then(function (response) {
+        _this7.links = response.data;
+      });
+    },
+    onlyFirstNode: function onlyFirstNode() {
+      var _this8 = this;
+
+      axios.get('/api/nodes').then(function (response) {
+        _this8.nodes = response.data;
+        _this8.links = [];
+        _this8.nodeSize = 200;
+        _this8.options.force = 17500;
+      });
     }
   },
   created: function created() {
-    var _this3 = this;
+    var _this9 = this;
 
     this.preloader = true;
     this.showPreloader();
     axios.get('/api/categories-without-pagination').then(function (response) {
-      _this3.categories = response.data;
+      _this9.categories = response.data;
     });
     axios.get('/api/tags-without-paginate').then(function (response) {
-      _this3.tags = response.data;
+      _this9.tags = response.data;
     });
-    axios.get('/api/nodes').then(function (response) {
-      _this3.nodes = response.data;
-    });
-    axios.get('/api/all-graph-lines-without-paginate').then(function (response) {
-      _this3.links = response.data;
-    });
+    this.getNodesAndlines();
   }
 });
 
@@ -86958,7 +87057,24 @@ var render = function() {
                   "link-cb": _vm.lcb
                 },
                 on: { "node-click": _vm.checkNode }
-              })
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "contact-me py-2 px-2 mb-5 mr-3",
+                  on: {
+                    click: function($event) {
+                      return _vm.onlyFirstNode()
+                    }
+                  }
+                },
+                [
+                  _c("p", { staticClass: "text-uppercase my-0" }, [
+                    _vm._v("Magic...")
+                  ])
+                ]
+              )
             ],
             1
           )

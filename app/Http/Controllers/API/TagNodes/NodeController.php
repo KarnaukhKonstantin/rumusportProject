@@ -12,12 +12,30 @@ class NodeController extends Controller
 	public function allNodes()
 	{
 		// $nodes = Node::all();
-		$node = Node::where('name', 'FullStack')->first();
-		$nodes_ids = NodeLink::where('sid', $node->id)->pluck('tid');
-		$nodes_ids[] = $node->id;
-		$nodes = Node::whereIn('id', $nodes_ids)->get();
+		$nodes = Node::where('name', 'FullStack')->get();
+		// $nodes_ids = NodeLink::where('sid', $node->id)->pluck('tid');
+		// $nodes_ids[] = $node->id;
+		// $nodes = Node::whereIn('id', $nodes_ids)->get();
 
 		return response()->json($nodes);
+	}
+
+
+
+	public function nodesForAdmin()
+	{
+		$nodes = Node::all();
+
+		return response()->json($nodes);	
+	}
+
+
+
+	public function graphsAllLinks()
+	{
+		$graphs = NodeLink::all();
+
+		return response()->json($graphs);
 	}
 
 
@@ -42,7 +60,7 @@ class NodeController extends Controller
 		$nodeLine->update([
 			'sid' => $request->sid,
 			'tid' => $request->tid,
-			'_color' => $request->color
+			'_color' => '#07fdd8'
 		]);
 
 		return response()->json($nodeLine);
@@ -94,5 +112,22 @@ class NodeController extends Controller
 		$graphs = NodeLink::paginate(10);
 
 		return response()->json($graphs);
+	}
+
+
+
+	public function animationGraph($name)
+	{
+		$node = Node::where('name', $name)->first();
+
+		$nodeLinks = NodeLink::where('sid', $node->id)->get();
+
+		$nodes_ids = NodeLink::where('sid', $node->id)->pluck('tid');
+
+		$nodes_ids[] = $node->id;
+
+		$nodes = Node::whereIn('id', $nodes_ids)->get();
+
+		return response()->json(['nodes' => $nodes, 'node' => $node, 'nodeLinks' => $nodeLinks]);
 	}
 }

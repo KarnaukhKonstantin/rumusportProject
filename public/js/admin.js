@@ -3763,7 +3763,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this3 = this;
 
     this.categories = JSON.parse(this.categories_list);
-    axios.get('/api/nodes').then(function (response) {
+    axios.get('/api/all-nodes').then(function (response) {
       _this3.nodes = response.data;
     });
   }
