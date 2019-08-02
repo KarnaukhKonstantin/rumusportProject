@@ -31,198 +31,64 @@
 					<close-doc v-scroll-reveal.reset></close-doc>
 				</div>
 				<div class="col-md-9 col-sm-12">
-					<d3-network  class="my-0 py-0 exp-graph" ref='net' :net-nodes="nodes" :net-links="links" :options="options"  :link-cb="lcb" @node-click="checkNode"/>
-					<button class="contact-me py-2 px-2 mb-5 mr-3" @click="onlyFirstNode()">
-						<p class="text-uppercase my-0">Magic...</p>
-					</button>
+					<div id="sudoku-demo" class="demo stack">
+						<transition-group name="cell" tag="div" class="container-big" v-if="nodes.length < 9">
+							<div v-for="node in nodes" :key="node.id" class="cell-big text-center px-1 m-1" @click="nodesByNode(node.name)">
+								{{ node.name }}
+							</div>
+						</transition-group>
+					<!-- 	<transition-group name="cell" tag="div" class="container-middle">
+							<div v-for="node in nodes" :key="node.id" class="cell-middle text-center px-1 m-1" v-if="nodes.length > 9 && nodes.length < 17">
+								{{ node.name }}
+							</div>
+						</transition-group> -->
+						<transition-group name="cell" tag="div" class="container-small" v-if="nodes.length > 9 && nodes.length < 81">
+							<div v-for="node in nodes" :key="node.id" class="cell-small text-center px-1 m-1">
+								{{ node.name }}
+							</div>
+						</transition-group>
+						<transition-group name="cell" tag="div" class="container-extra-small" v-if="nodes.length > 81">
+							<div v-for="node in nodes" :key="node.id" class="cell-extra-small text-center px-1 m-1">
+								{{ node.name }}
+							</div>
+						</transition-group>
+					</div>
 				</div>
-			</div>
-		</section>
-	</template>
-	<script>
-		import D3Network from 'vue-d3-network'
-		export default {
-			components: {
-				D3Network
-			},
-			props: ['categories_list', 'tags_list'],
-			data() {
-				return {
-					all_nodes: true,
-					preloader: false,
+		</div>
+	</section>
+</template>
+<script>
+	export default {
+		props: ['categories_list', 'tags_list'],
+		data() {
+			return {
+				all_nodes: true,
+				preloader: false,
+				tags: [],
+				categories_tags: [],
+				open_tags: false,
+				category_id: '',
+				categories: [{
 					tags: [],
-					categories_tags: [],
-					open_tags: false,
-					category_id: '',
-					categories: [{
-						tags: [],
-					}],
-					nodes: [],
-					links: [],
-					points: ['PHP', 'Laravel', 'JavaScript', 'Vue JS'],
-				// nodes: [
-				// { id: 1, name: 'Full Stack', _color: '#07fdd8', _border: '5px solid red'},
-				// { id: 2, name: 'PHP', _color: '#8892BF', _border: '5px solid red'},
-				// { id: 3, name: 'Javascript', _color: '#FFD700', _border: '5px solid red'},
-				// { id: 4, name: 'Laravel', _color: '#f4645f', _border: '5px solid red'},
-				// { id: 5, name: 'Vue JS', _color: '#4fc08d'},
-				// { id: 6, name:'Spark', _color: '#f4645f'},
-				// { id: 7, name:'Twilio',_color: '#f4645f'},
-				// { id: 8, name:'Translatable', _color: '#f4645f'},
-				// { id: 9, name:'DomPdf', _color: '#f4645f'},
-				// { id: 10, name:'PhpWord', _color: '#f4645f'},
-				// { id: 11, name:'UUID', _color: '#f4645f'},
-				// { id: 12, name:'Geo', _color: '#f4645f'},
-				// { id: 13, name:'Passport', _color: '#f4645f'},
-				// { id: 14, name:'PhpSpreadsheet', _color: '#f4645f'},
-				// { id: 15, name:'Mailgun', _color: '#f4645f'},
-				// { id: 16, name:'Rollbar', _color: '#f4645f'},
-				// { id: 17, name:'TaxJar', _color: '#f4645f'},
-				// { id: 18, name:'Stripe', _color: '#f4645f'},
-				// { id: 19, name:'Braintree', _color: '#f4645f'},
-				// { id: 20, name:'Multi-Tenant', _color: '#f4645f'},
-
-				// { id: 21, name:'Chart JS', _color: '#4fc08d'},
-				// { id: 22, name:'VueChart JS', _color: '#4fc08d'},
-				// { id: 23, name:'Websocket', _color: '#4fc08d'},
-				// { id: 24, name:'Axios', _color: '#4fc08d'},
-				// { id: 25, name:'VueX', _color: '#4fc08d'},
-				// { id: 26, name:'Laravel-Echo', _color: '#4fc08d'},
-				// { id: 27, name:'Laravel-Mix', _color: '#4fc08d'},
-				// { id: 28, name:'Sweetalert', _color: '#4fc08d'},
-				// { id: 29, name:'v-calendar', _color: '#4fc08d'},
-				// { id: 30, name:'vue-awesome-swiper', _color: '#4fc08d'},
-				// { id: 31, name:'vue-country-select', _color: '#4fc08d'},
-				// { id: 32, name:'vue-form-wizard', _color: '#4fc08d'},
-				// { id: 33, name:'vue-hotel-datepicker', _color: '#4fc08d'},
-				// { id: 34, name:'vue-multiselect', _color: '#4fc08d'},
-				// { id: 35, name:'vue-router', _color: '#4fc08d'},
-				// { id: 36, name:'vue-scroll-reveal', _color: '#4fc08d'},
-				// { id: 37, name:'vue-select', _color: '##'},
-				// { id: 38, name:'vue-social-sharing', _color: '#4fc08d'},
-				// { id: 39, name:'vue-spinner', _color: '#4fc08d'},
-				// { id: 40, name:'vue-swal', _color: '#4fc08d'},
-				// { id: 41, name:'vue-tel-input', _color: '#4fc08d'},
-				// { id: 42, name:'vue-template-compiler', _color: '#4fc08d'},
-				// { id: 43, name:'vue2-dropzone', _color: '#4fc08d'},
-				// { id: 44, name:'vue2-editor', _color: '#4fc08d'},
-				// { id: 45, name:'vuedraggable', _color: '##'},
-				// { id: 46, name:'vuejs-datepicker', _color: '#4fc08d'},
-				// { id: 47, name:'vuelidate', _color: '#4fc08d'},
-				// { id: 48, name:'vuetable-2', _color: '#4fc08d'},
-				// { id: 49, name:'vue-avatar-cropper', _color: '#4fc08d'},
-				// { id: 50, name:'v-autocomplete', _color: '#4fc08d'},
-				// { id: 51, name:'vue-tour', _color: '#4fc08d'},
-				// { id: 52, name:'vuetable-2', _color: '#4fc08d'},
-
-				// { id: 53, name:'Bootstrap', _color: '#563d7c'},
-				// { id: 54, name:'font-awesome', _color: '##'},
-				// { id: 55, name:'MySQL', _color: '#2b5d80'},
-				// { id: 56, name:'PostgreSQL', _color: '#336791'},
-				// { id: 57, name:'SASS', _color: '#c69'},
-				// { id: 58, name:'JSON', _color: '#5B5D5D'},
-				// { id: 59, name:'Git', _color: '#FF7F50'},
-				// ],
-
-				// links: [
-				// { sid: 1, tid: 2, _color: '#07fdd8' },
-				// { sid: 1, tid: 3, _color: '#07fdd8' },
-				// { sid: 2, tid: 4, _color: '#07fdd8'},
-				// { sid: 3, tid: 5, _color: '#07fdd8'},
-				// { sid: 4, tid: 6, _color: '#07fdd8'},
-				// { sid: 4, tid: 7, _color: '#07fdd8'},
-				// { sid: 4, tid: 8, _color: '#07fdd8'},
-				// { sid: 4, tid: 9, _color: '#07fdd8'},
-				// { sid: 4, tid: 10, _color: '#07fdd8'},
-				// { sid: 4, tid: 11, _color: '#07fdd8'},
-				// { sid: 4, tid: 12, _color: '#07fdd8'},
-				// { sid: 4, tid: 13, _color: '#07fdd8'},
-				// { sid: 4, tid: 14, _color: '#07fdd8'},
-				// { sid: 4, tid: 15, _color: '#07fdd8'},
-				// { sid: 4, tid: 16, _color: '#07fdd8'},
-				// { sid: 4, tid: 17, _color: '#07fdd8'},
-				// { sid: 4, tid: 18, _color: '#07fdd8'},
-				// { sid: 4, tid: 19, _color: '#07fdd8'},
-				// { sid: 4, tid: 20, _color: '#07fdd8'},
-
-				// { sid: 5, tid: 21, _color: '#07fdd8'},
-				// { sid: 5, tid: 22, _color: '#07fdd8'},
-				// { sid: 5, tid: 23, _color: '#07fdd8'},
-				// { sid: 5, tid: 24, _color: '#07fdd8'},
-				// { sid: 5, tid: 25, _color: '#07fdd8'},
-				// { sid: 5, tid: 26, _color: '#07fdd8'},
-				// { sid: 5, tid: 27, _color: '#07fdd8'},
-				// { sid: 5, tid: 28, _color: '#07fdd8'},
-				// { sid: 5, tid: 29, _color: '#07fdd8'},
-				// { sid: 5, tid: 30, _color: '#07fdd8'},
-				// { sid: 5, tid: 31, _color: '#07fdd8'},
-				// { sid: 5, tid: 32, _color: '#07fdd8'},
-				// { sid: 5, tid: 33, _color: '#07fdd8'},
-				// { sid: 5, tid: 34, _color: '#07fdd8'},
-				// { sid: 5, tid: 35, _color: '#07fdd8'},
-				// { sid: 5, tid: 36, _color: '#07fdd8'},
-				// { sid: 5, tid: 37, _color: '#07fdd8'},
-				// { sid: 5, tid: 38, _color: '#07fdd8'},
-				// { sid: 5, tid: 39, _color: '#07fdd8'},
-				// { sid: 5, tid: 40, _color: '#07fdd8'},
-				// { sid: 5, tid: 41, _color: '#07fdd8'},
-				// { sid: 5, tid: 42, _color: '#07fdd8'},
-				// { sid: 5, tid: 43, _color: '#07fdd8'},
-				// { sid: 5, tid: 43, _color: '#07fdd8'},
-				// { sid: 5, tid: 44, _color: '#07fdd8'},
-				// { sid: 5, tid: 45, _color: '#07fdd8'},
-				// { sid: 5, tid: 46, _color: '#07fdd8'},
-				// { sid: 5, tid: 47, _color: '#07fdd8'},
-				// { sid: 5, tid: 48, _color: '#07fdd8'},
-				// { sid: 5, tid: 49, _color: '#07fdd8'},
-				// { sid: 5, tid: 50, _color: '#07fdd8'},
-				// { sid: 5, tid: 51, _color: '#07fdd8'},
-				// { sid: 5, tid: 52, _color: '#07fdd8'},
-
-				// { sid: 1, tid: 53, _color: '#07fdd8'},
-				// { sid: 1, tid: 54, _color: '#07fdd8'},
-				// { sid: 1, tid: 55, _color: '#07fdd8'},
-				// { sid: 1, tid: 56, _color: '#07fdd8'},
-				// { sid: 1, tid: 57, _color: '#07fdd8'},
-				// { sid: 1, tid: 58, _color: '#07fdd8'},
-				// { sid: 1, tid: 59, _color: '#07fdd8'},
-				// ],
-				nodeSize:100,
-				canvas:false
-			}
-		},
-		computed:{
-			options(){
-				return{
-					force: 10000,
-					size:{ w:1200, h:1000},
-					nodeSize: this.nodeSize,
-					nodeLabels: true,
-					linkLabels: true,
-					canvas: this.canvas,
-					linkWidth:1
-				}
+				}],
+				nodes: [],
+				links: [],
 			}
 		},
 		watch: {
-		    'preloader'(val){
-		    	console.log(val)
-		    }
+			'preloader'(val){
+				console.log(val)
+			}
 		},
 		methods: {
-			checkNode(event, node) {
-				axios.get('/api/graphs-by-node/' + node.id)
+			shuffle: function () {
+				this.nodes = _.shuffle(this.nodes)
+			},
+			nodesByNode(name) {
+				this.nodes = [],
+				axios.get('/api/animated-graph/' + name)
 				.then(response => {
 					this.nodes = response.data.nodes
-					this.links = response.data.nodeLinks
-					if(this.nodes.length < 10) {
-						this.nodeSize = 100
-						this.options.force = 25000
-					}
-					if(this.nodes.length > 10) {
-						this.nodeSize = 50
-						this.options.force = 17500
-					}
 				})
 			},
 			showPreloader() {
@@ -234,9 +100,6 @@
 				}, 2500);
 				
 			},
-			lcb (link) {
-				return link
-			},
 			openTags(category_id) {
 				this.open_tags = !this.open_tags
 				for (var i = 0; i < this.categories.length; i++) {
@@ -247,84 +110,6 @@
 				}
 
 			},
-			getNodesAndlines() {
-				axios.get('/api/nodes')
-					.then(response => {
-						this.nodes = response.data
-						this.nodeSize = 200
-						this.options.force = 17500
-						setTimeout(() => {
-							this.animatGraphById(this.nodes[0].id);
-						}, 4000);
-					})
-				// axios.get('/api/all-graph-lines-without-paginate')
-				// 	.then(response => {
-				// 		this.links = response.data
-				// 	})
-			},
-			animatGraphById(id) {
-				axios.get('/api/graphs-by-node/' + id)
-				.then(response => {
-					this.nodes = response.data.nodes
-					this.links = response.data.nodeLinks
-					if(this.nodes.length < 10) {
-						this.nodeSize = 100
-						this.options.force = 25000
-					}
-					if(this.nodes.length > 10) {
-						this.nodeSize = 50
-						this.options.force = 17500
-					}
-					this.startNodes(0)	
-				})
-			},
-			startNodes(i) {
-				setTimeout(() => {
-					console.log(this.points[i])
-					this.animatGraphByName(this.points[i], i);
-				}, 3000);
-			},
-			animatGraphByName(name, i) {
-				axios.get('/api/animated-graph/' + name)
-				.then(response => {
-					this.nodes = response.data.nodes
-					this.links = response.data.nodeLinks
-					if(this.nodes.length < 10) {
-						this.nodeSize = 100
-						this.options.force = 25000
-					}
-					if(this.nodes.length > 10) {
-						this.nodeSize = 50
-						this.options.force = 17500
-					}
-					if(this.points[i+1]) {
-						this.startNodes(i+1) 
-					}else{
-						this.finishNode()
-					}
-				})
-			},
-			finishNode() {
-				axios.get('/api/all-nodes')
-					.then(response => {
-						this.nodes = response.data
-						this.nodeSize = 20
-						this.options.force = 4000
-					})
-				axios.get('/api/all-graph-links')
-					.then(response => {
-						this.links = response.data
-					})
-			},
-			onlyFirstNode() {
-				axios.get('/api/nodes')
-					.then(response => {
-						this.nodes = response.data
-						this.links = []
-						this.nodeSize = 200
-						this.options.force = 17500
-					})
-			}
 		},
 		created() {
 			this.preloader = true
@@ -337,7 +122,12 @@
 			.then(response => {
 				this.tags = response.data
 			})
-			this.getNodesAndlines()
+			axios.get('/api/animated-graph/' + 'FullStack')
+			.then(response => {
+				this.nodes = response.data.nodes
+			}),
+			setTimeout(this.shuffle, 100)
+			setInterval(this.shuffle, 5000)
 			
 		}	
 	}
@@ -383,44 +173,123 @@
 		transform: translate(0,.5em);
 		font-size: .8em;
 	}
-@keyframes slideInFromLeft {
-	0% {
-		transform: translateX(-100%);
+	@keyframes slideInFromLeft {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(0);
+		}
 	}
-	100% {
-		transform: translateX(0);
+
+	.preloader-block{
+		animation: 1s ease-out 0s 1 slideInFromLeft;
+		/*background: #333;*/
+		padding: 30px;
 	}
-}
+	.loader {
+		height: 1px;
+		width: 30%;
+		position: relative;
+		overflow: hidden;
+		background-color: #ddd;
+	}
+	.loader:before{
+		display: block;
+		position: absolute;
+		content: "";
+		left: -200px;
+		width: 200px;
+		height: 4px;
+		background-color: #07fdd8;
+		animation: loading 2s linear infinite;
+	}
 
-.preloader-block{
-animation: 1s ease-out 0s 1 slideInFromLeft;
-	/*background: #333;*/
-padding: 30px;
+	@keyframes loading {
+		from {left: -200px; width: 30%;}
+		50% {width: 30%;}
+		70% {width: 70%;}
+		80% { left: 50%;}
+		95% {left: 120%;}
+		to {left: 100%;}
+	}
+.container-small {
+	display: flex;
+	flex-wrap: wrap;
+	width: 700px;
+	margin-top: 10px;
+	margin-left: 300px;
 }
-.loader {
-height: 1px;
-width: 30%;
-position: relative;
-overflow: hidden;
-background-color: #ddd;
+.cell-small {
+	/*background-color: #aaa;*/
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 75px;
+	height: 75px;
+	border: 1px solid #07fdd8;
+	margin-right: -1px;
+	margin-bottom: -1px;
+	font-size: 11px;
+	color: #07fdd8;
 }
-.loader:before{
-display: block;
-position: absolute;
-content: "";
-left: -200px;
-width: 200px;
-height: 4px;
-background-color: #07fdd8;
-animation: loading 2s linear infinite;
+.container-big {
+	display: flex;
+	flex-wrap: wrap;
+	width: 700px;
+	margin-top: 10px;
+	margin-left: 300px;
 }
-
-@keyframes loading {
-	from {left: -200px; width: 30%;}
-	50% {width: 30%;}
-	70% {width: 70%;}
-	80% { left: 50%;}
-	95% {left: 120%;}
-	to {left: 100%;}
+.cell-big{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #07fdd8;
+	margin-right: -1px;
+	margin-bottom: -1px;
+	font-size: 14px;
+	color: #07fdd8;
+}
+.cell-big:hover {
+	background-color: #07fdd8;
+	color: #252628;
+}
+.container-middle {
+	display: flex;
+	flex-wrap: wrap;
+	width: 600px;
+	margin-top: 10px;
+	margin-left: 300px;
+}
+.cell-middle{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 150px;
+	height: 150px;
+	border: 1px solid #07fdd8;
+	margin-right: -1px;
+	margin-bottom: -1px;
+	font-size: 14px;
+	color: #07fdd8;
+}
+.cell-middle:hover {
+	background-color: #07fdd8;
+	color: #252628;
+}
+.cell-small:hover {
+	background-color: #07fdd8;
+	color: #252628;
+}
+.cell:nth-child(3n) {
+	margin-right: 0;
+}
+.cell:nth-child(27n) {
+	margin-bottom: 0;
+}
+.cell-move {
+	transition: transform 1s;
 }
 </style>

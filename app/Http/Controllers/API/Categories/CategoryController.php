@@ -8,7 +8,6 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\Tag;
-// use App\Models\News;
 
 class CategoryController extends Controller
 {
@@ -68,7 +67,6 @@ class CategoryController extends Controller
 
         $posts = Post::where('category_id', $category->id)->get();
         $projects  = Project::where('category_id', $category->id)->get();
-        // $news = News::where('category_id', $category->id)->get();
 
         return response()->json(['category' => $category, 'posts' => $posts, 'projects' => $projects]);
     }

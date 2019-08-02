@@ -38,12 +38,6 @@ class PostController extends Controller
 
         return response()->json($posts);
     }
-    // public function getMainPosts()
-    // {
-    //      $posts = Post::where('id', '<', 4)->get();
-
-    //      return response()->json($posts);   
-    // }
 
 
 

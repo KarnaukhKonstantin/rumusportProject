@@ -124,7 +124,7 @@ class NodeController extends Controller
 
 		$nodes_ids = NodeLink::where('sid', $node->id)->pluck('tid');
 
-		$nodes_ids[] = $node->id;
+		// $nodes_ids[] = $node->id;
 
 		$nodes = Node::whereIn('id', $nodes_ids)->get();
 

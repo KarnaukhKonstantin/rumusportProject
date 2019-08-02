@@ -47,6 +47,8 @@ Vue.component('article-post', require('./components/layouts/Article.vue').defaul
 Vue.component('open-doc', require('./components/layouts/OpenDoc.vue').default);
 Vue.component('close-doc', require('./components/layouts/CloseDoc.vue').default);
 Vue.component('preload-page', require('./components/layouts/Preloader.vue').default);
+Vue.component('second-var-cube', require('./components/layouts/SecondvarCube.vue').default);
+
 
 
 

@@ -54,6 +54,7 @@
 		data() {
 			return {
 				preloader: false,
+				element: '',
 			}
 		},
 		watch: {
