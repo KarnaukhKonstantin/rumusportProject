@@ -22,5 +22,4 @@ class Tag extends Model
 
     	return $node;
     }
-
 }

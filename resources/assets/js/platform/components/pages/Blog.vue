@@ -85,6 +85,7 @@
 			axios.get('/api/posts')
 			.then(response => {
 				this.posts = response.data
+				// console.log(this.posts[0])
 			})
 		}
 	}

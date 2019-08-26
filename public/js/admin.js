@@ -66713,9 +66713,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/k.karnaukh/projects/rumusport/resources/assets/js/admin/app.js */"./resources/assets/js/admin/app.js");
-__webpack_require__(/*! /Users/k.karnaukh/projects/rumusport/resources/assets/sass/admin/app.scss */"./resources/assets/sass/admin/app.scss");
-module.exports = __webpack_require__(/*! /Users/k.karnaukh/projects/rumusport/resources/assets/sass/platform/app.scss */"./resources/assets/sass/platform/app.scss");
+__webpack_require__(/*! /Users/kkarnaukh/projects/rumusport/resources/assets/js/admin/app.js */"./resources/assets/js/admin/app.js");
+__webpack_require__(/*! /Users/kkarnaukh/projects/rumusport/resources/assets/sass/admin/app.scss */"./resources/assets/sass/admin/app.scss");
+module.exports = __webpack_require__(/*! /Users/kkarnaukh/projects/rumusport/resources/assets/sass/platform/app.scss */"./resources/assets/sass/platform/app.scss");
 
 
 /***/ })

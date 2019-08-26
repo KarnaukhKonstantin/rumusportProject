@@ -2784,7 +2784,7 @@ __webpack_require__.r(__webpack_exports__);
     // 		this.mainposts = response.data
     // 	})
     axios.get('/api/posts').then(function (response) {
-      _this.posts = response.data;
+      _this.posts = response.data; // console.log(this.posts[0])
     });
   }
 });
@@ -79546,27 +79546,12 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("h4", { staticClass: "exp-tags" }, [_vm._v("Applied Skills")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row mb-3" },
-          _vm._l(_vm.project.skills, function(skill) {
-            return _c("div", { staticClass: "col-sm-6 col-md-4 col-lg-2" }, [
-              _c("p", { staticClass: "text-grey" }, [
-                _vm._v(_vm._s(skill.name))
-              ])
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
         _c("img", {
-          staticClass: "project-image",
+          staticClass: "project-image mb-5",
           attrs: { src: _vm.project.image, width: "100%" }
         }),
         _vm._v(" "),
-        _c("h4", { staticClass: "exp-tags tag-margin" }, [_vm._v("Tags")]),
+        _c("h4", { staticClass: "exp-tags tag-margin mt-5" }, [_vm._v("Tags")]),
         _vm._v(" "),
         _c(
           "div",
@@ -106811,7 +106796,7 @@ var findRealParent = function (firstVueParent) {
 /*!***********************************************************!*\
   !*** ./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js ***!
   \***********************************************************/
-/*! exports provided: CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer, debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent */
+/*! exports provided: debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent, CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -111242,7 +111227,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/k.karnaukh/projects/rumusport/resources/assets/js/platform/app.js */"./resources/assets/js/platform/app.js");
+module.exports = __webpack_require__(/*! /Users/kkarnaukh/projects/rumusport/resources/assets/js/platform/app.js */"./resources/assets/js/platform/app.js");
 
 
 /***/ })

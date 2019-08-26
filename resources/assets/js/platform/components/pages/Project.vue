@@ -26,14 +26,14 @@
 						<h4 class="text-grey lighter mb-5"  v-html="project.secondary_description"></h4>
 					</div>
 				</div>
-				<h4 class="exp-tags">Applied Skills</h4>
+				<!-- <h4 class="exp-tags">Applied Skills</h4>
 				<div class="row mb-3">
 					<div class="col-sm-6 col-md-4 col-lg-2" v-for="skill in project.skills">
 						<p class="text-grey">{{skill.name}}</p>
 					</div>
-				</div>
-				<img class="project-image" :src="project.image" width="100%">
-				<h4 class="exp-tags tag-margin">Tags</h4>
+				</div> -->
+				<img class="project-image mb-5" :src="project.image" width="100%">
+				<h4 class="exp-tags tag-margin mt-5">Tags</h4>
 				<div class="row mb-3">
 					<div class="col-sm-6 col-md-4 col-lg-3" v-for="tag in project.tags">
 						<router-link class="my-2" :to="{ name: 'tag', params: { id: tag.id }}" tag="a">
