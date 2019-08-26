@@ -17,8 +17,6 @@ class NewsController extends Controller
 
 
 
-
-
     public function storeArticle(Request $request)
     {
     	$newArticle = $request->validate([
@@ -33,16 +31,12 @@ class NewsController extends Controller
 
 
 
-
-
     public function getLastArticle()
     {
          $article = Article::orderBy('id', 'desc')->first();  
 
          return response()->json($article);   
     }
-
-
 
 
 
@@ -53,14 +47,10 @@ class NewsController extends Controller
 
 
 
-
-
     public function updateArticle(Request $request, $id)
     {
     	//		
     }
-
-
 
 
 

@@ -17,7 +17,7 @@ trait ProjectRelationsTrait {
 
     public function links()
     {
-        return $this->hasMany('App\Models\Link', 'posproject_idt_id');
+        return $this->hasMany('App\Models\Link', 'project_id');
     }
 
     public function attachments()
@@ -27,6 +27,6 @@ trait ProjectRelationsTrait {
 
     public function skills()
     {
-        return $this->hasMany('App\Models\Skill')->withPivot('project_id','skill_id');
+        return $this->belongsToMany('App\Models\Skill')->withPivot('project_id','skill_id');
     }
 }

@@ -16,6 +16,7 @@
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
+        "moment": "^2.22.2",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
@@ -24,15 +25,27 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@inotom/vue-go-top": "^1.1.0",
+        "d3-force": "^2.0.1",
+        "install": "^0.12.2",
+        "leaflet": "^1.5.1",
+        "v-infinite-scroll": "^1.0.4",
+        "vue-custom-scrollbar": "^1.0.0",
+        "vue-d3-network": "^0.1.28",
         "vue-router": "^3.0.2",
+        "vue-scroll-reveal": "^1.0.8",
+        "vue-scrollin": "^0.1.2",
         "vue-select": "^2.4.0",
         "vue-spinner": "^1.0.3",
         "vue-swal": "0.0.6",
+        "vue-tags-ball": "https://github.com/KostVladlenovichKarnaukh/vue-tags-ball.git",
+        "vue-world-map": "^0.1.1",
         "vue2-dropzone": "^3.2.2",
         "vue2-editor": "^2.6.6",
+        "vue2-google-maps": "^0.10.6",
+        "vue2-leaflet": "^2.1.1",
         "vuejs-datepicker": "^1.5.3",
         "vuelidate": "^0.7.4",
-        "vuetable-2": "^1.7.5",
-        "vue-scroll-reveal": "^1.0.8"
+        "vuetable-2": "^1.7.5"
     }
 }

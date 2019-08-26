@@ -7,7 +7,7 @@ trait SkillRelationsTrait {
 
     public function projects()
     {
-        return $this->hasMany('App\Models\Project')->withPivot('project_id','skill_id');
+        return $this->belongsToMany('App\Models\Project')->withPivot('project_id','skill_id');
     }
 
     public function about()

@@ -32,6 +32,13 @@ class PostController extends Controller
 
 
 
+    public function getPostsByCategory(Request $request, $id)
+    {
+        $posts = Post::where('category_id', $id)->get();
+
+        return response()->json($posts);
+    }
+
 
 
     public function storePost(Request $request)
@@ -69,18 +76,12 @@ class PostController extends Controller
 
 
 
-
-
-
     public function getPost($id)
     {
         $post = Post::where('id', $id)->first();    
 
         return response()->json($post);   
     }
-
-
-
 
 
 
@@ -129,8 +130,6 @@ class PostController extends Controller
 
         return response()->json($post);
     }
-
-
 
 
 

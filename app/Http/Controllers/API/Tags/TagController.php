@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API\Tags;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
+use App\Models\Node;
+use App\Models\Post;
+use App\Models\Project;
 
 class TagController extends Controller
 {
@@ -28,17 +31,59 @@ class TagController extends Controller
 
 
 
+    public function getAllTagsWithoutPaginate()
+    {
+        $tags = Tag::all();
+
+        return $tags;
+    }
+
+
 
     public function storeTag(Request $request)
     {
         $newTag = request()->validate([
             'name' => 'required',
+            'category_id' => 'required'
         ]);
         $tag = Tag::create($newTag);
+
+        $node = Node::create([
+            'name' => $tag->name,
+            '_color' => request()->_color
+        ]);
+
 
         return response()->json($tag);
     }
 
+
+
+    public function getTag($id)
+    {
+        $tag = Tag::where('id', $id)->first();
+
+        $posts = Post::whereHas('tags',function($query)use($tag){
+                $query->where('id',$tag->id);
+            })->get();
+
+        $projects = Project::whereHas('tags',function($query)use($tag){
+                $query->where('id',$tag->id);
+            })->get();
+
+        if($posts){
+            $tag->posts = $posts;
+        }
+
+        if($projects){
+            $tag->projects = $projects;
+        }
+
+        $node = Node::where('name', $tag->name)->first();
+        $tag->node = $node;
+
+         return response()->json(['tag' => $tag, 'posts' => $posts, 'projects' => $projects]);
+    }
 
 
 
@@ -46,13 +91,13 @@ class TagController extends Controller
     {
         $newTag = request()->validate([
             'name' => 'required',
+            'category_id' => 'required'
             
         ]);
         Tag::where('id', $id)->update($newTag);
 
         return response()->json(Tag::find($id));
     }
-
 
 
 

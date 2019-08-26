@@ -20,40 +20,45 @@
 
 	<!-- CSS -->
 	<link href="{{ mix('css/platform.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="v-infinite-scroll/dist/v-infinite-scroll.css"></link>
+	<script src="v-infinite-scroll/dist/v-infinite-scroll.js"></script>
 
 </head>
-<body class="">
+
+<body class="body-platform">
 
 	<div class="wrapper d-flex flex-column justify-content-between align-items-between" id="app" v-cloak>
 
 		<!-- header -->
-		<platform-header></platform-header>
+		
 		
 		{{-- content --}}
 		<div class="row">
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<article-post></article-post>
+			</div> -->
+			<div class="col-md-1">
+				<platform-header-left></platform-header-left>
+				<!-- <platform-header></platform-header> -->
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-11">
 				<main class="content container-fluid">
-					<router-view></router-view>
+					<router-view categories_list="{{ $categories }}" tags_list="{{ $tags }}"></router-view>
 				</main>
 			</div>
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<categories-list></categories-list>
-			</div>
+			</div> -->
 		</div>
-		
-		
-		<!-- modals -->
-		<login-modal locallanguage="{{ app()->getLocale() }}"></login-modal>
-		<register-modal locallanguage="{{ app()->getLocale() }}"></register-modal>
+
 		<!-- footer -->
-		<platform-footer></platform-footer>
+		<!-- <platform-footer></platform-footer> -->
 
 	</div>
 
 	<!-- JavaScript -->
 	<script src="{{ mix('js/platform.js') }}"></script>
+	<script type="text/javascript" src="js/tagcanvas.js"></script>
+	<script src="//d3js.org/d3.v3.min.js"></script>
 </body>
 </html>

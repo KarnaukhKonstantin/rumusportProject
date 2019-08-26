@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Project;
-// use App\Models\News;
+use App\Models\Tag;
 
 class CategoryController extends Controller
 {
@@ -26,6 +26,20 @@ class CategoryController extends Controller
             }
             
         }
+
+        return response()->json($categories);
+    }
+
+
+
+    public function categoriesWithoutPagination()
+    {
+        $categories = Category::all();
+
+        foreach($categories as $category) {
+            $tags = Tag::where('category_id', $category->id)->get();
+            $category->tags = $tags;
+        }  
 
         return response()->json($categories);
     }
@@ -53,7 +67,6 @@ class CategoryController extends Controller
 
         $posts = Post::where('category_id', $category->id)->get();
         $projects  = Project::where('category_id', $category->id)->get();
-        // $news = News::where('category_id', $category->id)->get();
 
         return response()->json(['category' => $category, 'posts' => $posts, 'projects' => $projects]);
     }

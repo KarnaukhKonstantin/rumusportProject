@@ -56,6 +56,22 @@
 						<label>Name</label>
 						<input type="text" class="form-control br-dark-blue" v-model="form.name" :placeholder="name" id="tag_name">
 					</div>
+
+					<!-- Category -->
+					<div class="row form-group">
+						<label class="col-md-12">Categories</label>
+						<div class="col-md-12">
+							<select class="form-control br-dark-blue" id="tag_category" v-model.trim="form.category_id">
+								<option :value="category.id" v-for="category in categories">{{ category.name }}</option> 
+							</select>
+						</div>
+					</div>
+
+					<!-- Node's color -->
+					<div class="form-group">
+						<label>Node Color</label>
+						<input type="text" class="form-control br-dark-blue" v-model="form._color" :placeholder="name" id="node_color">
+					</div>
 				</div>
 				
 				<div class="modal-footer">
@@ -68,7 +84,8 @@
 </div>
 </template>
 <script>
-
+	
+	import vSelect from 'vue-select'
 	import Vuetable from 'vuetable-2/src/components/Vuetable.vue'
 	import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
 	import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
@@ -76,12 +93,13 @@
 
 	export default {
 		components: {
+			vSelect,
 			Vuetable,
 			VuetablePagination,
 			VuetablePaginationInfo,
 			PaginationMixin,
 		},
-		props: ['tags_list'],
+		props: ['categories_list', 'tags_list'],
 		data() {
 				return {
 					name: '',
@@ -90,6 +108,7 @@
 					modal_type: 'Create',
 					form: {},
 					tags: [],
+					categories: [],
 
 					fields: [
 				{
@@ -135,12 +154,16 @@
 			this.error = false
 			this.modal_type = 'Create'
 			this.form = {
-				name: ''
+				name: '',
+				category_id: '',
+				_color: ''
 			}
 		},
 		viewItem(item) {
+			// console.log(item)
 			this.modal_type = 'Update'
 			this.form = item
+			this.form._color = item.node._color
 		},
 		save() {
 			if(this.modal_type == 'Create') {
@@ -214,7 +237,7 @@
 		}
 	},
 	created() {
-		// this.categories = JSON.parse(this.categories_list)
+		this.categories = JSON.parse(this.categories_list)
 		axios.get('/api/tags')
 		.then(response => {
 			this.tags = response.data

@@ -9,5 +9,5 @@ class Link extends Model
 {
 	use LinkRelationsTrait;
 	
-    protected $fillable = ['body', 'post_id'];
+    protected $fillable = ['body', 'post_id', 'project_id'];
 }

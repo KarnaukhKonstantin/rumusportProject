@@ -26,6 +26,7 @@ Route::post('/login', 'Api\AuthController@login');
 // Route::group(['middleware' => 'auth:api'], function() {
 	//categories
 	Route::get('/categories', 'API\Categories\CategoryController@getAllCategories');
+	Route::get('/categories-without-pagination', 'API\Categories\CategoryController@categoriesWithoutPagination');
 	Route::get('/categories/{category_id}', 'API\Categories\CategoryController@getCategory');
 	Route::post('/categories', 'API\Categories\CategoryController@storeCategory');
 	Route::put('/categories/{category_id}', 'API\Categories\CategoryController@updateCategory');
@@ -33,10 +34,23 @@ Route::post('/login', 'Api\AuthController@login');
 
 	//tags
 	Route::get('/tags', 'API\Tags\TagController@getAllTags');
+	Route::get('/tags-without-paginate', 'API\Tags\TagController@getAllTagsWithoutPaginate');
 	Route::get('/tags/{tag_id}', 'API\Tags\TagController@getTag');
 	Route::post('/tags', 'API\Tags\TagController@storeTag');
 	Route::put('/tags/{tag_id}', 'API\Tags\TagController@updateTag');
 	Route::delete('/tags/{tag_id}', 'API\Tags\TagController@deleteTag');
+
+	//nodes
+	Route::get('/nodes', 'API\TagNodes\NodeController@allNodes');
+	Route::get('/all-nodes', 'API\TagNodes\NodeController@nodesForAdmin');
+	Route::get('/all-graph-lines-without-paginate', 'API\TagNodes\NodeController@graphsWithoutPaginate');
+	Route::get('/all-graph-links', 'API\TagNodes\NodeController@graphsAllLinks');
+	Route::get('/all-graphs', 'API\TagNodes\NodeController@graphsAll');
+	Route::get('/graphs-by-node/{node_id}', 'API\TagNodes\NodeController@graphsByNode');
+	Route::get('/animated-graph/{name}', 'API\TagNodes\NodeController@animationGraph');
+	Route::post('/add-graph-line', 'API\TagNodes\NodeController@addGraphLineRelation');
+	Route::put('/update-graph-line/{id}', 'API\TagNodes\NodeController@updateGraphLineRelation');
+	Route::delete('/delete-graph-line/{id}', 'API\TagNodes\NodeController@deleteGraphLineRelation');
 
 	//skills
 	Route::get('/skills', 'API\Skills\SkillController@allSkills');
@@ -60,6 +74,16 @@ Route::post('/login', 'Api\AuthController@login');
 	Route::post('/posts', 'API\Blog\PostController@storePost');
 	Route::put('/posts/{post_id}', 'API\Blog\PostController@updatePost');
 	Route::delete('/posts/{post_id}', 'API\Blog\PostController@deletePost');
+	Route::get('/main-posts', 'API\Blog\PostController@getMainPosts');
+	Route::get('/posts/category-posts/{id}', 'API\Blog\PostController@getPostsByCategory');
+
+	//projects
+	Route::get('/projects', 'API\Projects\ProjectController@getAllProjects');
+	Route::get('/projects/without-paginate', 'API\Projects\ProjectController@getProjectsWithoutPaginate');
+	Route::get('/projects/{project_id}', 'API\Projects\ProjectController@getProject');
+	Route::post('/projects', 'API\Projects\ProjectController@storeProject');
+	Route::put('/projects/{project_id}', 'API\Projects\ProjectController@updateProject');
+	Route::delete('/projects/{project_id}', 'API\Projects\ProjectController@deleteProject');
 
 	//about
 	Route::get('/about-me', 'API\About\AboutController@getAuthorInfo');
@@ -75,6 +99,11 @@ Route::post('/login', 'Api\AuthController@login');
 	Route::post('/soclinks', 'API\SocialLinks\SocialLinkController@storeSocLink');
 	Route::put('/soclinks/{soclink_id}', 'API\SocialLinks\SocialLinkController@updateSocLink');
 	Route::delete('/soclinks/{soclink_id}', 'API\SocialLinks\SocialLinkController@deleteSocLink');
+
+	//contact me
+	Route::get('/messages', 'API\ContactMe\MessageController@getAllMessages');
+	Route::post('/messages', 'API\ContactMe\MessageController@storeMessage');
+	Route::delete('/messages/{id}', 'API\ContactMe\MessageController@deleteMessage');
 
 	//image upload
 	Route::post('/images/{type}','API\Files\ImageController@store');

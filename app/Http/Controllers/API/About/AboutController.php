@@ -18,16 +18,12 @@ class AboutController extends Controller
 
 
 
-
-
 	public function getInfo()
     {
     	$info = About::all()->first();
 
     	return response()->json($info);
     }
-
-
 
 
 
@@ -52,8 +48,6 @@ class AboutController extends Controller
             }
         }
     }
-
-
 
 
 
@@ -86,8 +80,6 @@ class AboutController extends Controller
 
         return response()->json($info);
     }
-
-
 
 
 

@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="text-grey">
 		<div class="row">
 			<div class="col-md-4 mt-5 block-category pr-4">
 				<img :src="category.image" width="100%">
@@ -9,8 +9,8 @@
 			<div class="col-md-8 pl-4">
 
 				
-					<h3 class=" mt-5" v-if="posts.length > 0">Posts</h3>
-					<div class="row mb-4 pb-2" v-if="posts.length > 0" v-for="post in posts">
+					<h3 class="my-5" v-if="posts.length > 0">Posts</h3>
+					<div class="row mb-4 pb-2 align-items-end" v-if="posts.length > 0" v-for="post in posts">
 							<div class="col-md-2">
 								<router-link class="my-2" :to="{ name: 'post', params: { id: post.id }}" tag="a">
 									<img :src="post.image" width="100%">
@@ -22,7 +22,7 @@
 					</div>
 
 					<h3 class=" mt-5" v-if="projects.length > 0">Projects</h3>
-					<div class="row mb-4 pb-2" v-if="projects.length > 0" v-for="project in projects">
+					<div class="row mb-4 pb-2 align-items-end" v-if="projects.length > 0" v-for="project in projects">
 							<div class="col-md-2">
 								<router-link class="my-2" :to="{ name: 'post', params: { id: project.id }}" tag="a">
 									<img :src="project.image" width="100%">
